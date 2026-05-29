@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Roof With Veterans | Expert Roofing Services</title>
+    <style>
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+          body { font-family: Georgia, serif; color: #222; }
+          nav { background: #1a1a2e; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+          .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; padding: 14px 0; }
+          .logo-text { color: #fff; font-size: 1.3rem; font-weight: bold; letter-spacing: 1px; }
+          .logo-sub { color: #c8a84b; display: block; font-size: 0.75rem; font-weight: normal; letter-spacing: 2px; text-transform: uppercase; }
+          nav ul { list-style: none; display: flex; gap: 8px; }
+          nav ul li a { color: #ccc; text-decoration: none; padding: 8px 16px; border-radius: 4px; font-size: 0.95rem; transition: all 0.2s; }
+          nav ul li a:hover, nav ul li a.active { color: #fff; background: #c8a84b; }
+          .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; text-align: center; padding: 100px 40px; }
+          .hero-badge { display: inline-block; background: #c8a84b; color: #1a1a2e; padding: 6px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+          .hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+          .hero h1 span { color: #c8a84b; }
+          .hero p { font-size: 1.25rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7; opacity: 0.9; }
+          .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+          .btn { display: inline-block; padding: 14px 32px; border-radius: 4px; text-decoration: none; font-size: 1rem; font-weight: bold; letter-spacing: 1px; transition: all 0.2s; }
+          .btn-primary { background: #c8a84b; color: #1a1a2e; }
+          .btn-primary:hover { background: #e0bf5f; transform: translateY(-2px); }
+          .btn-secondary { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.5); }
+          .trust-bar { background: #c8a84b; padding: 16px 40px; display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+          .trust-item { display: flex; align-items: center; gap: 10px; color: #1a1a2e; font-weight: bold; font-size: 0.95rem; }
+          section { padding: 80px 40px; }
+          .services-bg { background: #f9f9f9; }
+          .section-header { text-align: center; margin-bottom: 56px; }
+          .section-tag { display: inline-block; color: #c8a84b; font-size: 0.8rem; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
+          .section-header h2 { font-size: 2.5rem; color: #1a1a2e; margin-bottom: 16px; }
+          .section-header p { font-size: 1.1rem; color: #555; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+          .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 1100px; margin: 0 auto; }
+          .service-card { background: white; border-radius: 8px; padding: 36px 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); border-top: 4px solid #c8a84b; transition: transform 0.2s; }
+          .service-card:hover { transform: translateY(-4px); }
+          .service-icon { font-size: 2.5rem; margin-bottom: 16px; }
+          .service-card h3 { font-size: 1.3rem; color: #1a1a2e; margin-bottom: 12px; }
+          .service-card p { color: #666; line-height: 1.7; font-size: 0.95rem; }
+          .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto; align-items: center; }
+          .why-content h2 { font-size: 2.2rem; color: #1a1a2e; margin-bottom: 24px; }
+          .why-list { list-style: none; }
+          .why-list li { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid #eee; }
+          .why-list li:last-child { border-bottom: none; }
+          .why-check { color: #c8a84b; font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+          .why-list h4 { color: #1a1a2e; margin-bottom: 4px; }
+          .why-list p { color: #666; font-size: 0.9rem; line-height: 1.6; }
+          .why-image { background: linear-gradient(135deg, #1a1a2e, #0f3460); border-radius: 12px; padding: 48px; text-align: center; color: white; }
+          .big-stat { font-size: 5rem; font-weight: bold; color: #c8a84b; line-height: 1; }
+          .stat-label { font-size: 1.1rem; opacity: 0.8; margin-top: 8px; }
+          .stat-divider { border: none; border-top: 1px solid rgba(255,255,255,0.15); margin: 28px 0; }
+          .stat-row { display: flex; justify-content: space-around; gap: 20px; }
+          .mini-stat .num { font-size: 2rem; font-weight: bold; color: #c8a84b; }
+          .mini-stat .lbl { font-size: 0.8rem; opacity: 0.7; }
+          .testimonials-bg { background: #f9f9f9; }
+          .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; max-width: 1100px; margin: 0 auto; }
+          .testimonial-card { background: white; border-radius: 8px; padding: 32px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+          .stars { color: #c8a84b; font-size: 1.2rem; margin-bottom: 16px; }
+          .testimonial-card blockquote { color: #444; line-height: 1.8; font-style: italic; margin-bottom: 20px; font-size: 0.95rem; }
+          .reviewer { display: flex; align-items: center; gap: 12px; }
+          .reviewer-avatar { width: 44px; height: 44px; border-radius: 50%; background: #1a1a2e; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0; }
+          .reviewer-name { font-weight: bold; color: #1a1a2e; }
+          .reviewer-info { color: #888; font-size: 0.85rem; }
+          .cta { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: white; text-align: center; padding: 80px 40px; }
+          .cta h2 { font-size: 2.5rem; margin-bottom: 16px; }
+          .cta p { font-size: 1.15rem; margin-bottom: 36px; opacity: 0.85; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+          .cta-phone { font-size: 1.8rem; font-weight: bold; color: #c8a84b; margin-bottom: 28px; }
+          footer { background: #111; color: #aaa; padding: 40px; text-align: center; }
+          .footer-logo { color: #c8a84b; font-size: 1.3rem; font-weight: bold; margin-bottom: 12px; }
+          footer p { font-size: 0.9rem; line-height: 1.8; }
+          footer a { color: #c8a84b; text-decoration: none; }
+          @media (max-width: 768px) { nav ul { display: none; } .hero h1 { font-size: 2.2rem; } .why-grid { grid-template-columns: 1fr; } .trust-bar { gap: 20px; } }
+        </style>
+  </head>
+  <body>
+      <nav>
+            <a href="index.html" class="logo">
+                    <span style="font-size:2rem">&#127968;</span>span>
+                    <span class="logo-text">Roof With Veterans<span class="logo-sub">Serving Those Who Served</span>span></span>span>
+            </a>a>
+            <ul>
+                    <li><a href="index.html" class="active">Home</a>a></li>
+                  <li><a href="services.html">Services</a>a></li>
+                  <li><a href="about.html">About Us</a>a></li>
+                  <li><a href="contact.html">Contact</a>a></li>
+            </ul>
+      </nav>
+    <section class="hero">
+        <div class="hero-badge">&#127894; Veteran-Owned &amp; Operated</div>div>
+        <h1>Quality Roofing Built on<br><span>Honor &amp; Integrity</span></h1>
+        <p>We bring the same dedication and precision to every roof that we brought to serving our country. Your home deserves nothing less.</p>
+        <div class="hero-buttons">
+              <a href="contact.html" class="btn btn-primary">Get a Free Estimate</a>a>
+              <a href="services.html" class="btn btn-secondary">Our Services</a>a>
+        </div>div>
+    </section>section>
+    <div class="trust-bar">
+        <div class="trust-item">&#11088; 5-Star Rated</div>div>
+        <div class="trust-item">&#128737; Licensed &amp; Insured</div>div>
+        <div class="trust-item">&#127894; Veteran-Owned</div>div>
+        <div class="trust-item">&#128203; Free Estimates</div>div>
+        <div class="trust-item">&#9989; Satisfaction Guaranteed</div>div>
+    </div>div>
+    <section class="services-bg">
+        <div class="section-header">
+              <div class="section-tag">What We Do</div>div>
+              <h2>Our Roofing Services</h2>
+              <p>From new installations to repairs and inspections, we handle every aspect of your roofing needs with military precision.</p>
+        </div>div>
+        <div class="services-grid">
+              <div class="service-card">
+                      <div class="service-icon">&#127959;</div>div>
+                      <h3>Roof Replacement</h3>
+                      <p>Complete roof replacement using premium materials and expert installation built to last for decades.</p>
+              </div>div>
+              <div class="service-card">
+                      <div class="service-icon">&#128295;</div>div>
+                      <h3>Roof Repair</h3>
+                      <p>Fast, reliable repairs for leaks, storm damage, missing shingles, and any other roofing issue.</p>
+              </div>div>
+              <div class="service-card">
+                      <div class="service-icon">&#128269;</div>div>
+                      <h3>Roof Inspection</h3>
+                      <p>Thorough inspections to assess your roof condition, ideal for home purchases or after major storms.</p>
+              </div>div>
+              <div class="service-card">
+                      <div class="service-icon">&#127783;</div>div>
+                      <h3>Storm Damage</h3>
+                      <p>Emergency response and insurance claim assistance for hail, wind, and storm-related roof damage.</p>
+              </div>div>
+              <div class="service-card">
+                      <div class="service-icon">&#127970;</div>div>
+                      <h3>Commercial Roofing</h3>
+                      <p>Durable commercial roofing solutions for businesses, warehouses, and industrial properties.</p>
+              </div>div>
+              <div class="service-card">
+                      <div class="service-icon">&#127807;</div>div>
+                      <h3>Gutters &amp; Drainage</h3>
+                      <p>Complete gutter installation, cleaning, and repair to protect your home from water damage.</p>
+              </div>div>
+        </div>div>
+        <div style="text-align:center;margin-top:40px">
+              <a href="services.html" class="btn btn-primary">View All Services</a>a>
+        </div>div>
+    </section>section>
+    <section>
+          <div class="why-grid">
+                  <div class="why-content">
+                            <div class="section-tag">Why Choose Us</div>div>
+                            <h2>The Veteran Difference</h2>
+                            <ul class="why-list">
+                                        <li>
+                                                      <span class="why-check">&#9733;</span>
+                                                      <div>
+                                                                      <h4>Military-Grade Standards</h4>
+                                                                      <p>We apply the same attention to detail and commitment to excellence from service to every project.</p>
+                                                      </div>
+                                        </li>
+                                      <li>
+                                                    <span class="why-check">&#9733;</span>
+                                                    <div>
+                                                                    <h4>Transparent Pricing</h4>
+                                                                  <p>No hidden fees, no surprises. You will get a detailed written estimate before any work begins.</p>
+                                                    </div>
+                                      </li>
+                                      <li>
+                                                    <span class="why-check">&#9733;</span>
+                                                    <div>
+                                                                    <h4>Local &amp; Community-Focused</h4>
+                                                                    <p>We are your neighbors. We care about this community and stand behind every job we complete.</p>
+                                                    </div>
+                                      </li>
+                                      <li>
+                                                    <span class="why-check">&#9733;</span>
+                                                    <div>
+                                                                    <h4>Veteran &amp; Senior Discounts</h4>
+                                                                  <p>Special pricing for veterans, active military, and senior citizens as our way of giving back.</p>
+                                                    </div>
+                                      </li>
+                            </ul>
+                  </div>
+                <div class="why-image">
+                        <div class="big-stat">10+</div>
+                        <div class="stat-label">Years Serving Our Community</div>
+                        <hr class="stat-divider">
+                        <div class="stat-row">
+                                  <div class="mini-stat"><div class="num">500+</div><div class="lbl">Roofs Completed</div></div>
+                                  <div class="mini-stat"><div class="num">100%</div><div class="lbl">Satisfaction Rate</div></div>
+                                  <div class="mini-stat"><div class="num">5&#9733;</div><div class="lbl">Average Rating</div></div>
+                        </div>
+                </div>
+          </div>
+    </section>
+    <section class="testimonials-bg">
+        <div class="section-header">
+              <div class="section-tag">Reviews</div>
+              <h2>What Our Customers Say</h2>
+              <p>We let our work and our customers speak for themselves.</p>
+        </div>
+        <div class="testimonials-grid">
+              <div class="testimonial-card">
+                      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                      <blockquote>"Roof With Veterans did an outstanding job replacing our entire roof. Professional, efficient, and left our property cleaner than they found it. Highly recommend!"</blockquote>
+                      <div class="reviewer">
+                                <div class="reviewer-avatar">JM</div>
+                                <div><div class="reviewer-name">James M.</div><div class="reviewer-info">Verified Customer</div></div>
+                      </div>
+              </div>
+              <div class="testimonial-card">
+                      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                      <blockquote>"After a bad hailstorm I was stressed about my roof. These guys came out fast, helped me through the insurance claim, and had everything fixed quickly."</blockquote>
+                      <div class="reviewer">
+                                <div class="reviewer-avatar">SR</div>
+                                <div><div class="reviewer-name">Susan R.</div><div class="reviewer-info">Verified Customer</div></div>
+                      </div>
+              </div>
+              <div class="testimonial-card">
+                      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                      <blockquote>"As a fellow veteran, I wanted to support a vet-owned business. Fair price, quality work, great communication. Will use them again without hesitation."</blockquote>
+                      <div class="reviewer">
+                                <div class="reviewer-avatar">DK</div>
+                                <div><div class="reviewer-name">David K.</div><div class="reviewer-info">U.S. Army Veteran</div></div>
+                      </div>
+              </div>
+        </div>
+    </section>
+    <section class="cta">
+        <h2>Ready for a Free Estimate?</h2>
+        <p>Contact us today and we will schedule a time that works for you, no pressure, no obligation.</p>
+        <div class="cta-phone">&#128222; Call or Text Us Today</div>
+        <a href="contact.html" class="btn btn-primary">Get Your Free Estimate</a>a>
+    </section>
+    <footer>
+          <div class="footer-logo">&#127968; Roof With Veterans</div>
+          <p>Veteran-Owned &amp; Operated | Licensed &amp; Insured<br>
+                <a href="index.html">Home</a>a> &middot; <a href="services.html">Services</a>a> &middot; <a href="about.html">About</a>a> &middot; <a href="contact.html">Contact</a>a><br><br>
+                &copy; 2026 Roof With Veterans. All rights reserved.</p>p>
+    </footer>
+  </body>
+</html>html>
+    </footer></p></blockquote></blockquote></p></p></h4>
+                                      </li></p>
+                                                    </div>
+                                      </li></p></h4>
+                                      </li></p>
+                                                      </div>
+                                        </li>
+    </section></p></p></span></h1></li></li>
+            </ul>
+      </nav>
+  </body>
+    </style></title>
+  </head>
