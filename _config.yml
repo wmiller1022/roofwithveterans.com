@@ -1,0 +1,19 @@
+title: Veterans Restoration of Louisville
+email: info@roofwithveterans.com
+description: Veteran-owned roofing and exterior restoration serving Louisville, KY and surrounding areas. Roofing, siding, windows, and gutters.
+baseurl: ""
+url: "https://roofwithchampions.com"
+phone: "(502) 919-0278"
+address: "Louisville, KY"
+service_area: "Louisville, KY and surrounding areas within 1 hour"
+
+# Social
+facebook_username: VeteransRestorationLouisville
+instagram_username: VeteransRestorationLouisville
+
+# Build settings
+# theme: minima
+plugins:
+  - jekyll-feed
+
+  
