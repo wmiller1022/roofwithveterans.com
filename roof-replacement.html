@@ -1,0 +1,273 @@
+---
+layout: default
+title: Roof Replacement
+permalink: /roof-replacement/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  /* Roof Replacement page–specific styles */
+  .two-col { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
+  @media (min-width: 860px) { .two-col { grid-template-columns: 1fr 1.1fr; } }
+
+  .shingle-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 40px; }
+  @media (min-width: 600px) { .shingle-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .shingle-card {
+    background: white; border-radius: 4px;
+    border-top: 4px solid #3C3B6E;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    padding: 28px 22px; text-align: center;
+    transition: transform 0.2s;
+  }
+  .shingle-card:hover { transform: translateY(-3px); }
+  .shingle-card.featured { border-top-color: #B22222; }
+  .shingle-card .badge-label {
+    display: inline-block; background: #B22222; color: white;
+    font-family: 'Oswald', sans-serif; font-size: 11px;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 2px; margin-bottom: 12px;
+  }
+  .shingle-card h3 { font-family: 'Oswald', sans-serif; font-size: 20px; color: #0f0f23; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .shingle-card p { color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
+  .shingle-card ul { list-style: none; text-align: left; }
+  .shingle-card ul li { font-size: 13px; color: #555; padding: 5px 0; border-bottom: 1px solid #f0f0f0; }
+  .shingle-card ul li::before { content: '✓  '; color: #B22222; font-weight: 700; }
+
+  .warranty-band {
+    background: #B22222; padding: 40px 24px; text-align: center;
+  }
+  .warranty-band h2 { font-family: 'Oswald', sans-serif; font-size: 32px; color: white; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 2px; }
+  .warranty-band p { color: rgba(255,255,255,0.9); font-size: 15px; line-height: 1.7; max-width: 600px; margin: 0 auto; }
+  @media (min-width: 768px) { .warranty-band { padding: 48px 80px; } .warranty-band h2 { font-size: 40px; } }
+
+  .checklist { list-style: none; }
+  .checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #e8e8e8; font-size: 15px; color: #444; }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '✓'; color: #B22222; font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Owens Corning Preferred Installer</div>
+  <h1>Roof <span class="red">Replacement</span></h1>
+  <p class="hero-sub">Premium roofing systems installed with military precision. We use only Owens Corning materials backed by manufacturer warranties — protecting your home for decades.</p>
+  <div class="hero-buttons">
+    <a href="/contact/" class="btn-primary">★ Get Free Estimate</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- TAGLINE -->
+<div class="tagline-band">
+  <h2>Built Right. <span>Backed By Warranty. Backed By Veterans.</span></h2>
+</div>
+
+<!-- WHY REPLACE -->
+<section class="section-light">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow">★ Is It Time?</span>
+        <h2 class="section-heading">Signs You Need A <span class="red">New Roof</span></h2>
+        <div class="section-divider"></div>
+        <ul class="checklist">
+          <li>Shingles are curling, cracking, or missing entirely</li>
+          <li>Roof is 20+ years old (asphalt shingles have a 20–30 year lifespan)</li>
+          <li>Granules collecting in gutters or on the ground</li>
+          <li>Daylight visible through the attic</li>
+          <li>Sagging or soft spots in the roof deck</li>
+          <li>Water stains on interior ceilings or walls</li>
+          <li>Storm damage from hail, wind, or falling debris</li>
+          <li>Higher energy bills from poor insulation</li>
+        </ul>
+        <div style="margin-top:28px;">
+          <a href="/contact/" class="btn-primary">Schedule Free Inspection</a>
+        </div>
+      </div>
+      <div>
+        <span class="section-eyebrow">★ What We Include</span>
+        <h2 class="section-heading">Our Full-Service <span class="red">Process</span></h2>
+        <div class="section-divider"></div>
+        <div class="why-item">
+          <div class="why-icon">1</div>
+          <div>
+            <h3>Thorough Inspection</h3>
+            <p>We inspect every square foot of your roof deck, flashing, gutters, and ventilation — and document it all for your records.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">2</div>
+          <div>
+            <h3>Deck Preparation</h3>
+            <p>Old shingles and underlayment are removed. Damaged decking is repaired. Ice and water shield applied at all vulnerable areas.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">3</div>
+          <div>
+            <h3>Premium Installation</h3>
+            <p>Owens Corning starter strips, shingles, ridge cap, and ventilation installed to manufacturer specifications.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">4</div>
+          <div>
+            <h3>Complete Cleanup</h3>
+            <p>Every nail, every shingle scrap, every bit of debris removed. We use a magnetic roller to sweep for nails.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHINGLE OPTIONS -->
+<section class="section-white">
+  <div class="inner">
+    <span class="section-eyebrow text-center">★ Owens Corning Materials</span>
+    <h2 class="section-heading text-center">Choose Your <span class="red">Shingle System</span></h2>
+    <div class="section-divider mx-auto"></div>
+    <div class="shingle-grid">
+
+      <div class="shingle-card">
+        <h3>Oakridge®</h3>
+        <p>Our best-value asphalt shingle. Great curb appeal and solid protection for budget-conscious homeowners.</p>
+        <ul>
+          <li>130 mph wind resistance</li>
+          <li>Algae-resistant</li>
+          <li>Class A fire rating</li>
+          <li>Limited lifetime warranty</li>
+        </ul>
+      </div>
+
+      <div class="shingle-card featured">
+        <div class="badge-label">Most Popular</div>
+        <h3>Duration®</h3>
+        <p>Our most popular shingle system — superior durability with SureNail® Technology for a stronger grip.</p>
+        <ul>
+          <li>130 mph wind resistance</li>
+          <li>SureNail® Technology</li>
+          <li>Enhanced algae resistance</li>
+          <li>Limited lifetime warranty</li>
+        </ul>
+      </div>
+
+      <div class="shingle-card">
+        <h3>Berkshire® Collection</h3>
+        <p>Designer-grade luxury shingles that replicate the look of natural slate — premium appearance at a fraction of the cost.</p>
+        <ul>
+          <li>130 mph wind resistance</li>
+          <li>Slate-like appearance</li>
+          <li>Triple-layer protection</li>
+          <li>Limited lifetime warranty</li>
+        </ul>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:24px;color:#888;font-size:13px;">Not sure which shingle is right for your home? We'll help you choose during your free inspection.</p>
+  </div>
+</section>
+
+<!-- WARRANTY BAND -->
+<div class="warranty-band">
+  <h2>🏆 Owens Corning Preferred Installer</h2>
+  <p>As an Owens Corning Preferred Contractor, we can offer extended manufacturer warranties — including the Platinum Protection Limited Warranty — that non-preferred contractors cannot. Your investment is protected for the long haul.</p>
+</div>
+
+<!-- INSURANCE SECTION -->
+<section class="section-dark">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow" style="color:rgba(255,255,255,0.5)">★ Storm Damage?</span>
+        <h2 class="section-heading light">Your Insurance May <span class="red">Cover It</span></h2>
+        <div class="section-divider"></div>
+        <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.8;margin-bottom:24px;">Many homeowners in Louisville don't realize their roof replacement is fully covered by insurance after a storm. We inspect, document, and work with your adjuster — maximizing your settlement.</p>
+        <a href="/storm-damage/" class="btn-primary">Learn About Insurance Claims →</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="storm-item"><h3>⚡ Free Storm Inspection</h3><p>We document all damage professionally — photos, measurements, everything your adjuster needs.</p></div>
+        <div class="storm-item"><h3>📋 Direct Adjuster Coordination</h3><p>We work with your insurance company so you don't have to navigate the claims process alone.</p></div>
+        <div class="storm-item"><h3>💰 Maximum Settlement</h3><p>We know what's covered and make sure you receive the full replacement value you're entitled to.</p></div>
+        <div class="storm-item"><h3>🚀 Fast Response</h3><p>Storm hits Louisville? We mobilize quickly to prevent further water intrusion and document while damage is fresh.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BADGES -->
+<section class="badges">
+  <div class="badge-item"><span>🎖️</span><strong>Veteran Owned</strong><p>Serving those who served</p></div>
+  <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
+  <div class="badge-item"><span>🏠</span><strong>Owens Corning</strong><p>Preferred Installer</p></div>
+  <div class="badge-item"><span>⭐</span><strong>5-Star Rated</strong><p>Google &amp; Facebook</p></div>
+  <div class="badge-item"><span>📋</span><strong>Licensed &amp; Insured</strong><p>Kentucky Certified</p></div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="stars-row">★ ★ ★ ★ ★</div>
+  <h2>Get Your Free<br><span class="red">Roof Estimate</span></h2>
+  <p>No pressure. No obligation. Just an honest assessment from veterans who stand behind their work.</p>
+  <div class="cta-buttons">
+    <a href="https://calendly.com" class="btn-primary" target="_blank" rel="noopener">★ Book Online</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <h3>Ready to protect your home? <span>Let's talk.</span></h3>
+  <div class="contact-links">
+    <a href="tel:5029190278">📞 (502) 919-0278</a>
+    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="/contact/" class="btn-primary">Free Estimate →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+})();
+</script>

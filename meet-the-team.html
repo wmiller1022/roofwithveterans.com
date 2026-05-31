@@ -1,0 +1,222 @@
+---
+layout: default
+title: Meet the Team
+permalink: /meet-the-team/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  .team-grid { display:grid;grid-template-columns:1fr;gap:32px;margin-top:48px; }
+  @media(min-width:600px){ .team-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(min-width:900px){ .team-grid{grid-template-columns:repeat(3,1fr);} }
+
+  .team-card {
+    background:white;border-radius:4px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+    overflow:hidden;border-bottom:4px solid #B22222;
+    transition:transform 0.2s;
+  }
+  .team-card:hover { transform:translateY(-4px); }
+
+  .team-photo {
+    width:100%;height:220px;object-fit:cover;object-position:center top;
+    display:block;
+  }
+  .team-photo-placeholder {
+    width:100%;height:220px;
+    background:linear-gradient(135deg,#0f0f23,#3C3B6E);
+    display:flex;align-items:center;justify-content:center;
+    font-size:72px;color:rgba(255,255,255,0.3);
+  }
+  .team-card-body { padding:24px; }
+  .team-card h3 { font-family:'Oswald',sans-serif;font-size:22px;color:#0f0f23;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px; }
+  .team-card .role { font-family:'Oswald',sans-serif;font-size:13px;color:#B22222;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;display:block; }
+  .team-card .branch { display:inline-block;background:#3C3B6E;color:white;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:12px; }
+  .team-card p { color:#555;font-size:14px;line-height:1.7; }
+
+  .join-section {
+    background:linear-gradient(135deg,#0f0f23,#1a1a4e);
+    padding:64px 24px;text-align:center;
+    border-top:4px solid #B22222;border-bottom:4px solid #B22222;
+  }
+  .join-section h2 { font-family:'Oswald',sans-serif;font-size:36px;color:white;text-transform:uppercase;margin-bottom:16px;line-height:1.1; }
+  .join-section h2 .red { color:#B22222; }
+  .join-section p { color:rgba(255,255,255,0.8);font-size:15px;line-height:1.8;max-width:600px;margin:0 auto 28px; }
+  @media(min-width:768px){ .join-section{padding:80px 80px;} .join-section h2{font-size:48px;} }
+
+  .story-section { background:#f4f4f4;padding:64px 24px; }
+  .story-inner { max-width:900px;margin:0 auto; }
+  @media(min-width:768px){ .story-section{padding:80px 40px;} }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Veteran-Led. Community-Focused.</div>
+  <h1>Meet the <span class="red">Team</span></h1>
+  <p class="hero-sub">Every member of our crew brings veteran values to the job site — discipline, integrity, and a commitment to getting it right. We're not just colleagues. We're a unit.</p>
+</section>
+
+<!-- TAGLINE -->
+<div class="tagline-band">
+  <h2>Service &amp; Sacrifice — <span>Now Protecting Your Home.</span></h2>
+</div>
+
+<!-- TEAM GRID -->
+<section class="section-white">
+  <div class="inner-wide">
+    <span class="section-eyebrow text-center">★ Our People</span>
+    <h2 class="section-heading text-center">The Veterans <span class="red">Behind The Work</span></h2>
+    <div class="section-divider mx-auto"></div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <img src="/assets/images/Logo_Dean.jpeg" alt="Dean — Founder" class="team-photo">
+        <div class="team-card-body">
+          <h3>Dean</h3>
+          <span class="branch">🎖️ U.S. Army Veteran</span>
+          <span class="role">Founder &amp; Owner</span>
+          <p>Dean founded Veterans Restoration of Louisville to bring the discipline and integrity of military service to the roofing industry. His commitment: do the right thing, every time, for every customer.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo-placeholder">🪖</div>
+        <div class="team-card-body">
+          <h3>Operations Lead</h3>
+          <span class="branch">🎖️ U.S. Military Veteran</span>
+          <span class="role">Field Operations Manager</span>
+          <p>Coordinates job scheduling, crew deployment, and quality control on every project. No detail escapes his attention — a trait earned through years of military logistics.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo-placeholder">🛡️</div>
+        <div class="team-card-body">
+          <h3>Insurance Specialist</h3>
+          <span class="branch">🎖️ U.S. Military Veteran</span>
+          <span class="role">Claims &amp; Customer Advocate</span>
+          <p>Dedicated to navigating insurance claims so homeowners get the full settlement they deserve. He knows the process inside and out and never backs down from a lowball offer.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo-placeholder">⚙️</div>
+        <div class="team-card-body">
+          <h3>Lead Installer</h3>
+          <span class="branch">🎖️ U.S. Military Veteran</span>
+          <span class="role">Senior Roofing Technician</span>
+          <p>Owens Corning certified with thousands of squares installed. Sets the standard for workmanship quality on every job — mentoring the next generation of veteran roofers.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo-placeholder">📋</div>
+        <div class="team-card-body">
+          <h3>Sales &amp; Inspections</h3>
+          <span class="branch">🎖️ U.S. Military Veteran</span>
+          <span class="role">Project Consultant</span>
+          <p>Your first point of contact. Conducts free inspections with honesty and thoroughness, then walks you through your options — zero pressure, just facts.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo-placeholder">🌟</div>
+        <div class="team-card-body">
+          <h3>Your Neighbor</h3>
+          <span class="branch">📍 Louisville, KY</span>
+          <span class="role">Crew Member</span>
+          <p>We're a Louisville company. Our crews live in the same neighborhoods we serve. When we protect your home, we're protecting our own community.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY STORY -->
+<section class="story-section">
+  <div class="story-inner">
+    <span class="section-eyebrow">★ Our Story</span>
+    <h2 class="section-heading">From Service to <span class="red">Rooftops</span></h2>
+    <div class="section-divider"></div>
+    <p style="font-size:16px;line-height:1.9;color:#444;margin-bottom:20px;">Veterans Restoration of Louisville was born from a conviction that military values belong in the trades. Our founder Dean served his country and came home looking for a way to keep serving — this time, protecting the homes of his Louisville neighbors.</p>
+    <p style="font-size:16px;line-height:1.9;color:#444;margin-bottom:20px;">What started as a small crew with a big mission has grown into Louisville's premier veteran-owned roofing and exterior restoration company. We've built our reputation one roof at a time — never cutting corners, always being straight with homeowners, and showing up every single day with the discipline that only military service teaches.</p>
+    <p style="font-size:16px;line-height:1.9;color:#444;">We actively hire veterans and continue to grow our team of service-minded professionals. The work changes but the mission stays the same: protect, restore, and serve.</p>
+  </div>
+</section>
+
+<!-- JOIN THE TEAM -->
+<section class="join-section">
+  <div class="stars-row" style="color:#B22222;font-size:18px;letter-spacing:8px;margin-bottom:20px;">★ ★ ★</div>
+  <h2>Join Our <span class="red">Team</span></h2>
+  <p>Are you a veteran looking to build a career in the trades? We're always looking for service-minded professionals who share our values. We offer competitive pay, veteran-friendly leadership, and a culture built on respect and excellence.</p>
+  <div class="cta-buttons">
+    <a href="mailto:info@roofwithveterans.com?subject=Employment%20Inquiry" class="btn-primary">Apply Now →</a>
+    <a href="/contact/" class="btn-outline">Learn More</a>
+  </div>
+</section>
+
+<!-- BADGES -->
+<section class="badges">
+  <div class="badge-item"><span>🎖️</span><strong>Veteran Owned</strong><p>Serving those who served</p></div>
+  <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
+  <div class="badge-item"><span>🏠</span><strong>Owens Corning</strong><p>Preferred Installer</p></div>
+  <div class="badge-item"><span>⭐</span><strong>5-Star Rated</strong><p>Google &amp; Facebook</p></div>
+  <div class="badge-item"><span>📋</span><strong>Licensed &amp; Insured</strong><p>Kentucky Certified</p></div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <h3>Have questions? <span>Let's talk.</span></h3>
+  <div class="contact-links">
+    <a href="tel:5029190278">📞 (502) 919-0278</a>
+    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="/contact/" class="btn-primary">Contact Us →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+})();
+</script>

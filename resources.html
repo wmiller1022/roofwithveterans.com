@@ -1,0 +1,301 @@
+---
+layout: default
+title: Homeowner Resources
+permalink: /resources/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  /* FAQ Accordion */
+  .faq-item { border-bottom:1px solid #e0e0e0;overflow:hidden; }
+  .faq-question {
+    display:flex;justify-content:space-between;align-items:center;
+    width:100%;background:none;border:none;cursor:pointer;
+    padding:20px 0;text-align:left;min-height:56px;gap:16px;
+  }
+  .faq-question span {
+    font-family:'Oswald',sans-serif;font-size:17px;color:#0f0f23;
+    text-transform:uppercase;letter-spacing:0.5px;line-height:1.2;flex:1;
+  }
+  .faq-question .icon {
+    font-family:'Oswald',sans-serif;font-size:22px;color:#B22222;
+    flex-shrink:0;transition:transform 0.3s;font-style:normal;
+    width:28px;text-align:center;
+  }
+  .faq-question.open .icon { transform:rotate(45deg); }
+  .faq-answer { display:none;padding:0 0 20px; }
+  .faq-answer.open { display:block; }
+  .faq-answer p { color:#555;font-size:15px;line-height:1.8; }
+
+  /* Resource cards */
+  .resource-grid { display:grid;grid-template-columns:1fr;gap:20px; }
+  @media(min-width:600px){ .resource-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(min-width:900px){ .resource-grid{grid-template-columns:repeat(3,1fr);} }
+
+  .resource-card {
+    background:white;border-radius:4px;padding:28px 22px;
+    border-left:4px solid #3C3B6E;
+    box-shadow:0 3px 16px rgba(0,0,0,0.07);
+    transition:transform 0.2s;
+  }
+  .resource-card:hover { transform:translateY(-3px); }
+  .resource-card .ri { font-size:36px;margin-bottom:14px;display:block; }
+  .resource-card h3 { font-family:'Oswald',sans-serif;font-size:18px;color:#0f0f23;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px; }
+  .resource-card p { color:#666;font-size:14px;line-height:1.7;margin-bottom:16px; }
+
+  /* Checklist section */
+  .checklist-section { background:#0f0f23;padding:64px 24px;border-top:4px solid #B22222;border-bottom:4px solid #B22222; }
+  .checklist-cols { display:grid;grid-template-columns:1fr;gap:32px; }
+  @media(min-width:760px){ .checklist-cols{grid-template-columns:1fr 1fr;} }
+  @media(min-width:768px){ .checklist-section{padding:80px 40px;} }
+
+  .dark-checklist { list-style:none; }
+  .dark-checklist li { display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:14px;color:rgba(255,255,255,0.82);line-height:1.6; }
+  .dark-checklist li:last-child { border-bottom:none; }
+  .dark-checklist li::before { content:'✓';color:#B22222;font-weight:700;flex-shrink:0;margin-top:1px; }
+  .dark-checklist h4 { font-family:'Oswald',sans-serif;font-size:14px;color:white;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px; }
+
+  /* Glossary */
+  .glossary-grid { display:grid;grid-template-columns:1fr;gap:16px; }
+  @media(min-width:760px){ .glossary-grid{grid-template-columns:repeat(2,1fr);} }
+  .glossary-term { background:white;border-radius:3px;padding:16px 20px;box-shadow:0 2px 10px rgba(0,0,0,0.05);border-top:3px solid #3C3B6E; }
+  .glossary-term dt { font-family:'Oswald',sans-serif;font-size:15px;color:#B22222;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px; }
+  .glossary-term dd { color:#555;font-size:13px;line-height:1.6; }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Homeowner Education</div>
+  <h1>Roofing <span class="red">Resources</span></h1>
+  <p class="hero-sub">We believe informed homeowners make better decisions. Use these guides, checklists, and FAQs to understand your roof, your insurance, and when to call us.</p>
+</section>
+
+<!-- RESOURCE CARDS -->
+<section class="section-light">
+  <div class="inner">
+    <span class="section-eyebrow text-center">★ Homeowner Guides</span>
+    <h2 class="section-heading text-center">Free <span class="red">Resources</span></h2>
+    <div class="section-divider mx-auto"></div>
+    <div class="resource-grid">
+      <div class="resource-card">
+        <span class="ri">📋</span>
+        <h3>Insurance Claim Guide</h3>
+        <p>Step-by-step walkthrough of the homeowners insurance claim process — from filing to settlement. Know your rights.</p>
+        <a href="/contact/" class="card-link">Download Free →</a>
+      </div>
+      <div class="resource-card">
+        <span class="ri">🔍</span>
+        <h3>DIY Roof Inspection</h3>
+        <p>What to look for from the ground. A simple checklist homeowners can use to spot warning signs before calling a pro.</p>
+        <a href="/contact/" class="card-link">Download Free →</a>
+      </div>
+      <div class="resource-card">
+        <span class="ri">⛈️</span>
+        <h3>Storm Season Prep</h3>
+        <p>Prepare your home before storm season. What to check, document, and do before and after major weather events.</p>
+        <a href="/contact/" class="card-link">Download Free →</a>
+      </div>
+      <div class="resource-card">
+        <span class="ri">🏠</span>
+        <h3>Shingle Comparison Guide</h3>
+        <p>Owens Corning Oakridge vs. Duration vs. Berkshire — understand the differences before your next roof replacement.</p>
+        <a href="/contact/" class="card-link">Download Free →</a>
+      </div>
+      <div class="resource-card">
+        <span class="ri">📅</span>
+        <h3>Roof Maintenance Calendar</h3>
+        <p>What to inspect and maintain each season to maximize the life of your roof and avoid costly repairs.</p>
+        <a href="/contact/" class="card-link">Download Free →</a>
+      </div>
+      <div class="resource-card">
+        <span class="ri">💡</span>
+        <h3>Contractor Vet Checklist</h3>
+        <p>10 questions to ask any roofing contractor before hiring them. Protect yourself from bad actors and fly-by-night companies.</p>
+        <a href="/contact/" class="card-link">Download Free →</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;color:#888;font-size:13px;">All guides are free — just contact us and we'll send them your way.</p>
+  </div>
+</section>
+
+<!-- STORM PREP CHECKLIST -->
+<section class="checklist-section">
+  <div class="inner">
+    <span class="section-eyebrow" style="color:rgba(255,255,255,0.5)">★ Seasonal Checklist</span>
+    <h2 class="section-heading light" style="margin-bottom:8px;">Storm Prep &amp; Post-Storm <span class="red">Checklist</span></h2>
+    <div class="section-divider"></div>
+    <div class="checklist-cols">
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif;color:white;font-size:18px;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">⚡ Before A Storm</h3>
+        <ul class="dark-checklist">
+          <li>Inspect gutters and downspouts — remove any debris</li>
+          <li>Trim tree branches overhanging the roof</li>
+          <li>Check attic for signs of previous leaks (water stains, mold)</li>
+          <li>Know your insurance policy — deductible amount and coverage type</li>
+          <li>Photograph your roof from the ground for insurance records</li>
+          <li>Have our number saved: (502) 919-0278</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-family:'Oswald',sans-serif;color:white;font-size:18px;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">🌧️ After A Storm</h3>
+        <ul class="dark-checklist">
+          <li>Check for missing, lifted, or cracked shingles from the ground</li>
+          <li>Inspect gutters for granule buildup (sign of hail damage)</li>
+          <li>Check for dents on gutters, downspouts, AC unit, or vents</li>
+          <li>Look in the attic for new leaks or daylight</li>
+          <li>Call us for a FREE professional inspection before filing a claim</li>
+          <li>Document everything with photos before any cleanup</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="section-white">
+  <div class="inner" style="max-width:800px;">
+    <span class="section-eyebrow">★ Common Questions</span>
+    <h2 class="section-heading">Frequently Asked <span class="red">Questions</span></h2>
+    <div class="section-divider"></div>
+
+    <div class="faq-item">
+      <button class="faq-question"><span>How do I know if I need a new roof or just a repair?</span><i class="icon">+</i></button>
+      <div class="faq-answer"><p>It depends on the extent of damage and the age of your roof. A repair makes sense if damage is isolated to a small area and your roof is less than 15 years old. If you have multiple problem areas, widespread granule loss, or a roof over 20 years old, replacement is usually more cost-effective. We'll give you an honest answer during your free inspection.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question"><span>Does homeowners insurance cover roof damage?</span><i class="icon">+</i></button>
+      <div class="faq-answer"><p>Most homeowners policies cover sudden, accidental damage — including hail, wind, and fallen debris. They typically do NOT cover damage from wear and tear or neglect. If a storm caused your damage, there's a good chance your insurance will cover it. We provide free inspections specifically to help homeowners understand what they're entitled to.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question"><span>How long does a roof replacement take?</span><i class="icon">+</i></button>
+      <div class="faq-answer"><p>Most residential roof replacements take one to two days depending on roof size, pitch, complexity, and weather. We'll give you a specific timeline in your estimate. We work efficiently and complete full cleanup before leaving — your property is left spotless.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question"><span>What's the difference between Owens Corning Duration and Oakridge shingles?</span><i class="icon">+</i></button>
+      <div class="faq-answer"><p>Both carry a limited lifetime warranty, but Duration shingles feature SureNail® Technology — a reinforced nailing area that provides a stronger, more consistent seal. Duration also has enhanced algae resistance. For most homes, Duration is our recommendation. During your inspection we can walk you through both options and which makes sense for your budget and goals.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question"><span>How do I file a roof insurance claim?</span><i class="icon">+</i></button>
+      <div class="faq-answer"><p>First — call us before you call your insurance company. We'll inspect for free, document everything, and advise whether a claim is worth filing. When you're ready to proceed, you'll call your insurance company's claims line, report the damage, and they'll assign an adjuster. We then meet the adjuster on site to present our findings and advocate for your full settlement.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question"><span>Are you licensed and insured in Kentucky?</span><i class="icon">+</i></button>
+      <div class="faq-answer"><p>Yes. We are fully licensed, bonded, and insured in the state of Kentucky. We carry general liability insurance and workers' compensation — protecting both your property and our crew. We're happy to provide proof of insurance before any work begins.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question"><span>What areas do you serve?</span><i class="icon">+</i></button>
+      <div class="faq-answer"><p>We serve Louisville and surrounding areas within approximately one hour, including Jefferson County, Oldham County, Bullitt County, Shelby County, and neighboring communities in southern Indiana. Not sure if we cover your area? Call us at (502) 919-0278 and we'll let you know.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question"><span>Do you offer any military or veteran discounts?</span><i class="icon">+</i></button>
+      <div class="faq-answer"><p>Absolutely. We honor those who served — ask about our veteran and active duty discount when you contact us. We also work with first responders and other service members.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ROOFING GLOSSARY -->
+<section class="section-light">
+  <div class="inner">
+    <span class="section-eyebrow">★ Know The Terms</span>
+    <h2 class="section-heading">Roofing <span class="red">Glossary</span></h2>
+    <div class="section-divider"></div>
+    <dl class="glossary-grid">
+      <div class="glossary-term"><dt>Decking</dt><dd>The structural wood base beneath your shingles — also called roof sheathing. Damage here requires immediate repair.</dd></div>
+      <div class="glossary-term"><dt>Flashing</dt><dd>Metal strips that seal joints around chimneys, vents, and valleys. Failed flashing is a top cause of leaks.</dd></div>
+      <div class="glossary-term"><dt>Ice &amp; Water Shield</dt><dd>A self-adhesive waterproof membrane installed at eaves and valleys to prevent water intrusion during ice dams or driving rain.</dd></div>
+      <div class="glossary-term"><dt>Drip Edge</dt><dd>Metal trim installed at roof edges that directs water into gutters and away from the fascia.</dd></div>
+      <div class="glossary-term"><dt>Ridge Cap</dt><dd>Specially shaped shingles installed along the peak of the roof to protect and seal the ridge line.</dd></div>
+      <div class="glossary-term"><dt>Granules</dt><dd>The mineral coating on asphalt shingles that protects from UV and weather. Granule loss = roof aging.</dd></div>
+      <div class="glossary-term"><dt>Soffit &amp; Fascia</dt><dd>The horizontal (soffit) and vertical (fascia) boards under the roof overhang. Often damaged in storms.</dd></div>
+      <div class="glossary-term"><dt>Replacement Cost Value</dt><dd>Insurance coverage that pays for a new roof at today's prices — vs. Actual Cash Value (ACV), which deducts depreciation.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="stars-row">★ ★ ★ ★ ★</div>
+  <h2>Still Have <span class="red">Questions?</span></h2>
+  <p>Our veteran team is happy to answer anything — no sales pressure, just honest expertise from people who've served.</p>
+  <div class="cta-buttons">
+    <a href="/contact/" class="btn-primary">★ Contact Us Free</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <h3>Honest answers from veterans. <span>Always.</span></h3>
+  <div class="contact-links">
+    <a href="tel:5029190278">📞 (502) 919-0278</a>
+    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="/contact/" class="btn-primary">Free Inspection →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+})();
+
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var ans=this.nextElementSibling;
+    var isOpen=ans.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-answer').forEach(function(a){a.classList.remove('open');});
+    document.querySelectorAll('.faq-question').forEach(function(b){b.classList.remove('open');});
+    // Toggle clicked
+    if(!isOpen){ ans.classList.add('open'); this.classList.add('open'); }
+  });
+});
+</script>

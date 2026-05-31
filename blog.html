@@ -1,0 +1,297 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  .blog-layout { display:grid;grid-template-columns:1fr;gap:40px; }
+  @media(min-width:900px){ .blog-layout{grid-template-columns:2fr 1fr;align-items:start;} }
+
+  /* Post cards */
+  .post-card {
+    background:white;border-radius:4px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.07);
+    overflow:hidden;border-top:4px solid #B22222;
+    transition:transform 0.2s,box-shadow 0.2s;
+    display:flex;flex-direction:column;
+  }
+  .post-card:hover { transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.12); }
+  .post-card-img {
+    width:100%;height:200px;object-fit:cover;display:block;
+    background:linear-gradient(135deg,#0f0f23,#3C3B6E);
+  }
+  .post-card-img-placeholder {
+    width:100%;height:200px;
+    background:linear-gradient(135deg,#0f0f23 0%,#1a1a4e 60%,#3C3B6E 100%);
+    display:flex;align-items:center;justify-content:center;
+    font-size:56px;
+  }
+  .post-card-body { padding:24px;flex:1;display:flex;flex-direction:column; }
+  .post-meta { display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px; }
+  .post-cat {
+    background:#B22222;color:white;font-family:'Oswald',sans-serif;
+    font-size:11px;letter-spacing:2px;text-transform:uppercase;
+    padding:3px 10px;border-radius:2px;white-space:nowrap;
+  }
+  .post-date { color:#999;font-size:13px; }
+  .post-card h2 { font-family:'Oswald',sans-serif;font-size:20px;color:#0f0f23;text-transform:uppercase;letter-spacing:0.5px;line-height:1.2;margin-bottom:10px; }
+  .post-card h2 a { text-decoration:none;color:inherit;transition:color 0.2s; }
+  .post-card h2 a:hover { color:#B22222; }
+  .post-card p { color:#666;font-size:14px;line-height:1.7;flex:1;margin-bottom:16px; }
+  .read-more { color:#B22222;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;align-self:flex-start; }
+  .read-more:hover { text-decoration:underline; }
+
+  /* Featured post (wider) */
+  .post-featured { grid-column:1/-1; }
+  @media(min-width:600px){
+    .posts-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:24px; }
+    .post-featured { grid-column:1/-1;flex-direction:row; }
+    .post-featured .post-card-img-placeholder,.post-featured .post-card-img { width:300px;height:auto;flex-shrink:0; }
+  }
+
+  /* Sidebar */
+  .sidebar {}
+  .sidebar-widget { background:white;border-radius:4px;border-top:4px solid #B22222;box-shadow:0 4px 16px rgba(0,0,0,0.06);padding:24px;margin-bottom:24px; }
+  .sidebar-widget h3 { font-family:'Oswald',sans-serif;font-size:17px;color:#0f0f23;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #f0f0f0; }
+  .cat-list { list-style:none; }
+  .cat-list li { border-bottom:1px solid #f4f4f4; }
+  .cat-list li a { display:flex;justify-content:space-between;align-items:center;padding:10px 0;color:#444;text-decoration:none;font-size:14px;transition:color 0.2s;min-height:44px; }
+  .cat-list li a:hover { color:#B22222; }
+  .cat-list li a span { background:#f0f0f0;color:#888;font-size:12px;padding:2px 8px;border-radius:10px; }
+  .recent-post { display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f4f4f4;align-items:flex-start; }
+  .recent-post:last-child { border-bottom:none; }
+  .recent-icon { font-size:24px;flex-shrink:0; }
+  .recent-post h4 { font-family:'Oswald',sans-serif;font-size:14px;color:#0f0f23;text-transform:uppercase;margin-bottom:3px;line-height:1.2; }
+  .recent-post h4 a { text-decoration:none;color:inherit; }
+  .recent-post h4 a:hover { color:#B22222; }
+  .recent-post time { font-size:12px;color:#999; }
+
+  .posts-grid { display:grid;grid-template-columns:1fr;gap:24px; }
+  @media(min-width:600px){ .posts-grid{grid-template-columns:repeat(2,1fr);} }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Roofing Knowledge &amp; News</div>
+  <h1>From the <span class="red">Field</span></h1>
+  <p class="hero-sub">Expert roofing advice, storm season updates, homeowner tips, and news from Veterans Restoration of Louisville. Know your home — know when to call us.</p>
+</section>
+
+<!-- BLOG CONTENT -->
+<section class="section-light">
+  <div class="inner-wide">
+    <div class="blog-layout">
+
+      <!-- Main posts column -->
+      <div>
+        <span class="section-eyebrow">★ Latest Posts</span>
+        <h2 class="section-heading">Recent <span class="red">Articles</span></h2>
+        <div class="section-divider"></div>
+
+        <!-- Featured post -->
+        <div class="post-card post-featured" style="flex-direction:column;margin-bottom:24px;">
+          <div class="post-card-img-placeholder">⛈️</div>
+          <div class="post-card-body">
+            <div class="post-meta">
+              <span class="post-cat">Storm Damage</span>
+              <time class="post-date">May 28, 2026</time>
+            </div>
+            <h2><a href="#">What To Do In The First 24 Hours After Storm Damage Hits Your Roof</a></h2>
+            <p>Louisville saw record hail this spring. If your roof was hit, acting quickly can be the difference between a full insurance settlement and out-of-pocket costs. Here's exactly what to do — and what NOT to do — in the hours immediately after a storm.</p>
+            <a href="#" class="read-more">Read Article →</a>
+          </div>
+        </div>
+
+        <!-- Post grid -->
+        <div class="posts-grid">
+
+          <div class="post-card">
+            <div class="post-card-img-placeholder">🏠</div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-cat">Roofing</span>
+                <time class="post-date">May 20, 2026</time>
+              </div>
+              <h2><a href="#">How Long Does A New Roof Last? (And What Shortens Its Life)</a></h2>
+              <p>A quality asphalt roof should last 25–30 years. But installation quality, ventilation, and maintenance dramatically affect lifespan. Here's what to know.</p>
+              <a href="#" class="read-more">Read More →</a>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-img-placeholder">📋</div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-cat">Insurance</span>
+                <time class="post-date">May 12, 2026</time>
+              </div>
+              <h2><a href="#">5 Things Your Insurance Adjuster Won't Tell You About Your Roof Claim</a></h2>
+              <p>Adjusters work for the insurance company — not for you. Here's what we've learned about protecting homeowners during the claims process.</p>
+              <a href="#" class="read-more">Read More →</a>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-img-placeholder">🎖️</div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-cat">Company</span>
+                <time class="post-date">May 5, 2026</time>
+              </div>
+              <h2><a href="#">Why We Only Hire Veterans (And What That Means For Your Roof)</a></h2>
+              <p>Military service instills habits that make for better roofers: attention to detail, accountability, respect for deadlines. Here's our story.</p>
+              <a href="#" class="read-more">Read More →</a>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-img-placeholder">🌧️</div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-cat">Maintenance</span>
+                <time class="post-date">April 28, 2026</time>
+              </div>
+              <h2><a href="#">Spring Roof Checklist: 7 Things Every Louisville Homeowner Should Do</a></h2>
+              <p>Winter is hard on roofs in Kentucky. Before storm season hits, walk through these seven checks — some you can do yourself, some need a pro.</p>
+              <a href="#" class="read-more">Read More →</a>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-img-placeholder">🪟</div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-cat">Siding &amp; Windows</span>
+                <time class="post-date">April 15, 2026</time>
+              </div>
+              <h2><a href="#">Siding vs. Paint: Which Is Better For Your Louisville Home?</a></h2>
+              <p>Repainting every 5–7 years vs. vinyl siding that lasts 40+ years — we break down the true cost comparison for Kentucky homeowners.</p>
+              <a href="#" class="read-more">Read More →</a>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-img-placeholder">🔍</div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-cat">Roofing</span>
+                <time class="post-date">April 8, 2026</time>
+              </div>
+              <h2><a href="#">Owens Corning Duration vs. Oakridge: Which Shingle Is Right For You?</a></h2>
+              <p>Both are great shingles. But there are key differences in warranty coverage, wind resistance, and SureNail technology. Here's how to choose.</p>
+              <a href="#" class="read-more">Read More →</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pagination placeholder -->
+        <div style="display:flex;gap:8px;margin-top:36px;justify-content:center;">
+          <span style="background:#B22222;color:white;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:3px;font-family:'Oswald',sans-serif;font-weight:600;">1</span>
+          <a href="#" style="background:white;color:#0f0f23;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:3px;font-family:'Oswald',sans-serif;font-weight:600;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.08);">2</a>
+          <a href="#" style="background:white;color:#0f0f23;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:3px;font-family:'Oswald',sans-serif;font-weight:600;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.08);">3</a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+
+        <div class="sidebar-widget">
+          <h3>Categories</h3>
+          <ul class="cat-list">
+            <li><a href="#">Storm Damage <span>4</span></a></li>
+            <li><a href="#">Roofing Tips <span>8</span></a></li>
+            <li><a href="#">Insurance Claims <span>3</span></a></li>
+            <li><a href="#">Maintenance <span>5</span></a></li>
+            <li><a href="#">Siding &amp; Windows <span>2</span></a></li>
+            <li><a href="#">Company News <span>3</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3>Recent Posts</h3>
+          <div class="recent-post"><div class="recent-icon">⛈️</div><div><h4><a href="#">24 Hours After Storm Damage</a></h4><time>May 28, 2026</time></div></div>
+          <div class="recent-post"><div class="recent-icon">🏠</div><div><h4><a href="#">How Long Does A Roof Last?</a></h4><time>May 20, 2026</time></div></div>
+          <div class="recent-post"><div class="recent-icon">📋</div><div><h4><a href="#">5 Things Your Adjuster Won't Tell You</a></h4><time>May 12, 2026</time></div></div>
+        </div>
+
+        <div class="sidebar-widget" style="background:#0f0f23;border-top-color:#B22222;text-align:center;">
+          <h3 style="color:white;border-bottom-color:rgba(255,255,255,0.1);">Free Inspection</h3>
+          <p style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.7;margin-bottom:20px;">Have questions about your roof? Schedule a free, no-pressure inspection today.</p>
+          <a href="/contact/" class="btn-primary" style="width:100%;text-align:center;">Book Now →</a>
+          <p style="color:rgba(255,255,255,0.5);font-size:13px;margin-top:12px;"><a href="tel:5029190278" style="color:#B22222;text-decoration:none;">📞 (502) 919-0278</a></p>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="stars-row">★ ★ ★ ★ ★</div>
+  <h2>Have a Roofing <span class="red">Question?</span></h2>
+  <p>Ask us anything. We give straight answers — no sales pitch, no pressure. Just veteran expertise.</p>
+  <div class="cta-buttons">
+    <a href="/contact/" class="btn-primary">★ Contact Us</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <h3>Louisville's trusted roofing experts. <span>Call anytime.</span></h3>
+  <div class="contact-links">
+    <a href="tel:5029190278">📞 (502) 919-0278</a>
+    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="/contact/" class="btn-primary">Free Inspection →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+})();
+</script>

@@ -1,0 +1,243 @@
+---
+layout: default
+title: Storm Damage & Insurance
+permalink: /storm-damage/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  .damage-hero {
+    background: linear-gradient(to bottom, rgba(10,10,30,0.9) 0%, rgba(10,10,30,0.78) 50%, rgba(178,34,34,0.65) 100%),
+                url('/assets/images/Logo_Dean.jpeg') center / cover no-repeat;
+    padding: 120px 24px 64px; text-align: center; position: relative;
+  }
+  .damage-hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:6px; background:linear-gradient(to right,#B22222,#fff,#3C3B6E); }
+  .damage-hero .eyebrow { display:inline-flex;align-items:center;gap:10px;color:#ffcc00;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px; }
+  .damage-hero .eyebrow::before,.damage-hero .eyebrow::after { content:'⚡'; }
+  .damage-hero h1 { font-family:'Oswald',sans-serif;font-size:44px;font-weight:700;color:white;text-transform:uppercase;line-height:1.05;margin-bottom:16px;text-shadow:2px 4px 12px rgba(0,0,0,0.8); }
+  .damage-hero h1 .red { color:#ffcc00; }
+  .damage-hero .hero-sub { color:rgba(255,255,255,0.85);font-size:16px;line-height:1.8;max-width:640px;margin:0 auto 32px;text-shadow:1px 1px 4px rgba(0,0,0,0.5); }
+  @media(min-width:768px){ .damage-hero{padding:140px 80px 80px;} .damage-hero h1{font-size:60px;} }
+
+  .two-col { display:grid;grid-template-columns:1fr;gap:48px;align-items:start; }
+  @media(min-width:860px){ .two-col{grid-template-columns:1fr 1fr;} }
+
+  .insurance-steps { display:flex;flex-direction:column;gap:0; }
+  .ins-step { display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.08); }
+  .ins-step:last-child { border-bottom:none; }
+  .ins-num { background:#B22222;color:white;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;flex-shrink:0; }
+  .ins-step h3 { font-family:'Oswald',sans-serif;font-size:17px;color:white;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px; }
+  .ins-step p { color:rgba(255,255,255,0.72);font-size:14px;line-height:1.6; }
+
+  .damage-signs { display:grid;grid-template-columns:1fr;gap:16px; }
+  @media(min-width:600px){ .damage-signs{grid-template-columns:repeat(2,1fr);} }
+
+  .sign-card { background:white;border-left:4px solid #B22222;padding:18px 20px;border-radius:0 4px 4px 0;box-shadow:0 2px 10px rgba(0,0,0,0.06); }
+  .sign-card h3 { font-family:'Oswald',sans-serif;font-size:16px;color:#0f0f23;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px; }
+  .sign-card p { color:#555;font-size:14px;line-height:1.6; }
+
+  .urgent-band { background:#B22222;padding:36px 24px;text-align:center; }
+  .urgent-band h2 { font-family:'Oswald',sans-serif;font-size:28px;color:white;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px; }
+  .urgent-band p { color:rgba(255,255,255,0.9);font-size:15px;margin-bottom:20px;line-height:1.6; }
+  @media(min-width:768px){ .urgent-band{padding:40px 80px;} .urgent-band h2{font-size:36px;} }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="damage-hero">
+  <div class="eyebrow">Storm &amp; Hail Specialists</div>
+  <h1>Storm Hit Your <span class="red">Roof?</span><br>We Respond Fast.</h1>
+  <p class="hero-sub">Louisville storms cause more damage than most homeowners realize. We provide free inspections, professional documentation, and fight for your full insurance settlement.</p>
+  <div class="hero-buttons">
+    <a href="/contact/" class="btn-primary" style="background:#B22222;border-color:#B22222;">⚡ Emergency Inspection</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- URGENT BAND -->
+<div class="urgent-band">
+  <h2>⚡ Storm Just Hit? Call Us Now.</h2>
+  <p>The sooner we document your damage, the stronger your insurance claim. Don't wait — call us today.</p>
+  <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278 — Call Now</a>
+</div>
+
+<!-- DAMAGE SIGNS SECTION -->
+<section class="section-light">
+  <div class="inner">
+    <span class="section-eyebrow text-center">★ Know the Signs</span>
+    <h2 class="section-heading text-center">Common Storm <span class="red">Damage</span></h2>
+    <div class="section-divider mx-auto"></div>
+    <div class="damage-signs">
+      <div class="sign-card">
+        <h3>🪨 Hail Damage</h3>
+        <p>Round dents or "bruises" on shingles, dented gutters, chipped paint on wood. Often invisible from ground — we climb up and look.</p>
+      </div>
+      <div class="sign-card">
+        <h3>💨 Wind Damage</h3>
+        <p>Missing, lifted, or creased shingles. Broken flashing, exposed nail heads, or shingles blown off in sections.</p>
+      </div>
+      <div class="sign-card">
+        <h3>💧 Water Intrusion</h3>
+        <p>Ceiling stains, wet insulation, mold in the attic. Water finds every crack — usually after the storm is long over.</p>
+      </div>
+      <div class="sign-card">
+        <h3>🌲 Debris Impact</h3>
+        <p>Fallen branches or trees cause structural damage to the roof deck, flashing, and ridge. Often covered by homeowners insurance.</p>
+      </div>
+      <div class="sign-card">
+        <h3>🌀 Granule Loss</h3>
+        <p>Hail strips the protective granules off shingles. Check your gutters after a storm — granule buildup is a major warning sign.</p>
+      </div>
+      <div class="sign-card">
+        <h3>🏚️ Flashing Failure</h3>
+        <p>Metal flashing around chimneys, vents, and valleys gets bent and separated by high winds, creating direct water pathways.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <p style="color:#666;margin-bottom:20px;font-size:15px;">Not sure if you have damage? We'll tell you honestly — even if the answer is "your roof is fine."</p>
+      <a href="/contact/" class="btn-primary">★ Schedule Free Inspection</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE PROCESS -->
+<section class="section-dark">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow" style="color:rgba(255,255,255,0.5)">★ Insurance Claims</span>
+        <h2 class="section-heading light">We Handle the <span class="red">Hard Part</span></h2>
+        <div class="section-divider"></div>
+        <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.8;margin-bottom:28px;">Navigating a homeowners insurance claim can be overwhelming. Most homeowners don't know what they're entitled to — and insurance adjusters won't always volunteer the information. We do this every day. We know what's covered, what to document, and how to present your claim to maximize your settlement.</p>
+        <a href="/contact/" class="btn-primary">Get Your Free Inspection</a>
+      </div>
+      <div>
+        <span class="section-eyebrow" style="color:rgba(255,255,255,0.4)">★ Step By Step</span>
+        <h2 class="section-heading light" style="font-size:24px;margin-bottom:8px;">Our Insurance <span class="red">Process</span></h2>
+        <div class="section-divider"></div>
+        <div class="insurance-steps">
+          <div class="ins-step">
+            <div class="ins-num">1</div>
+            <div><h3>Free Inspection</h3><p>We climb on your roof and inspect every square foot. Photos, measurements, and a full written report — at zero cost to you.</p></div>
+          </div>
+          <div class="ins-step">
+            <div class="ins-num">2</div>
+            <div><h3>File Your Claim</h3><p>We help you understand what to tell your insurance company and what documentation to submit with your claim.</p></div>
+          </div>
+          <div class="ins-step">
+            <div class="ins-num">3</div>
+            <div><h3>Adjuster Meeting</h3><p>We meet your insurance adjuster on-site and present our findings. We advocate for you every step of the way.</p></div>
+          </div>
+          <div class="ins-step">
+            <div class="ins-num">4</div>
+            <div><h3>Settlement &amp; Build</h3><p>Once your claim is approved, we schedule your repair or replacement — fast, clean, and backed by our workmanship warranty.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE VRL FOR STORM -->
+<section class="section-white">
+  <div class="inner">
+    <span class="section-eyebrow">★ Why Choose Us</span>
+    <h2 class="section-heading">Veteran Discipline.<br><span class="red">Maximum Results.</span></h2>
+    <div class="section-divider"></div>
+    <div class="why-item">
+      <div class="why-icon">🔍</div>
+      <div><h3>We Find Everything</h3><p>We've inspected hundreds of Louisville roofs. We know exactly where storm damage hides — and we document it all before filing your claim.</p></div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">📋</div>
+      <div><h3>We Know the Insurance Game</h3><p>We understand insurance policies, adjuster tactics, and claim procedures. We make sure you get the full replacement cost you're owed — not a lowball offer.</p></div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🛡</div>
+      <div><h3>No Upfront Cost</h3><p>In most cases, your insurance deductible is the only out-of-pocket expense. We don't charge you for the inspection or claim assistance.</p></div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">⚡</div>
+      <div><h3>Fast Response</h3><p>We mobilize quickly after storms. Early documentation means a stronger claim. Don't let weeks pass before having your roof inspected.</p></div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">★</div>
+      <div><h3>Veteran Integrity</h3><p>We will never tell you that you have damage if you don't. Our reputation — and our honor — depend on telling it straight.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BADGES -->
+<section class="badges">
+  <div class="badge-item"><span>🎖️</span><strong>Veteran Owned</strong><p>Serving those who served</p></div>
+  <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
+  <div class="badge-item"><span>🏠</span><strong>Owens Corning</strong><p>Preferred Installer</p></div>
+  <div class="badge-item"><span>⭐</span><strong>5-Star Rated</strong><p>Google &amp; Facebook</p></div>
+  <div class="badge-item"><span>📋</span><strong>Licensed &amp; Insured</strong><p>Kentucky Certified</p></div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="stars-row">⚡ ★ ⚡ ★ ⚡</div>
+  <h2>Storm Damage?<br><span class="red">Call Today.</span></h2>
+  <p>Free inspection. No obligation. We document everything and fight for your full settlement.</p>
+  <div class="cta-buttons">
+    <a href="tel:5029190278" class="btn-primary">📞 (502) 919-0278</a>
+    <a href="/contact/" class="btn-outline">Request Inspection →</a>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <h3>Storm damage is urgent. <span>Don't wait.</span></h3>
+  <div class="contact-links">
+    <a href="tel:5029190278">📞 (502) 919-0278</a>
+    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="/contact/" class="btn-primary">Emergency Inspection →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+})();
+</script>

@@ -1,0 +1,258 @@
+---
+layout: default
+title: Gallery
+permalink: /gallery/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  /* Filter tabs */
+  .filter-bar { display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:36px; }
+  .filter-btn {
+    font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;
+    padding:10px 20px;min-height:44px;border:2px solid #ddd;background:white;
+    color:#555;border-radius:3px;cursor:pointer;transition:all 0.2s;
+  }
+  .filter-btn:hover,.filter-btn.active { background:#B22222;border-color:#B22222;color:white; }
+
+  /* Gallery grid */
+  .gallery-grid { display:grid;grid-template-columns:1fr;gap:16px; }
+  @media(min-width:480px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(min-width:768px){ .gallery-grid{grid-template-columns:repeat(3,1fr);} }
+  @media(min-width:1100px){ .gallery-grid{grid-template-columns:repeat(4,1fr);} }
+
+  .gallery-item { position:relative;overflow:hidden;border-radius:4px;aspect-ratio:4/3; cursor:pointer;background:#1a1a2e; }
+  .gallery-item img { width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s; }
+  .gallery-item:hover img { transform:scale(1.05); }
+  .gallery-overlay {
+    position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(10,10,30,0.88) 0%,transparent 55%);
+    opacity:0;transition:opacity 0.3s;
+    display:flex;align-items:flex-end;padding:16px;
+  }
+  .gallery-item:hover .gallery-overlay { opacity:1; }
+  .gallery-overlay span { font-family:'Oswald',sans-serif;font-size:13px;color:white;letter-spacing:1.5px;text-transform:uppercase; }
+
+  /* Placeholder cards for future photos */
+  .gallery-placeholder {
+    width:100%;height:100%;min-height:200px;
+    background:linear-gradient(135deg,#0f0f23 0%,#1a1a4e 50%,#3C3B6E 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:8px;color:rgba(255,255,255,0.25);
+    font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    text-align:center;padding:16px;
+  }
+  .gallery-placeholder span { font-size:40px; }
+
+  /* Lightbox */
+  .lightbox { display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:2000;align-items:center;justify-content:center;padding:24px; }
+  .lightbox.open { display:flex; }
+  .lightbox img { max-width:100%;max-height:90vh;object-fit:contain;border-radius:4px; }
+  .lightbox-close {
+    position:absolute;top:16px;right:16px;
+    background:rgba(178,34,34,0.9);color:white;border:none;
+    width:44px;height:44px;border-radius:50%;font-size:22px;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+  }
+  .lightbox-close:hover { background:#8B0000; }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Louisville's Veteran Roofers</div>
+  <h1>Our <span class="red">Work</span></h1>
+  <p class="hero-sub">Every project completed with military precision and veteran pride. Browse our gallery of completed roof replacements, storm restorations, and exterior projects across the Louisville area.</p>
+</section>
+
+<!-- GALLERY SECTION -->
+<section class="section-white">
+  <div class="inner-wide">
+    <span class="section-eyebrow text-center">★ Project Portfolio</span>
+    <h2 class="section-heading text-center">Recent <span class="red">Completions</span></h2>
+    <div class="section-divider mx-auto"></div>
+
+    <!-- Filter tabs -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="roofing">Roofing</button>
+      <button class="filter-btn" data-filter="storm">Storm Damage</button>
+      <button class="filter-btn" data-filter="siding">Siding</button>
+      <button class="filter-btn" data-filter="gutters">Gutters</button>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="gallery-grid" id="gallery-grid">
+
+      <!-- Real images we have -->
+      <div class="gallery-item" data-cat="roofing" onclick="openLightbox('/assets/images/Logo_Dean.jpeg','Roof Replacement — Louisville, KY')">
+        <img src="/assets/images/Logo_Dean.jpeg" alt="Roof Replacement — Louisville, KY">
+        <div class="gallery-overlay"><span>Roof Replacement</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="roofing" onclick="openLightbox('/assets/images/flyer.jpeg','Veterans Restoration Project')">
+        <img src="/assets/images/flyer.jpeg" alt="Veterans Restoration Project">
+        <div class="gallery-overlay"><span>Complete Restoration</span></div>
+      </div>
+
+      <!-- Placeholder slots for future photos -->
+      <div class="gallery-item" data-cat="storm">
+        <div class="gallery-placeholder"><span>⛈️</span>Storm Restoration<br>Photo Coming Soon</div>
+        <div class="gallery-overlay"><span>Storm Damage Repair</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="roofing">
+        <div class="gallery-placeholder"><span>🏠</span>Roof Replacement<br>Photo Coming Soon</div>
+        <div class="gallery-overlay"><span>Roof Replacement</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="siding">
+        <div class="gallery-placeholder"><span>🏗️</span>Siding Install<br>Photo Coming Soon</div>
+        <div class="gallery-overlay"><span>Siding Installation</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="gutters">
+        <div class="gallery-placeholder"><span>🌧️</span>Gutter Install<br>Photo Coming Soon</div>
+        <div class="gallery-overlay"><span>Seamless Gutters</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="storm">
+        <div class="gallery-placeholder"><span>⚡</span>Hail Damage<br>Photo Coming Soon</div>
+        <div class="gallery-overlay"><span>Hail Damage Repair</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="roofing">
+        <div class="gallery-placeholder"><span>🏆</span>Owens Corning<br>Duration® Install</div>
+        <div class="gallery-overlay"><span>Duration® Shingles</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="roofing">
+        <div class="gallery-placeholder"><span>🛡️</span>Insurance Claim<br>Full Replacement</div>
+        <div class="gallery-overlay"><span>Insurance Replacement</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="siding">
+        <div class="gallery-placeholder"><span>🎨</span>Vinyl Siding<br>Photo Coming Soon</div>
+        <div class="gallery-overlay"><span>Siding Replacement</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="gutters">
+        <div class="gallery-placeholder"><span>🔧</span>Gutter Guards<br>Photo Coming Soon</div>
+        <div class="gallery-overlay"><span>Gutter Guard Install</span></div>
+      </div>
+
+      <div class="gallery-item" data-cat="storm">
+        <div class="gallery-placeholder"><span>🌪️</span>Wind Damage<br>Photo Coming Soon</div>
+        <div class="gallery-overlay"><span>Wind Damage Repair</span></div>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;margin-top:32px;color:#888;font-size:14px;">We're adding new project photos regularly. Follow us on social media for the latest work.</p>
+    <div style="text-align:center;margin-top:16px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="#" class="btn-dark" style="font-size:14px;padding:12px 24px;">
+        <i class="fab fa-facebook-f" style="margin-right:8px;"></i>Facebook
+      </a>
+      <a href="#" class="btn-dark" style="font-size:14px;padding:12px 24px;">
+        <i class="fab fa-instagram" style="margin-right:8px;"></i>Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img src="" alt="" id="lightbox-img">
+</div>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="stars-row">★ ★ ★ ★ ★</div>
+  <h2>Want Results Like <span class="red">These?</span></h2>
+  <p>Schedule your free inspection today and let our veteran crew put their craftsmanship to work on your home.</p>
+  <div class="cta-buttons">
+    <a href="/contact/" class="btn-primary">★ Get Free Estimate</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <h3>Ready to be our next <span>success story?</span></h3>
+  <div class="contact-links">
+    <a href="tel:5029190278">📞 (502) 919-0278</a>
+    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="/contact/" class="btn-primary">Free Inspection →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+})();
+
+// Gallery filter
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+    this.classList.add('active');
+    var f=this.dataset.filter;
+    document.querySelectorAll('.gallery-item').forEach(function(item){
+      item.style.display=(f==='all'||item.dataset.cat===f)?'':'none';
+    });
+  });
+});
+
+// Lightbox
+function openLightbox(src,alt){
+  document.getElementById('lightbox-img').src=src;
+  document.getElementById('lightbox-img').alt=alt;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
+</script>

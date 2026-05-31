@@ -1,0 +1,223 @@
+---
+layout: default
+title: Employee Portal
+permalink: /employee-portal/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  body { background:#0f0f23; }
+
+  .portal-wrapper {
+    min-height:100vh;
+    display:flex;flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:100px 24px 60px;
+    background:linear-gradient(to bottom,#0f0f23 0%,#1a1a4e 50%,#0f0f23 100%);
+  }
+
+  .portal-logo { height:80px;margin:0 auto 32px;display:block;opacity:0.9; }
+
+  .portal-card {
+    background:white;border-radius:6px;
+    border-top:6px solid #B22222;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    padding:40px 32px;
+    width:100%;max-width:440px;
+  }
+  .portal-card h1 {
+    font-family:'Oswald',sans-serif;font-size:26px;color:#0f0f23;
+    text-transform:uppercase;letter-spacing:2px;
+    margin-bottom:6px;text-align:center;
+  }
+  .portal-card .portal-sub { color:#888;font-size:14px;text-align:center;margin-bottom:28px;line-height:1.5; }
+  .portal-card .form-group { margin-bottom:18px; }
+  .portal-card .form-group label { display:block;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#0f0f23;margin-bottom:8px;font-weight:600; }
+  .portal-card .form-group input {
+    width:100%;padding:14px 16px;border:2px solid #e0e0e0;border-radius:3px;
+    font-family:'Open Sans',sans-serif;font-size:15px;color:#222;
+    transition:border-color 0.2s;min-height:44px;
+  }
+  .portal-card .form-group input:focus { outline:none;border-color:#B22222; }
+  .portal-login-btn { width:100%;font-size:17px;padding:18px;letter-spacing:2.5px;margin-top:8px; }
+  .portal-forgot { text-align:center;margin-top:16px; }
+  .portal-forgot a { color:#888;font-size:13px;text-decoration:none;transition:color 0.2s; }
+  .portal-forgot a:hover { color:#B22222; }
+  .portal-divider { border:none;border-top:1px solid #eee;margin:24px 0; }
+  .portal-notice { background:#f8f4f4;border-left:4px solid #B22222;padding:14px 16px;border-radius:0 3px 3px 0;font-size:13px;color:#555;line-height:1.6; }
+
+  .portal-footer { margin-top:32px;text-align:center; }
+  .portal-footer p { color:rgba(255,255,255,0.3);font-size:12px;line-height:1.8; }
+  .portal-footer a { color:rgba(178,34,34,0.7);text-decoration:none;transition:color 0.2s; }
+  .portal-footer a:hover { color:#B22222; }
+
+  /* Logged-in dashboard (hidden by default) */
+  .portal-dashboard { display:none; }
+  .portal-dashboard.active { display:block; }
+  .portal-dashboard .dash-header { display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:32px; }
+  .portal-dashboard .dash-header h2 { font-family:'Oswald',sans-serif;font-size:20px;color:#0f0f23;text-transform:uppercase;letter-spacing:1px; }
+
+  .dash-grid { display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:24px; }
+  @media(min-width:500px){ .dash-grid{grid-template-columns:repeat(2,1fr);} }
+
+  .dash-tile {
+    background:#f4f4f4;border-radius:4px;border-top:3px solid #B22222;
+    padding:20px;text-decoration:none;display:block;transition:transform 0.2s;
+    text-align:center;
+  }
+  .dash-tile:hover { transform:translateY(-3px); }
+  .dash-tile span { display:block;font-size:32px;margin-bottom:10px; }
+  .dash-tile h3 { font-family:'Oswald',sans-serif;font-size:15px;color:#0f0f23;text-transform:uppercase;letter-spacing:1px; }
+
+  .portal-wide { max-width:700px;width:100%; }
+</style>
+
+<!-- Minimal NAV for portal -->
+<nav id="site-nav" style="z-index:1000;">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PORTAL WRAPPER -->
+<div class="portal-wrapper">
+
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="portal-logo">
+
+  <!-- Login Card -->
+  <div class="portal-card" id="login-card">
+    <h1>Employee Portal</h1>
+    <p class="portal-sub">Veterans Restoration of Louisville<br>Team Access Only</p>
+
+    <form id="login-form" novalidate>
+      <div class="form-group">
+        <label for="portal-email">Email Address</label>
+        <input type="email" id="portal-email" name="email" placeholder="name@roofwithveterans.com" autocomplete="email" required>
+      </div>
+      <div class="form-group">
+        <label for="portal-pass">Password</label>
+        <input type="password" id="portal-pass" name="password" placeholder="••••••••" autocomplete="current-password" required>
+      </div>
+      <div id="login-error" style="display:none;background:#fff0f0;border:1px solid #B22222;color:#B22222;border-radius:3px;padding:10px 14px;font-size:13px;margin-bottom:14px;">
+        Invalid email or password. Please try again.
+      </div>
+      <button type="submit" class="btn-primary portal-login-btn">Sign In →</button>
+      <div class="portal-forgot">
+        <a href="mailto:info@roofwithveterans.com?subject=Portal%20Password%20Reset">Forgot password? Contact your manager.</a>
+      </div>
+    </form>
+
+    <hr class="portal-divider">
+    <div class="portal-notice">
+      🔒 This portal is for authorized Veterans Restoration employees only. Unauthorized access is prohibited.
+    </div>
+  </div>
+
+  <!-- Dashboard (shown after "login") -->
+  <div class="portal-card portal-wide portal-dashboard" id="portal-dashboard">
+    <div class="dash-header">
+      <div>
+        <h2>Welcome back! 👋</h2>
+        <p style="color:#888;font-size:13px;">Veterans Restoration Employee Portal</p>
+      </div>
+      <button onclick="doLogout()" style="background:none;border:none;color:#B22222;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;min-height:44px;">Sign Out</button>
+    </div>
+
+    <div class="dash-grid">
+      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
+        <span>📋</span>
+        <h3>Job Schedule</h3>
+      </a>
+      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
+        <span>📸</span>
+        <h3>Submit Photos</h3>
+      </a>
+      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
+        <span>📄</span>
+        <h3>Documents &amp; Forms</h3>
+      </a>
+      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
+        <span>⏱️</span>
+        <h3>Time Tracking</h3>
+      </a>
+      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
+        <span>🛡️</span>
+        <h3>Safety Resources</h3>
+      </a>
+      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
+        <span>📞</span>
+        <h3>Team Directory</h3>
+      </a>
+    </div>
+
+    <div style="background:#f8f8f8;border-radius:4px;padding:20px;border-left:4px solid #3C3B6E;">
+      <p style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#0f0f23;margin-bottom:8px;">📢 Announcements</p>
+      <p style="font-size:14px;color:#555;line-height:1.7;">Welcome to the team portal. Full dashboard functionality coming soon. For immediate needs, contact management at <a href="tel:5029190278" style="color:#B22222;">(502) 919-0278</a> or <a href="mailto:info@roofwithveterans.com" style="color:#B22222;">info@roofwithveterans.com</a>.</p>
+    </div>
+  </div>
+
+  <!-- Portal Footer -->
+  <div class="portal-footer">
+    <p>
+      <a href="/">Veterans Restoration of Louisville</a> · Employee Portal<br>
+      Questions? <a href="mailto:info@roofwithveterans.com">info@roofwithveterans.com</a> · <a href="tel:5029190278">(502) 919-0278</a>
+    </p>
+  </div>
+
+</div>
+
+<script>
+// Nav toggle
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+})();
+
+// Portal login — demo only (no real auth)
+// To add real auth: connect to your backend, Firebase, or similar
+var DEMO_EMAIL = 'employee@roofwithveterans.com';
+var DEMO_PASS  = 'VRL2026!';
+
+var form      = document.getElementById('login-form');
+var loginCard = document.getElementById('login-card');
+var dashboard = document.getElementById('portal-dashboard');
+var errMsg    = document.getElementById('login-error');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  var email = document.getElementById('portal-email').value.trim();
+  var pass  = document.getElementById('portal-pass').value;
+
+  // Check session storage first
+  if(email === DEMO_EMAIL && pass === DEMO_PASS){
+    errMsg.style.display = 'none';
+    sessionStorage.setItem('vrl_portal', '1');
+    showDashboard();
+  } else {
+    errMsg.style.display = 'block';
+  }
+});
+
+function showDashboard(){
+  loginCard.style.display  = 'none';
+  dashboard.classList.add('active');
+}
+function doLogout(){
+  sessionStorage.removeItem('vrl_portal');
+  loginCard.style.display  = '';
+  dashboard.classList.remove('active');
+}
+
+// Auto-show dashboard if already "logged in"
+if(sessionStorage.getItem('vrl_portal')){
+  showDashboard();
+}
+</script>

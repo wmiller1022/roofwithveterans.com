@@ -1,0 +1,219 @@
+---
+layout: default
+title: Services
+permalink: /services/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  /* Services page–specific styles */
+  .service-icon { font-size: 40px; margin-bottom: 14px; }
+  .service-card { background: white; border-radius: 4px; border-top: 4px solid #B22222; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+  .service-card-body { padding: 28px 24px; }
+  .service-card h3 { font-family: 'Oswald', sans-serif; font-size: 22px; color: #0f0f23; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .service-card p { color: #555; font-size: 15px; line-height: 1.7; margin-bottom: 20px; }
+  .services-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 48px; }
+  @media (min-width: 600px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 960px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .process-section { background: #0f0f23; padding: 64px 24px; border-top: 4px solid #B22222; border-bottom: 4px solid #B22222; }
+  .process-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 48px; }
+  @media (min-width: 600px) { .process-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .process-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 768px) { .process-section { padding: 80px 40px; } }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Complete Exterior Restoration</div>
+  <h1>Our <span class="red">Services</span></h1>
+  <p class="hero-sub">From storm damage response to full roof replacement — we bring military precision and veteran integrity to every project in Louisville and surrounding areas.</p>
+  <div class="hero-buttons">
+    <a href="/contact/" class="btn-primary">★ Schedule Free Inspection</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- SERVICES GRID -->
+<section class="section-light">
+  <div class="inner">
+    <span class="section-eyebrow text-center">★ What We Do</span>
+    <h2 class="section-heading text-center">Complete Exterior <span class="red">Services</span></h2>
+    <div class="section-divider mx-auto"></div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-card-body">
+          <div class="service-icon">🏠</div>
+          <h3>Roof Replacement</h3>
+          <p>Full roof replacement using premium Owens Corning shingles backed by manufacturer warranties. From inspection to final cleanup — done right the first time.</p>
+          <a href="/roof-replacement/" class="card-link">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-body">
+          <div class="service-icon">⛈️</div>
+          <h3>Storm Damage &amp; Insurance</h3>
+          <p>Louisville storms cause more damage than most homeowners realize. We provide free inspections, professional documentation, and work directly with your insurance adjuster.</p>
+          <a href="/storm-damage/" class="card-link">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-body">
+          <div class="service-icon">🏗️</div>
+          <h3>Siding</h3>
+          <p>Protect and beautify your home with new siding installation or replacement. We work with vinyl, fiber cement, and composite materials for lasting curb appeal.</p>
+          <a href="/contact/" class="card-link">Get a Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-body">
+          <div class="service-icon">🪟</div>
+          <h3>Windows</h3>
+          <p>Energy-efficient window replacement that reduces drafts, lowers utility bills, and improves your home's appearance. Professional installation guaranteed.</p>
+          <a href="/contact/" class="card-link">Get a Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-body">
+          <div class="service-icon">🌧️</div>
+          <h3>Gutters</h3>
+          <p>Properly installed gutters protect your foundation, siding, and landscaping. We install seamless gutters and gutter guards to keep water moving away from your home.</p>
+          <a href="/contact/" class="card-link">Get a Quote →</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-body">
+          <div class="service-icon">🔍</div>
+          <h3>Free Roof Inspections</h3>
+          <p>Not sure if you have damage? Our certified inspectors document every issue and give you an honest assessment — no pressure, no obligation, no cost.</p>
+          <a href="/contact/" class="card-link">Book Inspection →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section class="process-section">
+  <div class="inner text-center">
+    <span class="section-eyebrow" style="color:rgba(255,255,255,0.55)">★ Our Process</span>
+    <h2 class="section-heading light">How It <span class="red">Works</span></h2>
+    <div class="section-divider mx-auto"></div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h3>Free Inspection</h3>
+        <p>We inspect your roof and exterior at no charge. No pressure — just honest answers from people who've served.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h3>Honest Estimate</h3>
+        <p>Transparent, itemized quote. We walk you through what's covered by insurance and what to expect.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h3>Expert Installation</h3>
+        <p>Our veteran crew completes the job with military precision — on time, on budget, and cleaned up completely.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h3>Final Walkthrough</h3>
+        <p>We inspect every detail with you before we leave. Your satisfaction is the mission objective.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BADGES -->
+<section class="badges">
+  <div class="badge-item"><span>🎖️</span><strong>Veteran Owned</strong><p>Serving those who served</p></div>
+  <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
+  <div class="badge-item"><span>🏠</span><strong>Owens Corning</strong><p>Preferred Installer</p></div>
+  <div class="badge-item"><span>⭐</span><strong>5-Star Rated</strong><p>Google &amp; Facebook</p></div>
+  <div class="badge-item"><span>📋</span><strong>Licensed &amp; Insured</strong><p>Kentucky Certified</p></div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="stars-row">★ ★ ★ ★ ★</div>
+  <h2>Ready for Your <span class="red">Free</span><br>Inspection?</h2>
+  <p>No pressure. No obligation. Just honest answers from people who served.</p>
+  <div class="cta-buttons">
+    <a href="https://calendly.com" class="btn-primary" target="_blank" rel="noopener">★ Book Online</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <h3>Questions? <span>We're here to help.</span></h3>
+  <div class="contact-links">
+    <a href="tel:5029190278">📞 (502) 919-0278</a>
+    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="/contact/" class="btn-primary">Free Inspection →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){
+    var o=m.classList.toggle('open');
+    t.classList.toggle('open',o);
+    t.setAttribute('aria-expanded',String(o));
+  });
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('#site-nav')){
+      m.classList.remove('open');
+      t.classList.remove('open');
+      t.setAttribute('aria-expanded','false');
+    }
+  });
+})();
+</script>

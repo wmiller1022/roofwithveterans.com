@@ -1,0 +1,296 @@
+---
+layout: default
+title: Contact Us
+permalink: /contact/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  .contact-layout { display:grid;grid-template-columns:1fr;gap:48px;align-items:start; }
+  @media(min-width:860px){ .contact-layout{grid-template-columns:1.3fr 1fr;} }
+
+  /* Contact form */
+  .contact-form-wrapper { background:white;border-radius:4px;border-top:4px solid #B22222;box-shadow:0 8px 40px rgba(0,0,0,0.1);padding:36px 28px; }
+  .contact-form-wrapper h2 { font-family:'Oswald',sans-serif;font-size:26px;color:#0f0f23;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px; }
+  .form-row { display:grid;grid-template-columns:1fr;gap:16px; }
+  @media(min-width:480px){ .form-row{grid-template-columns:1fr 1fr;} }
+  .form-group { margin-bottom:16px; }
+  .form-group label { display:block;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#0f0f23;margin-bottom:8px;font-weight:600; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width:100%;padding:14px 16px;border:2px solid #e0e0e0;border-radius:3px;
+    font-family:'Open Sans',sans-serif;font-size:15px;color:#222;background:white;
+    transition:border-color 0.2s;min-height:44px;
+  }
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus { outline:none;border-color:#B22222; }
+  .form-group textarea { min-height:120px;resize:vertical; }
+  .form-note { font-size:12px;color:#999;margin-top:4px; }
+  .submit-btn { width:100%;font-size:17px;padding:18px;letter-spacing:2.5px; }
+
+  /* Form success state */
+  .form-success { display:none;text-align:center;padding:32px 0; }
+  .form-success .check { font-size:56px;margin-bottom:16px; }
+  .form-success h3 { font-family:'Oswald',sans-serif;font-size:24px;color:#0f0f23;text-transform:uppercase;margin-bottom:8px; }
+  .form-success p { color:#555;font-size:15px;line-height:1.7; }
+
+  /* Contact info sidebar */
+  .contact-info-box {
+    background:#0f0f23;border-radius:4px;border-top:4px solid #B22222;
+    padding:36px 28px;color:white;
+  }
+  .contact-info-box h3 { font-family:'Oswald',sans-serif;font-size:22px;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px; }
+  .contact-info-item { display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.08); }
+  .contact-info-item:last-child { border-bottom:none; }
+  .ci-icon { font-size:24px;flex-shrink:0;margin-top:2px; }
+  .ci-label { font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px;display:block; }
+  .ci-value { font-size:16px;color:white; }
+  .ci-value a { color:white;text-decoration:none;transition:color 0.2s; }
+  .ci-value a:hover { color:#B22222; }
+
+  .hours-grid { display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin-top:8px; }
+  .hours-grid dt { font-size:13px;color:rgba(255,255,255,0.55); }
+  .hours-grid dd { font-size:13px;color:rgba(255,255,255,0.85);text-align:right; }
+
+  .service-area-list { list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:8px; }
+  .service-area-list li { background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);padding:4px 10px;border-radius:2px;font-size:12px;color:rgba(255,255,255,0.7); }
+
+  /* Map placeholder */
+  .map-placeholder {
+    background:linear-gradient(135deg,#0f0f23,#3C3B6E);
+    border-radius:4px;overflow:hidden;
+    min-height:220px;display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:8px;color:rgba(255,255,255,0.3);
+    font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:2px;text-transform:uppercase;
+    margin-top:24px;
+  }
+  .map-placeholder span { font-size:40px; }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Free Inspection · No Pressure</div>
+  <h1>Contact <span class="red">Us</span></h1>
+  <p class="hero-sub">Schedule your free inspection, ask a question, or get a quote. Our veteran team responds fast and treats every homeowner with the respect they deserve.</p>
+  <div class="hero-buttons">
+    <a href="tel:5029190278" class="btn-primary">📞 Call Now: (502) 919-0278</a>
+    <a href="https://calendly.com" class="btn-outline" target="_blank" rel="noopener">★ Book Online</a>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section-light">
+  <div class="inner">
+    <div class="contact-layout">
+
+      <!-- Contact Form -->
+      <div>
+        <div class="contact-form-wrapper">
+          <h2>Request Your Free Inspection</h2>
+          <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name *</label>
+                <input type="text" id="first-name" name="first_name" placeholder="John" required autocomplete="given-name">
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name *</label>
+                <input type="text" id="last-name" name="last_name" placeholder="Smith" required autocomplete="family-name">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone *</label>
+                <input type="tel" id="phone" name="phone" placeholder="(502) 555-0100" required autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="john@email.com" autocomplete="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address">Property Address *</label>
+              <input type="text" id="address" name="address" placeholder="123 Main St, Louisville, KY 40201" required autocomplete="street-address">
+            </div>
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option value="">Select a service...</option>
+                <option value="free-inspection">Free Roof Inspection</option>
+                <option value="storm-damage">Storm Damage Assessment</option>
+                <option value="roof-replacement">Roof Replacement Quote</option>
+                <option value="siding">Siding</option>
+                <option value="windows">Windows</option>
+                <option value="gutters">Gutters</option>
+                <option value="insurance">Insurance Claim Assistance</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell Us More</label>
+              <textarea id="message" name="message" placeholder="Describe your situation — storm damage, age of roof, specific concerns, or any questions you have. The more detail, the better."></textarea>
+            </div>
+            <div class="form-group">
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;text-transform:none;letter-spacing:0;">
+                <input type="checkbox" name="is_veteran" value="yes" style="width:20px;height:20px;min-height:auto;accent-color:#B22222;">
+                I am a veteran or active duty military member
+              </label>
+              <p class="form-note">Veterans and active duty receive special pricing.</p>
+            </div>
+            <button type="submit" class="btn-primary submit-btn">★ Submit — Get My Free Inspection</button>
+            <p class="form-note" style="margin-top:12px;text-align:center;">We respond within 1 business hour. No spam, no pressure.</p>
+          </form>
+
+          <div class="form-success" id="form-success">
+            <div class="check">✅</div>
+            <h3>Request Received!</h3>
+            <p>Thank you — we'll reach out within 1 business hour to confirm your free inspection. In the meantime, feel free to call us directly at <a href="tel:5029190278" style="color:#B22222;">(502) 919-0278</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Info Sidebar -->
+      <div>
+        <div class="contact-info-box">
+          <h3>Get In Touch</h3>
+          <div class="contact-info-item">
+            <div class="ci-icon">📞</div>
+            <div>
+              <span class="ci-label">Phone</span>
+              <p class="ci-value"><a href="tel:5029190278">(502) 919-0278</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon">✉️</div>
+            <div>
+              <span class="ci-label">Email</span>
+              <p class="ci-value"><a href="mailto:info@roofwithveterans.com">info@roofwithveterans.com</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon">🌐</div>
+            <div>
+              <span class="ci-label">Website</span>
+              <p class="ci-value"><a href="https://roofwithveterans.com">roofwithveterans.com</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon">⏰</div>
+            <div>
+              <span class="ci-label">Hours</span>
+              <dl class="hours-grid">
+                <dt>Mon – Fri</dt><dd>7 AM – 7 PM</dd>
+                <dt>Saturday</dt><dd>8 AM – 5 PM</dd>
+                <dt>Sunday</dt><dd>By Appointment</dd>
+                <dt>Storm Emergency</dt><dd>24/7</dd>
+              </dl>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon">📍</div>
+            <div>
+              <span class="ci-label">Service Area</span>
+              <ul class="service-area-list">
+                <li>Louisville</li>
+                <li>Jeffersontown</li>
+                <li>Prospect</li>
+                <li>Shelbyville</li>
+                <li>La Grange</li>
+                <li>Shepherdsville</li>
+                <li>Elizabethtown</li>
+                <li>New Albany, IN</li>
+                <li>Jeffersonville, IN</li>
+              </ul>
+              <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:8px;">Within ~1 hour of Louisville, KY</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map placeholder — replace with Google Maps embed -->
+        <div class="map-placeholder">
+          <span>📍</span>
+          Serving Louisville &amp; Surrounding Areas
+        </div>
+
+        <!-- Social -->
+        <div style="background:white;border-radius:4px;border-top:4px solid #3C3B6E;box-shadow:0 4px 16px rgba(0,0,0,0.06);padding:24px;margin-top:24px;text-align:center;">
+          <p style="font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#0f0f23;margin-bottom:16px;">Follow Our Work</p>
+          <div style="display:flex;gap:12px;justify-content:center;">
+            <a href="#" style="background:#3b5998;color:white;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:white;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="background:#EA4335;color:white;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;"><i class="fab fa-google"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BADGES -->
+<section class="badges">
+  <div class="badge-item"><span>🎖️</span><strong>Veteran Owned</strong><p>Serving those who served</p></div>
+  <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
+  <div class="badge-item"><span>🏠</span><strong>Owens Corning</strong><p>Preferred Installer</p></div>
+  <div class="badge-item"><span>⭐</span><strong>5-Star Rated</strong><p>Google &amp; Facebook</p></div>
+  <div class="badge-item"><span>📋</span><strong>Licensed &amp; Insured</strong><p>Kentucky Certified</p></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+})();
+
+// Form handling — Formspree or replace with your backend
+var form=document.getElementById('contact-form');
+if(form){
+  form.addEventListener('submit',function(e){
+    // If you have a real Formspree ID, remove the e.preventDefault() below
+    // and update the action URL. For now, show success UI only.
+    e.preventDefault();
+    form.style.display='none';
+    document.getElementById('form-success').style.display='block';
+    window.scrollTo({top:form.parentElement.offsetTop,behavior:'smooth'});
+  });
+}
+</script>

@@ -1,0 +1,217 @@
+---
+layout: default
+title: Our Values
+permalink: /values/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  .values-grid { display:grid;grid-template-columns:1fr;gap:24px;margin-top:40px; }
+  @media(min-width:600px){ .values-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(min-width:900px){ .values-grid{grid-template-columns:repeat(3,1fr);} }
+
+  .value-card {
+    background:white;border-radius:4px;padding:32px 24px;
+    border-top:4px solid #B22222;
+    box-shadow:0 4px 20px rgba(0,0,0,0.07);
+    text-align:center;
+    transition:transform 0.2s;
+  }
+  .value-card:hover { transform:translateY(-3px); }
+  .value-card .vi { font-size:44px;margin-bottom:16px;display:block; }
+  .value-card h3 { font-family:'Oswald',sans-serif;font-size:20px;color:#0f0f23;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px; }
+  .value-card p { color:#555;font-size:14px;line-height:1.7; }
+
+  .mission-section {
+    background:linear-gradient(135deg,#0f0f23 0%,#1a1a4e 50%,#0f0f23 100%);
+    padding:64px 24px;text-align:center;
+    border-top:4px solid #B22222;border-bottom:4px solid #B22222;
+  }
+  .mission-section h2 { font-family:'Oswald',sans-serif;font-size:36px;color:white;text-transform:uppercase;line-height:1.15;margin-bottom:20px; }
+  .mission-section h2 .red { color:#B22222; }
+  .mission-section p { color:rgba(255,255,255,0.82);font-size:16px;line-height:1.9;max-width:700px;margin:0 auto 28px; }
+  @media(min-width:768px){ .mission-section{padding:80px 80px;} .mission-section h2{font-size:52px;} }
+
+  .pledge-band {
+    background:#3C3B6E;padding:48px 24px;
+    border-bottom:4px solid #B22222;
+  }
+  .pledge-band h2 { font-family:'Oswald',sans-serif;font-size:28px;color:white;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px;text-align:center; }
+  .pledge-band p { color:rgba(255,255,255,0.8);font-size:15px;line-height:1.9;max-width:700px;margin:0 auto;text-align:center; }
+  @media(min-width:768px){ .pledge-band{padding:60px 80px;} .pledge-band h2{font-size:36px;} }
+
+  .two-col { display:grid;grid-template-columns:1fr;gap:48px;align-items:center; }
+  @media(min-width:860px){ .two-col{grid-template-columns:1fr 1fr;} }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Veteran Owned &amp; Operated</div>
+  <h1>Our <span class="red">Values</span></h1>
+  <p class="hero-sub">We're not just a roofing company. We're veterans who brought military discipline, integrity, and mission focus to the trades. These values aren't marketing — they're how we live and work.</p>
+</section>
+
+<!-- MISSION STATEMENT -->
+<section class="mission-section">
+  <div class="stars-row" style="color:#B22222;font-size:20px;letter-spacing:8px;margin-bottom:20px;">★ ★ ★ ★ ★</div>
+  <h2>Our Mission: <span class="red">Serve.</span><br>Restore. Protect.</h2>
+  <p>Veterans Restoration of Louisville was founded on a simple belief: that the values forged in military service — discipline, integrity, loyalty, and excellence — make for better business. We don't cut corners. We don't oversell. We show up, do the work, and stand behind it. Every time. For every homeowner. No exceptions.</p>
+  <a href="/meet-the-team/" class="btn-primary">Meet Our Team →</a>
+</section>
+
+<!-- CORE VALUES GRID -->
+<section class="section-light">
+  <div class="inner">
+    <span class="section-eyebrow text-center">★ What Drives Us</span>
+    <h2 class="section-heading text-center">Core <span class="red">Values</span></h2>
+    <div class="section-divider mx-auto"></div>
+    <div class="values-grid">
+      <div class="value-card">
+        <span class="vi">🎖️</span>
+        <h3>Integrity</h3>
+        <p>We tell the truth — always. If your roof doesn't need replacing, we'll tell you. Our word means something. It always has.</p>
+      </div>
+      <div class="value-card">
+        <span class="vi">⚙️</span>
+        <h3>Discipline</h3>
+        <p>Military precision in every project. On time. On budget. Every detail checked and rechecked before we call a job done.</p>
+      </div>
+      <div class="value-card">
+        <span class="vi">🤝</span>
+        <h3>Service</h3>
+        <p>We served our country. Now we serve our community. Protecting Louisville homes is the mission — and we take it seriously.</p>
+      </div>
+      <div class="value-card">
+        <span class="vi">🏆</span>
+        <h3>Excellence</h3>
+        <p>Good enough isn't. We use premium materials, trained installers, and thorough inspections to deliver roofs that last decades.</p>
+      </div>
+      <div class="value-card">
+        <span class="vi">🛡️</span>
+        <h3>Loyalty</h3>
+        <p>To our customers, our crew, and our community. We build long-term relationships — not one-time transactions.</p>
+      </div>
+      <div class="value-card">
+        <span class="vi">💡</span>
+        <h3>Transparency</h3>
+        <p>No hidden fees. No surprise charges. You know exactly what you're getting, what it costs, and why — before we start.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VETERAN COMMITMENT -->
+<section class="section-white">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow">★ Who We Are</span>
+        <h2 class="section-heading">Veterans Building<br>A Better <span class="red">Louisville</span></h2>
+        <div class="section-divider"></div>
+        <div class="why-item">
+          <div class="why-icon">🎖️</div>
+          <div><h3>Founded by Veterans</h3><p>Our leadership team served in the United States military. We understand service, sacrifice, and the value of doing a job right.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🏠</div>
+          <div><h3>Local Investment</h3><p>We live here. We're invested in Louisville's neighborhoods and homeowners — not a national franchise answering to distant shareholders.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">👥</div>
+          <div><h3>Hiring Heroes</h3><p>We actively recruit veterans into our workforce. Building a team of service-minded professionals who share our standards and values.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">❤️</div>
+          <div><h3>Community First</h3><p>We participate in local veteran support organizations and give back to the Louisville community that supports us every day.</p></div>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <img src="/assets/images/flyer.jpeg" alt="Veterans Restoration" style="border-radius:4px;box-shadow:0 12px 40px rgba(0,0,0,0.15);border-left:4px solid #B22222;max-width:100%;">
+        <p style="color:#888;font-size:13px;margin-top:12px;">Veteran-owned and operated since day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLEDGE -->
+<div class="pledge-band">
+  <h2>Our Promise To You</h2>
+  <p>"We will treat your home like we would our own. We will be honest about what needs to be done and what doesn't. We will show up on time, work hard, clean up completely, and not leave until you're satisfied. That's not a sales pitch — it's a veteran's word."</p>
+  <p style="margin-top:16px;color:rgba(255,255,255,0.5);font-size:13px;font-style:italic;">— Veterans Restoration of Louisville Leadership</p>
+</div>
+
+<!-- BADGES -->
+<section class="badges">
+  <div class="badge-item"><span>🎖️</span><strong>Veteran Owned</strong><p>Serving those who served</p></div>
+  <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
+  <div class="badge-item"><span>🏠</span><strong>Owens Corning</strong><p>Preferred Installer</p></div>
+  <div class="badge-item"><span>⭐</span><strong>5-Star Rated</strong><p>Google &amp; Facebook</p></div>
+  <div class="badge-item"><span>📋</span><strong>Licensed &amp; Insured</strong><p>Kentucky Certified</p></div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="stars-row">★ ★ ★ ★ ★</div>
+  <h2>Experience the <span class="red">Veteran</span><br>Difference</h2>
+  <p>Schedule a free inspection and see firsthand what veteran integrity looks like on the job.</p>
+  <div class="cta-buttons">
+    <a href="/contact/" class="btn-primary">★ Schedule Free Inspection</a>
+    <a href="/meet-the-team/" class="btn-outline">Meet Our Team →</a>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <h3>Ready to work with veterans? <span>Let's talk.</span></h3>
+  <div class="contact-links">
+    <a href="tel:5029190278">📞 (502) 919-0278</a>
+    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="/contact/" class="btn-primary">Get In Touch →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+})();
+</script>
