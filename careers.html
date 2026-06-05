@@ -1,0 +1,593 @@
+---
+layout: default
+title: Careers
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Open Sans', sans-serif; color: #222; overflow-x: hidden; }
+
+  .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  .px-3 { padding: 0 !important; }
+  .my-5 { margin: 0 !important; }
+  .markdown-body { max-width: 100% !important; padding: 0 !important; }
+  h1.project-name, body > h1:first-of-type, .project-name { display: none !important; }
+
+  /* ============================================================
+     NAV
+  ============================================================ */
+  nav {
+    background: rgba(15, 15, 35, 0.97);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 999;
+    border-bottom: 3px solid #B22222;
+    height: 75px;
+  }
+  nav img.logo { height: 65px; padding: 4px 0; mix-blend-mode: screen; }
+  nav ul { list-style: none; display: flex; gap: 20px; align-items: center; }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  nav ul li a:hover { color: #B22222; border-bottom: 2px solid #B22222; }
+  .nav-cta {
+    background: #B22222 !important;
+    color: white !important;
+    padding: 10px 18px !important;
+    border-radius: 3px;
+    border-bottom: none !important;
+  }
+  .nav-cta:hover { background: #8B0000 !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .hamburger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 75px;
+    left: 0; right: 0;
+    background: #0a0a20;
+    border-bottom: 3px solid #B22222;
+    z-index: 998;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .mobile-menu.open { display: block; max-height: 480px; }
+  .mobile-menu ul { list-style: none; }
+  .mobile-menu ul li a {
+    display: block;
+    color: rgba(255,255,255,0.85);
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: all 0.2s;
+  }
+  .mobile-menu ul li a:hover { background: #B22222; color: white; padding-left: 32px; }
+  .mobile-menu-phone {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    color: #ffcc00;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    background: rgba(178,34,34,0.15);
+    text-decoration: none;
+  }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  .careers-hero {
+    background: linear-gradient(to bottom, rgba(10,10,30,0.88) 0%, rgba(178,34,34,0.75) 100%),
+                url('/assets/images/Logo_Dean.jpeg') center / cover no-repeat;
+    padding: 140px 80px 80px;
+    color: white;
+  }
+  .careers-hero-inner { max-width: 800px; }
+  .hero-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #ffcc00;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero-eyebrow::before,
+  .hero-eyebrow::after { content: '★ '; }
+  .careers-hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 68px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 12px;
+    text-shadow: 2px 4px 12px rgba(0,0,0,0.8);
+  }
+  .careers-hero h1 span { color: #B22222; }
+  .careers-hero h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.85);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    text-shadow: 1px 2px 8px rgba(0,0,0,0.6);
+  }
+  .hero-divider { width: 70px; height: 4px; background: #B22222; margin-bottom: 28px; }
+
+  .why-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    max-width: 760px;
+  }
+  .why-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.6;
+  }
+  .why-list li::before {
+    content: '★';
+    color: #ffcc00;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ============================================================
+     SECTION SHARED
+  ============================================================ */
+  .section-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #B22222;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+    color: #0f0f23;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .section-divider { width: 50px; height: 4px; background: #B22222; margin-bottom: 36px; }
+
+  /* ============================================================
+     OPEN POSITIONS
+  ============================================================ */
+  .positions-section {
+    background: #f4f4f4;
+    padding: 72px 80px;
+  }
+  .positions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+  }
+  .job-card {
+    background: white;
+    border-radius: 4px;
+    border-top: 4px solid #B22222;
+    padding: 32px 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .job-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+  .job-badge {
+    display: inline-block;
+    background: #fff3cd;
+    color: #856404;
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+    border: 1px solid #ffc107;
+  }
+  .job-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    color: #0f0f23;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .job-card p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .job-type {
+    display: inline-block;
+    background: #0f0f23;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+
+  /* ============================================================
+     HOW TO APPLY
+  ============================================================ */
+  .apply-section {
+    background: white;
+    padding: 72px 80px;
+  }
+  .apply-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1000px;
+    align-items: start;
+  }
+  .apply-section p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .contact-block { display: flex; flex-direction: column; gap: 16px; }
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+    background: #f9f9f9;
+    border-left: 3px solid #B22222;
+    border-radius: 2px;
+  }
+  .contact-item-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .contact-item-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #B22222;
+    margin-bottom: 3px;
+  }
+  .contact-item-value {
+    font-size: 15px;
+    color: #0f0f23;
+    font-weight: 600;
+  }
+  .contact-item-value a { color: #0f0f23; text-decoration: none; }
+  .contact-item-value a:hover { color: #B22222; }
+
+  .apply-right { }
+  .apply-right h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #B22222;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  /* ============================================================
+     NEW HIRE CTA
+  ============================================================ */
+  .newhire-section {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a4e 50%, #0f0f23 100%);
+    padding: 80px 40px;
+    text-align: center;
+    border-top: 4px solid #B22222;
+  }
+  .newhire-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .newhire-section h2 span { color: #B22222; }
+  .newhire-section p {
+    color: rgba(255,255,255,0.75);
+    font-size: 16px;
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.75;
+  }
+  .stars-row { color: #B22222; font-size: 20px; letter-spacing: 8px; margin-bottom: 24px; }
+  .btn-primary {
+    display: inline-block;
+    background: #B22222;
+    color: white;
+    padding: 18px 44px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: 2px solid #B22222;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: #8B0000; border-color: #8B0000; transform: translateY(-2px); }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  footer {
+    background: #080818;
+    color: rgba(255,255,255,0.5);
+    padding: 32px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+  }
+  footer img { height: 50px; opacity: 0.85; mix-blend-mode: screen; }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #B22222; }
+
+  /* ============================================================
+     MOBILE
+  ============================================================ */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    nav ul { display: none; }
+    .hamburger { display: flex; }
+    .careers-hero { padding: 110px 28px 60px; }
+    .careers-hero h1 { font-size: 48px; }
+    .careers-hero h2 { font-size: 18px; }
+    .why-list { grid-template-columns: 1fr; }
+    .positions-section { padding: 52px 28px; }
+    .apply-section { padding: 52px 28px; }
+    .apply-grid { grid-template-columns: 1fr; gap: 36px; }
+    footer { flex-direction: column; padding: 28px 24px; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    nav { height: 64px; }
+    nav img.logo { height: 52px; }
+    .mobile-menu { top: 64px; }
+    .careers-hero { padding: 90px 16px 48px; }
+    .careers-hero h1 { font-size: 36px; }
+    .careers-hero h2 { font-size: 15px; letter-spacing: 1px; }
+    .why-list li { font-size: 14px; }
+    .positions-section { padding: 40px 16px; }
+    .positions-grid { grid-template-columns: 1fr; }
+    .apply-section { padding: 40px 16px; }
+    .newhire-section { padding: 56px 16px; }
+    .newhire-section h2 { font-size: 28px; }
+    .btn-primary { width: 100%; padding: 16px 20px; font-size: 15px; }
+    footer { padding: 24px 16px; }
+    .footer-links a { margin: 4px 6px; font-size: 12px; }
+  }
+</style>
+
+<!-- NAV -->
+<nav>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/storm-damage">Storm Damage</a></li>
+    <li><a href="/meet-the-team">Meet the Team</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/contact" class="nav-cta">Free Inspection</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/storm-damage">Storm Damage</a></li>
+    <li><a href="/meet-the-team">Meet the Team</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/contact">★ Free Inspection</a></li>
+  </ul>
+  <a href="tel:5029190278" class="mobile-menu-phone">📞 (502) 919-0278 — Call or Text</a>
+</div>
+
+<!-- HERO / WHY WORK WITH US -->
+<section class="careers-hero">
+  <div class="careers-hero-inner">
+    <div class="hero-eyebrow">Careers</div>
+    <h1>Join The <span>Mission.</span></h1>
+    <h2>Build Something That Matters With People Who Have Your Back</h2>
+    <div class="hero-divider"></div>
+    <ul class="why-list">
+      <li>Veteran-owned and operated — we run this company the way we ran our units: with discipline, respect, and accountability</li>
+      <li>We are fighters for our customers and our team — if you work hard and do right by people, we will go to bat for you</li>
+      <li>Over a decade of high-level industry experience — you will learn from people who have done this at the highest level</li>
+      <li>Real earning potential — our sales and canvassing roles are commission-based with no ceiling on what you can make</li>
+      <li>We are growing fast and building something real in Louisville — get in early and grow with us</li>
+      <li>We live by our SERVICE values: Selfless Service, Education, Responsibility, Veterans Advocacy, Initiative, Commitment, Excellence</li>
+    </ul>
+  </div>
+</section>
+
+<!-- OPEN POSITIONS -->
+<section class="positions-section">
+  <div class="section-eyebrow">★ Now Hiring</div>
+  <div class="section-title">Current Openings</div>
+  <div class="section-divider"></div>
+  <div class="positions-grid">
+
+    <div class="job-card">
+      <div class="job-badge">★ Stay Tuned — More Details Coming Soon</div>
+      <h3>1099 Commission Sales Representative</h3>
+      <p>Drive new business through canvassing, referrals, and your personal network. Unlimited earning potential — the harder you work, the more you make.</p>
+      <span class="job-type">1099 · Commission</span>
+    </div>
+
+    <div class="job-card">
+      <div class="job-badge">★ Stay Tuned — More Details Coming Soon</div>
+      <h3>Canvasser / Lead Generator</h3>
+      <p>Be the boots on the ground for our storm damage and roofing campaigns. Flexible hours, daily pay opportunities, and a path to move into sales.</p>
+      <span class="job-type">Flexible · Entry Level</span>
+    </div>
+
+    <div class="job-card">
+      <div class="job-badge">★ Stay Tuned — More Details Coming Soon</div>
+      <h3>Project Manager</h3>
+      <p>Oversee production from signed contract to completed job. Keep crews on schedule, customers informed, and quality on point.</p>
+      <span class="job-type">Full Time · Experienced</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW TO APPLY -->
+<section class="apply-section">
+  <div class="apply-grid">
+    <div>
+      <div class="section-eyebrow">★ How To Apply</div>
+      <div class="section-title">Ready To Apply?</div>
+      <div class="section-divider"></div>
+      <p>Send your resume and tell us a little about yourself. We respond fast and we respect your time.</p>
+      <div class="contact-block">
+        <div class="contact-item">
+          <div class="contact-item-icon">📧</div>
+          <div>
+            <div class="contact-item-label">Email Wes</div>
+            <div class="contact-item-value"><a href="mailto:wes@roofwithveterans.com">wes@roofwithveterans.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <div class="contact-item-label">Call or Text Wes</div>
+            <div class="contact-item-value"><a href="tel:5029190278">(502) 919-0278</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📧</div>
+          <div>
+            <div class="contact-item-label">Email Bradley</div>
+            <div class="contact-item-value"><a href="mailto:blogsdon@roofwithveterans.com">blogsdon@roofwithveterans.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <div class="contact-item-label">Call or Text Bradley</div>
+            <div class="contact-item-value"><a href="tel:5024501404">(502) 450-1404</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="apply-right">
+      <div class="section-eyebrow">★ Positions Available</div>
+      <div class="section-title" style="font-size:28px;">More Roles<br>Coming Soon</div>
+      <div class="section-divider"></div>
+      <p>We are growing quickly and adding new positions regularly. Even if you don't see your exact role listed, reach out — we want to hear from driven people who share our values.</p>
+      <p style="margin-top:0;">The right person makes their own position here.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ALREADY INTERVIEWED / NEW HIRE FORM -->
+<section class="newhire-section">
+  <div class="stars-row">★ ★ ★ ★ ★</div>
+  <h2>Already Interviewed? <span>Ready to Accept?</span></h2>
+  <p>Fill out the form below and we will be in touch within 24 hours to get everything finalized and get you started.</p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEEBe5uwtDAGQF-EmdAdOEJBvbciIRPNVf008mD6MPqcxeyA/viewform?usp=header"
+     target="_blank" class="btn-primary">★ Complete Your New Hire Form</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville">
+  <div class="footer-links">
+    <a href="/services">Services</a>
+    <a href="/storm-damage">Storm Damage</a>
+    <a href="/meet-the-team">Meet the Team</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', function () {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
