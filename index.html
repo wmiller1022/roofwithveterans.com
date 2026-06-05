@@ -9,7 +9,6 @@ title: Home
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Open Sans', sans-serif; color: #222; overflow-x: hidden; }
 
-  /* Jekyll layout overrides */
   .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
   .px-3 { padding: 0 !important; }
   .my-5 { margin: 0 !important; }
@@ -31,17 +30,14 @@ title: Home
     border-bottom: 3px solid #B22222;
     height: 75px;
   }
-  nav img.logo {
-    height: 65px;
-    padding: 4px 0;
-    /* Hide the white box background from LOGO.jpeg */
-    }
+  nav img.logo { height: 65px; padding: 4px 0; }
   nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
     align-items: center;
   }
+  nav ul li { position: relative; }
   nav ul li a {
     color: white;
     text-decoration: none;
@@ -55,6 +51,8 @@ title: Home
     transition: all 0.2s;
   }
   nav ul li a:hover { color: #B22222; border-bottom: 2px solid #B22222; }
+
+  /* Red CTA */
   .nav-cta {
     background: #B22222 !important;
     color: white !important;
@@ -62,9 +60,80 @@ title: Home
     border-radius: 3px;
     border-bottom: none !important;
   }
-  .nav-cta:hover { background: #8B0000 !important; color: white !important; }
+  .nav-cta:hover { background: #8B0000 !important; color: white !important; border-bottom: none !important; }
 
-  /* --- Hamburger button --- */
+  /* Navy Portal button */
+  .nav-portal {
+    background: #1a3a6b !important;
+    color: white !important;
+    padding: 10px 16px !important;
+    border-radius: 3px;
+    border-bottom: none !important;
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-portal:hover { background: #122d55 !important; color: white !important; border-bottom: none !important; }
+
+  /* "More" dropdown */
+  .nav-more-btn {
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .nav-more-btn:hover { color: #B22222; }
+  .nav-more-btn .caret {
+    font-size: 10px;
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  .nav-more-btn.active .caret { transform: rotate(180deg); }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    background: #0f0f23;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-top: 3px solid #B22222;
+    border-radius: 0 0 4px 4px;
+    min-width: 180px;
+    z-index: 1000;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  }
+  .dropdown-menu.open { display: block; }
+  .dropdown-menu a {
+    display: block;
+    color: rgba(255,255,255,0.85) !important;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 13px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    text-decoration: none;
+    transition: all 0.15s;
+    border-bottom-width: 1px !important;
+  }
+  .dropdown-menu a:last-child { border-bottom: none !important; }
+  .dropdown-menu a:hover { background: #B22222; color: white !important; padding-left: 26px; border-bottom-color: rgba(255,255,255,0.07) !important; }
+
+  /* Hamburger */
   .hamburger {
     display: none;
     flex-direction: column;
@@ -78,8 +147,7 @@ title: Home
   }
   .hamburger span {
     display: block;
-    width: 26px;
-    height: 2px;
+    width: 26px; height: 2px;
     background: white;
     border-radius: 2px;
     transition: all 0.3s ease;
@@ -88,12 +156,11 @@ title: Home
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* --- Mobile slide-down menu --- */
+  /* Mobile slide-down menu */
   .mobile-menu {
     display: none;
     position: fixed;
-    top: 75px;
-    left: 0; right: 0;
+    top: 75px; left: 0; right: 0;
     background: #0a0a20;
     border-bottom: 3px solid #B22222;
     z-index: 998;
@@ -101,10 +168,7 @@ title: Home
     max-height: 0;
     transition: max-height 0.35s ease;
   }
-  .mobile-menu.open {
-    display: block;
-    max-height: 480px;
-  }
+  .mobile-menu.open { display: block; max-height: 560px; }
   .mobile-menu ul { list-style: none; }
   .mobile-menu ul li a {
     display: block;
@@ -121,6 +185,11 @@ title: Home
   }
   .mobile-menu ul li a:hover,
   .mobile-menu ul li a:active { background: #B22222; color: white; padding-left: 32px; }
+  .mobile-menu ul li a.mobile-portal-link {
+    background: rgba(26,58,107,0.4);
+    color: #7ab3f5;
+  }
+  .mobile-menu ul li a.mobile-portal-link:hover { background: #1a3a6b; color: white; }
   .mobile-menu-phone {
     display: block;
     text-align: center;
@@ -165,77 +234,52 @@ title: Home
     text-transform: uppercase;
     margin-bottom: 20px;
   }
-  .hero-eyebrow::before,
-  .hero-eyebrow::after { content: '★'; color: #B22222; }
+  .hero-eyebrow::before, .hero-eyebrow::after { content: '★'; color: #B22222; }
   .hero h1 {
     font-family: 'Oswald', sans-serif;
-    font-size: 72px;
-    font-weight: 700;
-    color: white;
-    text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 12px;
+    font-size: 72px; font-weight: 700;
+    color: white; text-transform: uppercase;
+    line-height: 1; margin-bottom: 12px;
     text-shadow: 2px 4px 12px rgba(0,0,0,0.8);
   }
   .hero h1 .red { color: #B22222; }
   .hero h2 {
     font-family: 'Oswald', sans-serif;
-    font-size: 36px;
-    font-weight: 400;
+    font-size: 36px; font-weight: 400;
     color: rgba(255,255,255,0.9);
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    text-transform: uppercase; letter-spacing: 3px;
     margin-bottom: 24px;
     text-shadow: 1px 2px 8px rgba(0,0,0,0.8);
   }
-  .hero-divider {
-    width: 80px; height: 4px;
-    background: #B22222;
-    margin-bottom: 24px;
-  }
+  .hero-divider { width: 80px; height: 4px; background: #B22222; margin-bottom: 24px; }
   .hero p {
     color: rgba(255,255,255,0.85);
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 36px;
-    max-width: 560px;
+    font-size: 17px; line-height: 1.8;
+    margin-bottom: 36px; max-width: 560px;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   }
   .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 
-  /* Shared button styles */
   .btn-primary {
-    background: #B22222;
-    color: white;
+    background: #B22222; color: white;
     padding: 16px 36px;
     font-family: 'Oswald', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-radius: 3px;
-    transition: all 0.2s;
-    border: 2px solid #B22222;
-    display: inline-block;
-    text-align: center;
+    font-size: 16px; font-weight: 600;
+    text-decoration: none; letter-spacing: 2px;
+    text-transform: uppercase; border-radius: 3px;
+    transition: all 0.2s; border: 2px solid #B22222;
+    display: inline-block; text-align: center;
   }
   .btn-primary:hover { background: #8B0000; border-color: #8B0000; color: white; }
   .btn-outline {
-    background: transparent;
-    color: white;
+    background: transparent; color: white;
     padding: 16px 36px;
     font-family: 'Oswald', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-radius: 3px;
-    border: 2px solid white;
-    transition: all 0.2s;
-    display: inline-block;
-    text-align: center;
+    font-size: 16px; font-weight: 600;
+    text-decoration: none; letter-spacing: 2px;
+    text-transform: uppercase; border-radius: 3px;
+    border: 2px solid white; transition: all 0.2s;
+    display: inline-block; text-align: center;
   }
   .btn-outline:hover { background: white; color: #1a1a2e; }
 
@@ -245,19 +289,14 @@ title: Home
   .services-strip {
     background: #B22222;
     padding: 20px 40px;
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    flex-wrap: wrap;
+    display: flex; justify-content: center;
+    gap: 0; flex-wrap: wrap;
   }
   .service-item {
-    color: white;
-    text-align: center;
+    color: white; text-align: center;
     font-family: 'Oswald', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-weight: 600; font-size: 14px;
+    letter-spacing: 2px; text-transform: uppercase;
     padding: 8px 36px;
     border-right: 1px solid rgba(255,255,255,0.3);
   }
@@ -275,12 +314,77 @@ title: Home
   }
   .tagline-band h2 {
     font-family: 'Oswald', sans-serif;
-    font-size: 32px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+    font-size: 32px; color: white;
+    text-transform: uppercase; letter-spacing: 4px;
   }
   .tagline-band h2 span { color: #B22222; }
+
+  /* ============================================================
+     EMPLOYEE PORTAL CALLOUT — NEW
+  ============================================================ */
+  .portal-callout {
+    background: linear-gradient(135deg, #0a1628 0%, #1a3a6b 50%, #0a1628 100%);
+    border-top: 4px solid #1a3a6b;
+    border-bottom: 4px solid #1a3a6b;
+    padding: 48px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .portal-callout-icon {
+    font-size: 72px;
+    flex-shrink: 0;
+    opacity: 0.9;
+  }
+  .portal-callout-text { flex: 1; }
+  .portal-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #7ab3f5;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .portal-callout-text h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 38px; font-weight: 700;
+    color: white; text-transform: uppercase;
+    line-height: 1.1; margin-bottom: 10px;
+  }
+  .portal-callout-text h2 span { color: #7ab3f5; }
+  .portal-callout-text p {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px; line-height: 1.7;
+    max-width: 480px;
+  }
+  .portal-callout-action {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .btn-portal {
+    background: #1a3a6b; color: white;
+    padding: 18px 36px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px; font-weight: 700;
+    text-decoration: none; letter-spacing: 2px;
+    text-transform: uppercase; border-radius: 3px;
+    transition: all 0.2s;
+    border: 2px solid #4a7fc1;
+    display: inline-block; text-align: center;
+    white-space: nowrap;
+  }
+  .btn-portal:hover { background: #122d55; border-color: #7ab3f5; color: white; }
+  .portal-note {
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+  }
 
   /* ============================================================
      WHY US
@@ -288,32 +392,21 @@ title: Home
   .why-us {
     background: #f4f4f4;
     padding: 70px 80px;
-    display: flex;
-    gap: 60px;
-    align-items: stretch;
+    display: flex; gap: 60px; align-items: stretch;
   }
-
-  /* Stats panel replaces flyer image */
   .why-us-stats {
     flex: 1;
     background: linear-gradient(160deg, #0f0f23 0%, #1a1a4e 100%);
-    border-radius: 4px;
-    padding: 48px 36px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
+    border-radius: 4px; padding: 48px 36px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; position: relative;
     border: 3px solid #B22222;
   }
   .why-us-stats::before {
-    content: '★ ★ ★';
-    color: #B22222;
-    font-size: 20px;
-    letter-spacing: 10px;
-    margin-bottom: 24px;
-    display: block;
+    content: '★ ★ ★'; color: #B22222;
+    font-size: 20px; letter-spacing: 10px;
+    margin-bottom: 24px; display: block;
   }
   .stats-big { font-family: 'Oswald', sans-serif; font-size: 80px; font-weight: 700; color: #C8A84B; line-height: 1; }
   .stats-big-label { font-family: 'Oswald', sans-serif; color: rgba(255,255,255,0.7); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 36px; }
@@ -321,55 +414,14 @@ title: Home
   .stats-row { display: flex; justify-content: space-around; width: 100%; gap: 12px; }
   .stat-mini .num { font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 700; color: #C8A84B; line-height: 1; }
   .stat-mini .lbl { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
-
   .why-us-content { flex: 1.2; }
-  .section-eyebrow {
-    font-family: 'Oswald', sans-serif;
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: #B22222;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .why-us-content h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 40px;
-    color: #0f0f23;
-    text-transform: uppercase;
-    line-height: 1.1;
-    margin-bottom: 8px;
-  }
+  .section-eyebrow { font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 3px; color: #B22222; text-transform: uppercase; margin-bottom: 12px; }
+  .why-us-content h2 { font-family: 'Oswald', sans-serif; font-size: 40px; color: #0f0f23; text-transform: uppercase; line-height: 1.1; margin-bottom: 8px; }
   .section-divider { width: 60px; height: 4px; background: #B22222; margin-bottom: 28px; }
-  .why-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 22px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid #ddd;
-  }
+  .why-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid #ddd; }
   .why-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .why-icon {
-    background: #B22222;
-    color: white;
-    width: 42px; height: 42px;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-  }
-  .why-item h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 18px;
-    color: #0f0f23;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
+  .why-icon { background: #B22222; color: white; width: 42px; height: 42px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; font-family: 'Oswald', sans-serif; font-weight: 700; }
+  .why-item h3 { font-family: 'Oswald', sans-serif; font-size: 18px; color: #0f0f23; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
   .why-item p { color: #555; font-size: 14px; line-height: 1.6; }
 
   /* ============================================================
@@ -377,42 +429,19 @@ title: Home
   ============================================================ */
   .cta-banner {
     background: linear-gradient(to right, #0f0f23 0%, #1a1a4e 40%, #0f0f23 100%);
-    display: flex;
-    align-items: center;
+    display: flex; align-items: center;
     justify-content: space-between;
     padding: 0 80px;
     border-top: 4px solid #B22222;
     border-bottom: 4px solid #B22222;
-    overflow: hidden;
-    min-height: 420px;
+    overflow: hidden; min-height: 420px;
   }
-  .cta-banner img {
-    height: 400px;
-    object-fit: contain;
-    object-position: bottom;
-  }
+  .cta-banner img { height: 400px; object-fit: contain; object-position: bottom; }
   .cta-text { text-align: center; flex: 1; padding: 40px; }
-  .cta-text h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 52px;
-    color: white;
-    text-transform: uppercase;
-    line-height: 1.05;
-    margin-bottom: 16px;
-  }
+  .cta-text h2 { font-family: 'Oswald', sans-serif; font-size: 52px; color: white; text-transform: uppercase; line-height: 1.05; margin-bottom: 16px; }
   .cta-text h2 .red { color: #B22222; }
-  .cta-text p {
-    color: rgba(255,255,255,0.8);
-    font-size: 16px;
-    margin-bottom: 28px;
-    line-height: 1.7;
-  }
-  .stars-row {
-    color: #B22222;
-    font-size: 20px;
-    letter-spacing: 8px;
-    margin-bottom: 20px;
-  }
+  .cta-text p { color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 28px; line-height: 1.7; }
+  .stars-row { color: #B22222; font-size: 20px; letter-spacing: 8px; margin-bottom: 20px; }
 
   /* ============================================================
      BADGES
@@ -420,27 +449,13 @@ title: Home
   .badges {
     background: #3C3B6E;
     padding: 44px 40px;
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    flex-wrap: wrap;
+    display: flex; justify-content: center;
+    gap: 0; flex-wrap: wrap;
   }
-  .badge-item {
-    color: white;
-    text-align: center;
-    padding: 16px 40px;
-    border-right: 1px solid rgba(255,255,255,0.2);
-  }
+  .badge-item { color: white; text-align: center; padding: 16px 40px; border-right: 1px solid rgba(255,255,255,0.2); }
   .badge-item:last-child { border-right: none; }
   .badge-item span { display: block; font-size: 36px; margin-bottom: 8px; }
-  .badge-item strong {
-    display: block;
-    font-family: 'Oswald', sans-serif;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
+  .badge-item strong { display: block; font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
   .badge-item p { font-size: 12px; color: rgba(255,255,255,0.6); }
 
   /* ============================================================
@@ -449,45 +464,106 @@ title: Home
   .storm-section {
     background: linear-gradient(to bottom, rgba(10,10,30,0.88) 0%, rgba(178,34,34,0.75) 100%),
                 url('/assets/images/Logo_Dean.jpeg') center / cover no-repeat;
-    padding: 80px;
-    display: flex;
-    gap: 60px;
-    align-items: center;
+    padding: 80px; display: flex; gap: 60px; align-items: center;
   }
   .storm-content { flex: 1; }
-  .storm-content h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 46px;
-    color: white;
-    text-transform: uppercase;
-    line-height: 1.1;
-    margin-bottom: 8px;
-  }
+  .storm-content h2 { font-family: 'Oswald', sans-serif; font-size: 46px; color: white; text-transform: uppercase; line-height: 1.1; margin-bottom: 8px; }
   .storm-content h2 span { color: #ffcc00; }
   .storm-divider { width: 60px; height: 4px; background: white; margin-bottom: 24px; }
-  .storm-content p {
-    color: rgba(255,255,255,0.9);
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 28px;
-  }
+  .storm-content p { color: rgba(255,255,255,0.9); font-size: 16px; line-height: 1.8; margin-bottom: 28px; }
   .storm-items { flex: 1; display: flex; flex-direction: column; gap: 16px; }
-  .storm-item {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-left: 4px solid #B22222;
-    padding: 20px 24px;
-    border-radius: 3px;
-  }
-  .storm-item h3 {
-    font-family: 'Oswald', sans-serif;
-    color: white;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-  }
+  .storm-item { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-left: 4px solid #B22222; padding: 20px 24px; border-radius: 3px; }
+  .storm-item h3 { font-family: 'Oswald', sans-serif; color: white; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
   .storm-item p { color: rgba(255,255,255,0.75); font-size: 14px; line-height: 1.6; }
+
+  /* ============================================================
+     CAREERS SECTION — NEW
+  ============================================================ */
+  .careers-section {
+    background: #f4f4f4;
+    padding: 70px 80px;
+    border-top: 4px solid #B22222;
+  }
+  .careers-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .careers-header-text .section-eyebrow { margin-bottom: 8px; }
+  .careers-header-text h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px; color: #0f0f23;
+    text-transform: uppercase; line-height: 1.1;
+  }
+  .careers-header-text h2 span { color: #B22222; }
+  .careers-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+  .career-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-top: 4px solid #B22222;
+    border-radius: 3px;
+    padding: 28px 24px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .career-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-3px); }
+  .career-badge {
+    display: inline-block;
+    background: #B22222;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+  .career-badge.hiring { background: #1a6b3a; }
+  .career-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px; color: #0f0f23;
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .career-card p { color: #555; font-size: 14px; line-height: 1.6; margin-bottom: 18px; }
+  .career-card-meta {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .career-tag {
+    font-size: 12px; color: #666;
+    background: #f0f0f0;
+    padding: 4px 10px; border-radius: 2px;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .btn-careers-apply {
+    display: inline-block;
+    background: transparent; color: #B22222;
+    border: 2px solid #B22222;
+    padding: 10px 22px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; border-radius: 3px;
+    transition: all 0.2s;
+  }
+  .btn-careers-apply:hover { background: #B22222; color: white; }
+  .careers-cta-row {
+    text-align: center;
+    padding-top: 8px;
+  }
+  .careers-cta-row p {
+    color: #666; font-size: 15px; margin-bottom: 16px;
+  }
 
   /* ============================================================
      CONTACT STRIP
@@ -495,28 +571,14 @@ title: Home
   .contact-strip {
     background: #0f0f23;
     padding: 36px 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 20px;
     border-top: 3px solid #B22222;
   }
-  .contact-strip h3 {
-    font-family: 'Oswald', sans-serif;
-    color: white;
-    font-size: 26px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
+  .contact-strip h3 { font-family: 'Oswald', sans-serif; color: white; font-size: 26px; text-transform: uppercase; letter-spacing: 2px; }
   .contact-strip h3 span { color: #B22222; }
   .contact-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
-  .contact-links a {
-    color: rgba(255,255,255,0.85);
-    text-decoration: none;
-    font-size: 15px;
-    transition: color 0.2s;
-  }
+  .contact-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 15px; transition: color 0.2s; }
   .contact-links a:hover { color: #B22222; }
 
   /* ============================================================
@@ -526,28 +588,14 @@ title: Home
     background: #080818;
     color: rgba(255,255,255,0.5);
     padding: 32px 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 16px;
     font-size: 13px;
   }
   footer img { height: 50px; opacity: 0.85; mix-blend-mode: screen; }
-  .footer-links a {
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.2s;
-  }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 10px; transition: color 0.2s; }
   .footer-links a:hover { color: #B22222; }
-  .footer-social a {
-    color: rgba(255,255,255,0.6);
-    font-size: 20px;
-    margin: 0 8px;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+  .footer-social a { color: rgba(255,255,255,0.6); font-size: 20px; margin: 0 8px; text-decoration: none; transition: color 0.2s; }
   .footer-social a:hover { color: #B22222; }
 
   /* ============================================================
@@ -563,11 +611,17 @@ title: Home
     .hero h2 { font-size: 26px; }
     .hero p { font-size: 15px; }
 
-    .services-strip { padding: 16px 20px; gap: 0; }
+    .services-strip { padding: 16px 20px; }
     .service-item { padding: 8px 18px; font-size: 12px; }
 
     .tagline-band { padding: 20px 24px; }
     .tagline-band h2 { font-size: 22px; letter-spacing: 2px; }
+
+    .portal-callout { flex-direction: column; padding: 40px 28px; text-align: center; gap: 24px; }
+    .portal-callout-icon { font-size: 56px; }
+    .portal-callout-text p { max-width: 100%; }
+    .portal-callout-action { width: 100%; }
+    .btn-portal { width: 100%; }
 
     .why-us { flex-direction: column; padding: 48px 28px; gap: 36px; }
     .why-us-stats { padding: 36px 24px; }
@@ -584,6 +638,10 @@ title: Home
     .storm-section { flex-direction: column; padding: 48px 28px; gap: 36px; }
     .storm-content h2 { font-size: 34px; }
 
+    .careers-section { padding: 48px 28px; }
+    .careers-cards { grid-template-columns: 1fr; }
+    .careers-header { flex-direction: column; align-items: flex-start; }
+
     .contact-strip { flex-direction: column; padding: 28px 24px; text-align: center; }
     .contact-links { justify-content: center; gap: 16px; }
     .contact-strip h3 { font-size: 20px; }
@@ -596,12 +654,10 @@ title: Home
      MOBILE — Phone (max 600px)
   ============================================================ */
   @media (max-width: 600px) {
-    /* Nav */
     nav { height: 64px; }
     nav img.logo { height: 52px; }
     .mobile-menu { top: 64px; }
 
-    /* Hero */
     .hero { padding: 84px 18px 48px; }
     .hero h1 { font-size: 40px; }
     .hero h2 { font-size: 20px; letter-spacing: 1px; }
@@ -610,47 +666,48 @@ title: Home
     .hero-buttons .btn-primary,
     .hero-buttons .btn-outline { width: 100%; padding: 14px 20px; font-size: 14px; }
 
-    /* Services strip — wrap to 2-col grid */
     .services-strip { display: grid; grid-template-columns: 1fr 1fr; padding: 12px; gap: 1px; background: rgba(255,255,255,0.2); }
     .service-item { border-right: none; border-bottom: none; background: #B22222; padding: 12px 8px; font-size: 11px; letter-spacing: 1px; }
 
-    /* Tagline */
     .tagline-band { padding: 18px 16px; }
     .tagline-band h2 { font-size: 16px; letter-spacing: 1px; }
 
-    /* Why us */
+    .portal-callout { padding: 32px 16px; }
+    .portal-callout-text h2 { font-size: 28px; }
+    .btn-portal { font-size: 14px; padding: 14px 20px; }
+
     .why-us { padding: 36px 16px; gap: 28px; }
     .why-us-content h2 { font-size: 28px; }
     .stats-big { font-size: 56px; }
     .stats-row { flex-direction: row; }
     .stat-mini .num { font-size: 24px; }
 
-    /* CTA Banner */
     .cta-banner { padding: 32px 16px; }
     .cta-banner img { height: 180px; }
     .cta-text h2 { font-size: 28px; }
     .cta-text p { font-size: 14px; }
     .cta-text .btn-primary { width: 100%; padding: 14px 16px; font-size: 14px; }
 
-    /* Badges — 2 col grid */
     .badges { display: grid; grid-template-columns: 1fr 1fr; padding: 20px 16px; gap: 1px; background: #2d2c5e; }
     .badge-item { border-right: none; background: #3C3B6E; padding: 16px 12px; }
     .badge-item span { font-size: 28px; }
     .badge-item strong { font-size: 12px; letter-spacing: 1px; }
 
-    /* Storm section */
     .storm-section { padding: 36px 16px; gap: 28px; }
     .storm-content h2 { font-size: 28px; }
     .storm-content p { font-size: 14px; }
     .storm-content .btn-primary { width: 100%; text-align: center; }
 
-    /* Contact strip */
+    .careers-section { padding: 36px 16px; }
+    .careers-header-text h2 { font-size: 30px; }
+    .career-card { padding: 20px 16px; }
+    .btn-careers-apply { width: 100%; text-align: center; }
+
     .contact-strip { padding: 24px 16px; }
     .contact-strip h3 { font-size: 17px; }
     .contact-links { flex-direction: column; gap: 12px; align-items: center; }
     .contact-links .btn-primary { width: 100%; }
 
-    /* Footer */
     footer { padding: 24px 16px; }
     .footer-links a { margin: 4px 6px; font-size: 12px; }
   }
@@ -658,14 +715,23 @@ title: Home
 
 <!-- NAV -->
 <nav>
-  <img src="/assets/images//assets/images/LOGO_transparent.png" alt="Veterans Restoration of Louisville" class="logo">
+  <img src="/assets/images/LOGO_transparent.png" alt="Veterans Restoration of Louisville" class="logo">
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="/services">Services</a></li>
     <li><a href="/storm-damage">Storm Damage</a></li>
-    <li><a href="/meet-the-team">Meet the Team</a></li>
-    <li><a href="/gallery">Gallery</a></li>
-    <li><a href="/blog">Blog</a></li>
+    <li><a href="/careers">Careers</a></li>
+    <li>
+      <button class="nav-more-btn" id="more-btn" aria-expanded="false" aria-haspopup="true">
+        More <span class="caret">▾</span>
+      </button>
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <a href="/meet-the-team">Meet the Team</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/blog">Blog</a>
+      </div>
+    </li>
+    <li><a href="/employee-portal" class="nav-portal">🔒 Employee Portal</a></li>
     <li><a href="/contact" class="nav-cta">Free Inspection</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -682,6 +748,8 @@ title: Home
     <li><a href="/meet-the-team">Meet the Team</a></li>
     <li><a href="/gallery">Gallery</a></li>
     <li><a href="/blog">Blog</a></li>
+    <li><a href="/careers">★ Careers — We're Hiring!</a></li>
+    <li><a href="/employee-portal" class="mobile-portal-link">🔒 Employee Portal</a></li>
     <li><a href="/contact">★ Free Inspection</a></li>
   </ul>
   <a href="tel:5029190278" class="mobile-menu-phone">📞 (502) 919-0278 — Call or Text</a>
@@ -702,7 +770,7 @@ title: Home
   </div>
 </section>
 
-<!-- SERVICES STRIP — Windows removed -->
+<!-- SERVICES STRIP -->
 <div class="services-strip">
   <div class="service-item"><span>🏠</span>Roofing</div>
   <div class="service-item"><span>🏗️</span>Siding</div>
@@ -715,7 +783,21 @@ title: Home
   <h2>When The Storm Hits — <span>We've Got Your Six.</span></h2>
 </div>
 
-<!-- WHY CHOOSE US — flyer image replaced with stats panel -->
+<!-- EMPLOYEE PORTAL CALLOUT -->
+<section class="portal-callout">
+  <div class="portal-callout-icon">🔒</div>
+  <div class="portal-callout-text">
+    <div class="portal-eyebrow">★ VRL Team Members</div>
+    <h2>Access Your <span>Employee Portal</span></h2>
+    <p>Pay stubs, schedules, new hire paperwork, and team resources — all in one place. VRL crew members only.</p>
+  </div>
+  <div class="portal-callout-action">
+    <a href="/employee-portal" class="btn-portal">🔒 Enter Employee Portal</a>
+    <div class="portal-note">VRL Team Members Only</div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
 <section class="why-us">
   <div class="why-us-stats">
     <div class="stats-big">10+</div>
@@ -773,7 +855,7 @@ title: Home
   </div>
 </section>
 
-<!-- BADGES — "Licensed & Insured" → "Fully Insured" -->
+<!-- BADGES -->
 <section class="badges">
   <div class="badge-item"><span>🎖️</span><strong>Veteran Owned</strong><p>Proudly serving those who served</p></div>
   <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
@@ -782,7 +864,7 @@ title: Home
   <div class="badge-item"><span>🛡️</span><strong>Fully Insured</strong><p>Kentucky Certified</p></div>
 </section>
 
-<!-- STORM DAMAGE SECTION — windows removed from storm items -->
+<!-- STORM DAMAGE SECTION -->
 <section class="storm-section">
   <div class="storm-content">
     <div class="section-eyebrow" style="color:#ffcc00;">★ Storm Damage &amp; Insurance</div>
@@ -811,7 +893,53 @@ title: Home
   </div>
 </section>
 
-<!-- CONTACT STRIP — email updated -->
+<!-- CAREERS SECTION -->
+<section class="careers-section">
+  <div class="careers-header">
+    <div class="careers-header-text">
+      <div class="section-eyebrow">★ Join The Mission</div>
+      <h2>We're <span>Hiring.</span><br>Are You Ready?</h2>
+    </div>
+    <a href="/careers" class="btn-primary">View All Openings →</a>
+  </div>
+  <div class="careers-cards">
+    <div class="career-card">
+      <span class="career-badge hiring">Now Hiring</span>
+      <h3>Roofing Crew Member</h3>
+      <p>Join our field crews installing premium Owens Corning roofing systems across Louisville and surrounding areas.</p>
+      <div class="career-card-meta">
+        <span class="career-tag">📍 Louisville, KY</span>
+        <span class="career-tag">Full-Time</span>
+      </div>
+      <a href="/careers" class="btn-careers-apply">Apply Now →</a>
+    </div>
+    <div class="career-card">
+      <span class="career-badge hiring">Now Hiring</span>
+      <h3>Sales Representative</h3>
+      <p>Help homeowners navigate storm damage claims and connect them with our restoration services. Commission-based.</p>
+      <div class="career-card-meta">
+        <span class="career-tag">📍 Louisville, KY</span>
+        <span class="career-tag">Commission</span>
+      </div>
+      <a href="/careers" class="btn-careers-apply">Apply Now →</a>
+    </div>
+    <div class="career-card">
+      <span class="career-badge" style="background:#444;">Coming Soon</span>
+      <h3>More Roles</h3>
+      <p>We're growing fast. Check back or send us your resume — we're always looking for hardworking people who share our values.</p>
+      <div class="career-card-meta">
+        <span class="career-tag">📍 Louisville, KY</span>
+        <span class="career-tag">Various</span>
+      </div>
+      <a href="/careers" class="btn-careers-apply">Learn More →</a>
+    </div>
+  </div>
+  <div class="careers-cta-row">
+    <p>Veterans receive priority consideration. We honor your service by giving you the opportunity to build something great.</p>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
 <section class="contact-strip">
   <h3>Ready to get started? <span>Call us today.</span></h3>
   <div class="contact-links">
@@ -831,6 +959,8 @@ title: Home
     <a href="/meet-the-team">Meet the Team</a>
     <a href="/gallery">Gallery</a>
     <a href="/blog">Blog</a>
+    <a href="/careers">Careers</a>
+    <a href="/employee-portal">Employee Portal</a>
     <a href="/contact">Contact</a>
   </div>
   <div>
@@ -844,15 +974,19 @@ title: Home
 </footer>
 
 <script>
+  /* Hamburger */
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
-
   hamburger.addEventListener('click', function () {
     const isOpen = mobileMenu.classList.toggle('open');
     hamburger.classList.toggle('open', isOpen);
     hamburger.setAttribute('aria-expanded', isOpen);
+    if (isOpen) {
+      dropdown.classList.remove('open');
+      moreBtn.classList.remove('active');
+      moreBtn.setAttribute('aria-expanded', 'false');
+    }
   });
-
   mobileMenu.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', function () {
       mobileMenu.classList.remove('open');
@@ -860,4 +994,20 @@ title: Home
       hamburger.setAttribute('aria-expanded', 'false');
     });
   });
+
+  /* More dropdown */
+  const moreBtn = document.getElementById('more-btn');
+  const dropdown = document.getElementById('dropdown-menu');
+  moreBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    const isOpen = dropdown.classList.toggle('open');
+    moreBtn.classList.toggle('active', isOpen);
+    moreBtn.setAttribute('aria-expanded', isOpen);
+  });
+  document.addEventListener('click', function () {
+    dropdown.classList.remove('open');
+    moreBtn.classList.remove('active');
+    moreBtn.setAttribute('aria-expanded', 'false');
+  });
+  dropdown.addEventListener('click', function (e) { e.stopPropagation(); });
 </script>
