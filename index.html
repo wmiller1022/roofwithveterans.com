@@ -1,148 +1,597 @@
-I need you to make updates to my Jekyll website at the root of this project 
-(roofwithveterans.com). I need you to do three things:
-
-1. Update index.html with the new content below
-2. Create a new file called employee-portal.html
-3. Create a new file called careers.html
-
-All three files need the Jekyll front matter at the top. Use the same nav and 
-footer styling that already exists in index.html. Match the existing site style 
-exactly — Oswald font, #B22222 red, #0f0f23 dark navy, same button styles.
-
-================================================================
-TASK 1 — Replace index.html with this exact content:
-================================================================
-
-[PASTE YOUR index.html FILE CONTENTS HERE]
-
-================================================================
-TASK 2 — Create employee-portal.html
-================================================================
-
 ---
 layout: default
-title: Employee Portal
+title: Home
 ---
 
-This page is password protected. When the page loads, show a full-screen 
-password gate before any content is visible. The password is: Service 
-(capital S). Store the check in sessionStorage so they don't have to 
-re-enter it if they refresh. If wrong password, show an error message. 
-Style the login screen to match the site — dark navy background, red 
-accents, Oswald font, VRL branding.
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
 
-Once logged in, show a page with these sections in this order:
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Open Sans', sans-serif; color: #222; overflow-x: hidden; }
+  .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+.px-3 { padding: 0 !important; }
+.my-5 { margin: 0 !important; }
+.markdown-body { max-width: 100% !important; padding: 0 !important; }
+h1.project-name, body > h1:first-of-type, .project-name { display: none !important; }
 
-SECTION 1 — FORMS (top of page, most important)
-Title: "Submit a Form"
-Style as a grid of prominent red buttons. Each button opens the Google 
-Form in a new tab:
+  /* NAV */
+  nav {
+    background: rgba(15, 15, 35, 0.97);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 999;
+    border-bottom: 3px solid #B22222;
+    height: 75px;
+  }
+  nav img.logo { height: 65px; padding: 4px 0; }
+  nav ul { list-style: none; display: flex; gap: 20px; align-items: center; }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  nav ul li a:hover { color: #B22222; border-bottom: 2px solid #B22222; }
+  .nav-cta {
+    background: #B22222 !important;
+    color: white !important;
+    padding: 10px 18px !important;
+    border-radius: 3px;
+    border-bottom: none !important;
+  }
+  .nav-cta:hover { background: #8B0000 !important; color: white !important; }
 
-- "Canvasser Time Log" → https://docs.google.com/forms/d/e/1FAIpQLSdxOmIP3jdJbF1JhMvuDVO1qXXf4hzgVEs1gjLmuGDUTBhagw/viewform?usp=header
-- "New Canvassing Lead" → https://docs.google.com/forms/d/e/1FAIpQLSdKt6DXaiOIK5SyUAsHUEf4FS1AeX8dfTnOQYq86jbl3y_ylw/viewform?usp=header
-- "Employee Time Log" → https://docs.google.com/forms/d/e/1FAIpQLSfWljX-KIs-zwO56TvpsIVaV30TgFsArTEijKYno1bhoSSVwg/viewform?usp=header
-- "Reimbursement Request" → https://docs.google.com/forms/d/e/1FAIpQLSfF63Qrj9Rym4TpjBeQnUqc22hOGvWP5DrONs2LVm4teAwtXA/viewform?usp=publish-editor
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgba(10,10,30,0.75) 0%, rgba(10,10,30,0.6) 60%, rgba(178,34,34,0.4) 100%),
+                url('/assets/images/Logo_Dean.jpeg') center center / cover no-repeat;;
+    display: flex;
+    align-items: center;
+    padding: 120px 80px 80px;
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(to right, #B22222, #ffffff, #3C3B6E);
+  }
+  .hero-content { max-width: 700px; }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #B22222;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-eyebrow::before,
+  .hero-eyebrow::after { content: '★'; color: #B22222; }
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 12px;
+    text-shadow: 2px 4px 12px rgba(0,0,0,0.8);
+  }
+  .hero h1 .red { color: #B22222; }
+  .hero h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+    text-shadow: 1px 2px 8px rgba(0,0,0,0.8);
+  }
+  .hero-divider {
+    width: 80px; height: 4px;
+    background: #B22222;
+    margin-bottom: 24px;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.85);
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 36px;
+    max-width: 560px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: #B22222;
+    color: white;
+    padding: 16px 36px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: all 0.2s;
+    border: 2px solid #B22222;
+  }
+  .btn-primary:hover { background: #8B0000; border-color: #8B0000; }
+  .btn-outline {
+    background: transparent;
+    color: white;
+    padding: 16px 36px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: 2px solid white;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: white; color: #1a1a2e; }
 
-SECTION 2 — CANVASSER DOCS
-Title: "Canvasser Documents"
-Two download buttons:
-- "Download Canvassing Script" → links to /assets/docs/canvassing-script.pdf
-- "Download Street Sheets" → links to /assets/docs/street-sheets.pdf
+  /* SERVICES STRIP */
+  .services-strip {
+    background: #B22222;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+  .service-item {
+    color: white;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 40px;
+    border-right: 1px solid rgba(255,255,255,0.3);
+  }
+  .service-item:last-child { border-right: none; }
+  .service-item span { display: block; font-size: 24px; margin-bottom: 4px; }
 
-SECTION 3 — SALES DOCS
-Title: "Sales Documents"
-Two download buttons:
-- "Download Sales Manual" → links to /assets/docs/sales-manual.pdf
-- "Download Blank Contracts" → links to /assets/docs/blank-contracts.pdf
+  /* TAGLINE BAND */
+  .tagline-band {
+    background: #0f0f23;
+    padding: 28px 40px;
+    text-align: center;
+    border-bottom: 3px solid #B22222;
+  }
+  .tagline-band h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+  .tagline-band h2 span { color: #B22222; }
 
-Style all download buttons to look different from the form buttons so 
-users can tell them apart at a glance — use an outline/ghost button style 
-with a download icon (use a ↓ arrow symbol) for downloads, and solid red 
-for the Google Form buttons.
+  /* WHY US */
+  .why-us {
+    background: #f4f4f4;
+    padding: 70px 80px;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+  }
+  .why-us-image { flex: 1; position: relative; }
+  .why-us-image img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  }
+  .why-us-image::before {
+    content: '';
+    position: absolute;
+    top: -8px; left: -8px; right: 8px; bottom: 8px;
+    border: 3px solid #B22222;
+    border-radius: 4px;
+    z-index: 0;
+  }
+  .why-us-image img { position: relative; z-index: 1; }
+  .why-us-content { flex: 1.2; }
+  .section-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #B22222;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .why-us-content h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    color: #0f0f23;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .section-divider {
+    width: 60px; height: 4px;
+    background: #B22222;
+    margin-bottom: 28px;
+  }
+  .why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #ddd;
+  }
+  .why-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .why-icon {
+    background: #B22222;
+    color: white;
+    width: 42px; height: 42px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+  }
+  .why-item h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: #0f0f23;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .why-item p { color: #555; font-size: 14px; line-height: 1.6; }
 
-Also add a small "Log Out" button in the top right corner that clears 
-sessionStorage and reloads the page back to the password screen.
+  /* UNCLE SAM CTA */
+  .cta-banner {
+    background: linear-gradient(to right, #0f0f23 0%, #1a1a4e 40%, #0f0f23 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 80px;
+    border-top: 4px solid #B22222;
+    border-bottom: 4px solid #B22222;
+    overflow: hidden;
+    min-height: 420px;
+  }
+  .cta-banner img {
+    height: 400px;
+    object-fit: contain;
+    object-position: bottom;
+  }
+  .cta-text { text-align: center; flex: 1; padding: 40px; }
+  .cta-text h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 52px;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .cta-text h2 .red { color: #B22222; }
+  .cta-text p {
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+  .stars-row {
+    color: #B22222;
+    font-size: 20px;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+  }
 
-================================================================
-TASK 3 — Create careers.html
-================================================================
+  /* BADGES */
+  .badges {
+    background: #3C3B6E;
+    padding: 44px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .badge-item {
+    color: white;
+    text-align: center;
+    padding: 16px 44px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+  }
+  .badge-item:last-child { border-right: none; }
+  .badge-item span { display: block; font-size: 36px; margin-bottom: 8px; }
+  .badge-item strong {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .badge-item p { font-size: 12px; color: rgba(255,255,255,0.6); }
 
----
-layout: default
-title: Careers
----
+  /* STORM DAMAGE SECTION */
+  .storm-section {
+    background: linear-gradient(to bottom, rgba(10,10,30,0.88) 0%, rgba(178,34,34,0.75) 100%),
+                url('/assets/images/Logo_Dean.jpeg') center / cover no-repeat;
+    padding: 80px;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+  }
+  .storm-content { flex: 1; }
+  .storm-content h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 46px;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .storm-content h2 span { color: #ffcc00; }
+  .storm-divider { width: 60px; height: 4px; background: white; margin-bottom: 24px; }
+  .storm-content p {
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .storm-items { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+  .storm-item {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-left: 4px solid #B22222;
+    padding: 20px 24px;
+    border-radius: 3px;
+  }
+  .storm-item h3 {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .storm-item p { color: rgba(255,255,255,0.75); font-size: 14px; line-height: 1.6; }
 
-Build a careers page with these sections:
+  /* CONTACT STRIP */
+  .contact-strip {
+    background: #0f0f23;
+    padding: 36px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-top: 3px solid #B22222;
+  }
+  .contact-strip h3 {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .contact-strip h3 span { color: #B22222; }
+  .contact-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+  .contact-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s;
+  }
+  .contact-links a:hover { color: #B22222; }
 
-SECTION 1 — HERO / WHY WORK WITH US
-Headline: "Join the Mission"
-Subheadline: "Build Something That Matters With People Who Have Your Back"
+  /* FOOTER */
+  footer {
+    background: #080818;
+    color: rgba(255,255,255,0.5);
+    padding: 32px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+  }
+  footer img { height: 50px; opacity: 0.85; }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #B22222; }
+  .footer-social a {
+    color: rgba(255,255,255,0.6);
+    font-size: 20px;
+    margin: 0 8px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-social a:hover { color: #B22222; }
+</style>
 
-Use these bullet points for why someone would want to work here:
-- Veteran-owned and operated — we run this company the way we ran our 
-  units: with discipline, respect, and accountability
-- We are fighters for our customers and our team — if you work hard and 
-  do right by people, we will go to bat for you
-- We have over a decade of high-level industry experience — you will 
-  learn from people who have done this at the highest level
-- Real earning potential — our sales and canvassing roles are 
-  commission-based with no ceiling on what you can make
-- We are growing fast and building something real in Louisville — get 
-  in early and grow with us
-- We live by our SERVICE values: Selfless Service, Education, 
-  Responsibility, Veterans Advocacy, Initiative, Commitment, Excellence
+<!-- NAV -->
+<nav>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/storm-damage">Storm Damage</a></li>
+    <li><a href="/meet-the-team">Meet the Team</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/contact" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
 
-SECTION 2 — OPEN POSITIONS
-Title: "Current Openings"
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Veteran Owned &amp; Operated</div>
+    <h1>Protecting <span class="red">Homes.</span></h1>
+    <h2>Serving Heroes.</h2>
+    <div class="hero-divider"></div>
+    <p>Louisville's premier veteran-owned roofing and exterior restoration company. We bring military discipline, integrity, and craftsmanship to every job. Storm damage, roof replacement, siding, windows, and gutters — mission accomplished every time.</p>
+    <div class="hero-buttons">
+      <a href="/contact" class="btn-primary">★ Schedule Free Inspection</a>
+      <a href="/services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+</section>
 
-Create three job cards. Each card should have the job title, a short 
-2-sentence description, and a "Stay Tuned — More Details Coming Soon" 
-badge on each one. Style them like cards with a red top border.
+<!-- SERVICES STRIP -->
+<div class="services-strip">
+  <div class="service-item"><span>🏠</span>Roofing</div>
+  <div class="service-item"><span>🏗️</span>Siding</div>
+  <div class="service-item"><span>🪟</span>Windows</div>
+  <div class="service-item"><span>🌧️</span>Gutters</div>
+  <div class="service-item"><span>⛈️</span>Storm Damage</div>
+</div>
 
-Job 1: 1099 Commission Sales Representative
-Description: Drive new business through canvassing, referrals, and 
-your personal network. Unlimited earning potential — the harder you 
-work, the more you make.
+<!-- TAGLINE -->
+<div class="tagline-band">
+  <h2>When The Storm Hits — <span>We've Got Your Six.</span></h2>
+</div>
 
-Job 2: Canvasser / Lead Generator
-Description: Be the boots on the ground for our storm damage and 
-roofing campaigns. Flexible hours, daily pay opportunities, and a 
-path to move into sales.
+<!-- WHY CHOOSE US -->
+<section class="why-us">
+  <div class="why-us-image">
+    <img src="/assets/images/flyer.jpeg" alt="Veterans Restoration Flyer">
+  </div>
+  <div class="why-us-content">
+    <div class="section-eyebrow">★ Why Choose Us</div>
+    <h2>Veterans Values.<br>Superior Service.</h2>
+    <div class="section-divider"></div>
+    <div class="why-item">
+      <div class="why-icon">★</div>
+      <div>
+        <h3>Veteran Owned &amp; Operated</h3>
+        <p>Founded by veterans who bring military discipline, honor, and commitment to every project. Integrity. Quality. Respect.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🛡</div>
+      <div>
+        <h3>Insurance Claim Experts</h3>
+        <p>We work with your insurance so you don't have to. From inspection to settlement — we navigate the process with you.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">✅</div>
+      <div>
+        <h3>Owens Corning Preferred</h3>
+        <p>We install premium Owens Corning roofing systems backed by industry-leading manufacturer warranties.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">📍</div>
+      <div>
+        <h3>Louisville Local</h3>
+        <p>We live here, we work here. Serving Louisville and surrounding areas — your neighbors, not a national chain.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-Job 3: Project Manager
-Description: Oversee production from signed contract to completed job. 
-Keep crews on schedule, customers informed, and quality on point.
+<!-- UNCLE SAM CTA BANNER -->
+<section class="cta-banner">
+  <img src="/assets/images/Uncle_Sam.jpeg" alt="We Want You">
+  <div class="cta-text">
+    <div class="stars-row">★ ★ ★ ★ ★</div>
+    <h2>We Want<span class="red">YOU</span><br>To Schedule A<br>Roof Inspection!</h2>
+    <p>Free inspections — no pressure, no obligation.<br>Just honest answers from people who served.</p>
+    <a href="https://calendly.com" class="btn-primary" target="_blank">★ Book Your Free Inspection</a>
+  </div>
+</section>
 
-SECTION 3 — HOW TO APPLY
-Title: "Ready to Apply?"
+<!-- BADGES -->
+<section class="badges">
+  <div class="badge-item"><span>🎖️</span><strong>Veteran Owned</strong><p>Proudly serving those who served</p></div>
+  <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
+  <div class="badge-item"><span>🏠</span><strong>Owens Corning</strong><p>Preferred Installer</p></div>
+  <div class="badge-item"><span>⭐</span><strong>5-Star Rated</strong><p>Google &amp; Facebook</p></div>
+  <div class="badge-item"><span>📋</span><strong>Licensed &amp; Insured</strong><p>Kentucky Certified</p></div>
+</section>
 
-Text: "Send your resume and tell us a little about yourself. We respond 
-fast and we respect your time."
+<!-- STORM DAMAGE SECTION -->
+<section class="storm-section">
+  <div class="storm-content">
+    <div class="section-eyebrow" style="color:#ffcc00;">★ Storm Damage &amp; Insurance</div>
+    <h2>Storm Hit Your <span>Roof?</span><br>We Respond Fast.</h2>
+    <div class="storm-divider"></div>
+    <p>Louisville storms can cause serious damage — hail, wind, falling debris. Most homeowners don't know they have a valid insurance claim. We do free inspections, document everything, and fight for your full settlement.</p>
+    <a href="/storm-damage" class="btn-primary">Learn About Storm Damage →</a>
+  </div>
+  <div class="storm-items">
+    <div class="storm-item">
+      <h3>⚡ Free Storm Inspection</h3>
+      <p>We respond fast and document all damage professionally for your claim.</p>
+    </div>
+    <div class="storm-item">
+      <h3>📋 Insurance Claim Assistance</h3>
+      <p>We work directly with your adjuster so you get the full settlement you deserve.</p>
+    </div>
+    <div class="storm-item">
+      <h3>🏠 Complete Restoration</h3>
+      <p>Roof, siding, gutters, windows — we handle full exterior restoration in one job.</p>
+    </div>
+    <div class="storm-item">
+      <h3>⭐ Owens Corning Materials</h3>
+      <p>Premium shingles with manufacturer warranties. Built to last through the next storm.</p>
+    </div>
+  </div>
+</section>
 
-Contact info displayed clearly:
-- Email resume to: wes@roofwithveterans.com
-- Call or text Wes: (502) 919-0278
-- Email Bradley: blogsdon@roofwithveterans.com
-- Call or text Bradley: (502) 450-1404
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <h3>Ready to get started? <span>Call us today.</span></h3>
+  <div class="contact-links">
+    <a href="tel:5029190278">📞 (502) 919-0278</a>
+    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="https://www.roofwithveterans.com">🌐 RoofWithVeterans.com</a>
+    <a href="/contact" class="btn-primary">Free Inspection →</a>
+  </div>
+</section>
 
-SECTION 4 — ALREADY INTERVIEWED OR READY TO ACCEPT?
-Title: "Already Interviewed? Ready to Accept Your Offer?"
-Subtitle: "Fill out the form below and we will be in touch within 24 hours."
-
-One big centered button:
-"★ Complete Your New Hire Form" → opens in new tab:
-https://docs.google.com/forms/d/e/1FAIpQLSeEEBe5uwtDAGQF-EmdAdOEJBvbciIRPNVf008mD6MPqcxeyA/viewform?usp=header
-
-================================================================
-AFTER CREATING ALL THREE FILES:
-================================================================
-
-1. Show me a summary of everything that was created or changed
-2. Make sure all three files have the correct Jekyll front matter
-3. Do NOT touch any other files in the repo
-4. Ask me if I want to commit all three files to GitHub with one commit
-
-When I say yes, commit with this message:
-"Add careers and employee portal pages, update home page mobile layout"
-
-Then push to main so the site goes live automatically.
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville">
+  <div class="footer-links">
+    <a href="/services">Services</a>
+    <a href="/storm-damage">Storm Damage</a>
+    <a href="/meet-the-team">Meet the Team</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></a>
+      <a href="#" title="Instagram"><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></a>
+      <a href="#" title="Google"><a href="#" title="Google"><i class="fab fa-google"></i></a></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
