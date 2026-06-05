@@ -8,13 +8,17 @@ title: Home
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Open Sans', sans-serif; color: #222; overflow-x: hidden; }
-  .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
-.px-3 { padding: 0 !important; }
-.my-5 { margin: 0 !important; }
-.markdown-body { max-width: 100% !important; padding: 0 !important; }
-h1.project-name, body > h1:first-of-type, .project-name { display: none !important; }
 
-  /* NAV */
+  /* Jekyll layout overrides */
+  .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  .px-3 { padding: 0 !important; }
+  .my-5 { margin: 0 !important; }
+  .markdown-body { max-width: 100% !important; padding: 0 !important; }
+  h1.project-name, body > h1:first-of-type, .project-name { display: none !important; }
+
+  /* ============================================================
+     NAV — DESKTOP
+  ============================================================ */
   nav {
     background: rgba(15, 15, 35, 0.97);
     padding: 0 40px;
@@ -27,8 +31,18 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     border-bottom: 3px solid #B22222;
     height: 75px;
   }
-  nav img.logo { height: 65px; padding: 4px 0; }
-  nav ul { list-style: none; display: flex; gap: 20px; align-items: center; }
+  nav img.logo {
+    height: 65px;
+    padding: 4px 0;
+    /* Hide the white box background from LOGO.jpeg */
+    mix-blend-mode: screen;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
   nav ul li a {
     color: white;
     text-decoration: none;
@@ -51,11 +65,83 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   }
   .nav-cta:hover { background: #8B0000 !important; color: white !important; }
 
-  /* HERO */
+  /* --- Hamburger button --- */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 3px;
+  }
+  .hamburger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* --- Mobile slide-down menu --- */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 75px;
+    left: 0; right: 0;
+    background: #0a0a20;
+    border-bottom: 3px solid #B22222;
+    z-index: 998;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+  }
+  .mobile-menu.open {
+    display: block;
+    max-height: 480px;
+  }
+  .mobile-menu ul { list-style: none; }
+  .mobile-menu ul li a {
+    display: block;
+    color: rgba(255,255,255,0.85);
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: all 0.2s;
+  }
+  .mobile-menu ul li a:hover,
+  .mobile-menu ul li a:active { background: #B22222; color: white; padding-left: 32px; }
+  .mobile-menu-phone {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    color: #ffcc00;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: rgba(178,34,34,0.15);
+    text-decoration: none;
+  }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
   .hero {
     min-height: 100vh;
     background: linear-gradient(to bottom, rgba(10,10,30,0.75) 0%, rgba(10,10,30,0.6) 60%, rgba(178,34,34,0.4) 100%),
-                url('/assets/images/Logo_Dean.jpeg') center center / cover no-repeat;;
+                url('/assets/images/Logo_Dean.jpeg') center center / cover no-repeat;
     display: flex;
     align-items: center;
     padding: 120px 80px 80px;
@@ -117,6 +203,8 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   }
   .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  /* Shared button styles */
   .btn-primary {
     background: #B22222;
     color: white;
@@ -130,8 +218,10 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     border-radius: 3px;
     transition: all 0.2s;
     border: 2px solid #B22222;
+    display: inline-block;
+    text-align: center;
   }
-  .btn-primary:hover { background: #8B0000; border-color: #8B0000; }
+  .btn-primary:hover { background: #8B0000; border-color: #8B0000; color: white; }
   .btn-outline {
     background: transparent;
     color: white;
@@ -145,16 +235,21 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     border-radius: 3px;
     border: 2px solid white;
     transition: all 0.2s;
+    display: inline-block;
+    text-align: center;
   }
   .btn-outline:hover { background: white; color: #1a1a2e; }
 
-  /* SERVICES STRIP */
+  /* ============================================================
+     SERVICES STRIP
+  ============================================================ */
   .services-strip {
     background: #B22222;
     padding: 20px 40px;
     display: flex;
     justify-content: center;
     gap: 0;
+    flex-wrap: wrap;
   }
   .service-item {
     color: white;
@@ -164,13 +259,15 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 8px 40px;
+    padding: 8px 36px;
     border-right: 1px solid rgba(255,255,255,0.3);
   }
   .service-item:last-child { border-right: none; }
   .service-item span { display: block; font-size: 24px; margin-bottom: 4px; }
 
-  /* TAGLINE BAND */
+  /* ============================================================
+     TAGLINE BAND
+  ============================================================ */
   .tagline-band {
     background: #0f0f23;
     padding: 28px 40px;
@@ -186,29 +283,46 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   }
   .tagline-band h2 span { color: #B22222; }
 
-  /* WHY US */
+  /* ============================================================
+     WHY US
+  ============================================================ */
   .why-us {
     background: #f4f4f4;
     padding: 70px 80px;
     display: flex;
     gap: 60px;
+    align-items: stretch;
+  }
+
+  /* Stats panel replaces flyer image */
+  .why-us-stats {
+    flex: 1;
+    background: linear-gradient(160deg, #0f0f23 0%, #1a1a4e 100%);
+    border-radius: 4px;
+    padding: 48px 36px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-  }
-  .why-us-image { flex: 1; position: relative; }
-  .why-us-image img {
-    width: 100%;
-    border-radius: 4px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-  }
-  .why-us-image::before {
-    content: '';
-    position: absolute;
-    top: -8px; left: -8px; right: 8px; bottom: 8px;
+    justify-content: center;
+    text-align: center;
+    position: relative;
     border: 3px solid #B22222;
-    border-radius: 4px;
-    z-index: 0;
   }
-  .why-us-image img { position: relative; z-index: 1; }
+  .why-us-stats::before {
+    content: '★ ★ ★';
+    color: #B22222;
+    font-size: 20px;
+    letter-spacing: 10px;
+    margin-bottom: 24px;
+    display: block;
+  }
+  .stats-big { font-family: 'Oswald', sans-serif; font-size: 80px; font-weight: 700; color: #C8A84B; line-height: 1; }
+  .stats-big-label { font-family: 'Oswald', sans-serif; color: rgba(255,255,255,0.7); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 36px; }
+  .stats-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.12); margin-bottom: 32px; }
+  .stats-row { display: flex; justify-content: space-around; width: 100%; gap: 12px; }
+  .stat-mini .num { font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 700; color: #C8A84B; line-height: 1; }
+  .stat-mini .lbl { font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
   .why-us-content { flex: 1.2; }
   .section-eyebrow {
     font-family: 'Oswald', sans-serif;
@@ -226,11 +340,7 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     line-height: 1.1;
     margin-bottom: 8px;
   }
-  .section-divider {
-    width: 60px; height: 4px;
-    background: #B22222;
-    margin-bottom: 28px;
-  }
+  .section-divider { width: 60px; height: 4px; background: #B22222; margin-bottom: 28px; }
   .why-item {
     display: flex;
     align-items: flex-start;
@@ -263,7 +373,9 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   }
   .why-item p { color: #555; font-size: 14px; line-height: 1.6; }
 
-  /* UNCLE SAM CTA */
+  /* ============================================================
+     UNCLE SAM CTA BANNER
+  ============================================================ */
   .cta-banner {
     background: linear-gradient(to right, #0f0f23 0%, #1a1a4e 40%, #0f0f23 100%);
     display: flex;
@@ -303,7 +415,9 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     margin-bottom: 20px;
   }
 
-  /* BADGES */
+  /* ============================================================
+     BADGES
+  ============================================================ */
   .badges {
     background: #3C3B6E;
     padding: 44px 40px;
@@ -315,7 +429,7 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   .badge-item {
     color: white;
     text-align: center;
-    padding: 16px 44px;
+    padding: 16px 40px;
     border-right: 1px solid rgba(255,255,255,0.2);
   }
   .badge-item:last-child { border-right: none; }
@@ -330,7 +444,9 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   }
   .badge-item p { font-size: 12px; color: rgba(255,255,255,0.6); }
 
-  /* STORM DAMAGE SECTION */
+  /* ============================================================
+     STORM DAMAGE SECTION
+  ============================================================ */
   .storm-section {
     background: linear-gradient(to bottom, rgba(10,10,30,0.88) 0%, rgba(178,34,34,0.75) 100%),
                 url('/assets/images/Logo_Dean.jpeg') center / cover no-repeat;
@@ -374,7 +490,9 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   }
   .storm-item p { color: rgba(255,255,255,0.75); font-size: 14px; line-height: 1.6; }
 
-  /* CONTACT STRIP */
+  /* ============================================================
+     CONTACT STRIP
+  ============================================================ */
   .contact-strip {
     background: #0f0f23;
     padding: 36px 80px;
@@ -402,7 +520,9 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   }
   .contact-links a:hover { color: #B22222; }
 
-  /* FOOTER */
+  /* ============================================================
+     FOOTER
+  ============================================================ */
   footer {
     background: #080818;
     color: rgba(255,255,255,0.5);
@@ -414,7 +534,7 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     gap: 16px;
     font-size: 13px;
   }
-  footer img { height: 50px; opacity: 0.85; }
+  footer img { height: 50px; opacity: 0.85; mix-blend-mode: screen; }
   .footer-links a {
     color: rgba(255,255,255,0.5);
     text-decoration: none;
@@ -430,6 +550,111 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     transition: color 0.2s;
   }
   .footer-social a:hover { color: #B22222; }
+
+  /* ============================================================
+     MOBILE — Tablet (max 900px)
+  ============================================================ */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    nav ul { display: none; }
+    .hamburger { display: flex; }
+
+    .hero { padding: 100px 28px 60px; min-height: auto; }
+    .hero h1 { font-size: 52px; }
+    .hero h2 { font-size: 26px; }
+    .hero p { font-size: 15px; }
+
+    .services-strip { padding: 16px 20px; gap: 0; }
+    .service-item { padding: 8px 18px; font-size: 12px; }
+
+    .tagline-band { padding: 20px 24px; }
+    .tagline-band h2 { font-size: 22px; letter-spacing: 2px; }
+
+    .why-us { flex-direction: column; padding: 48px 28px; gap: 36px; }
+    .why-us-stats { padding: 36px 24px; }
+    .stats-big { font-size: 64px; }
+
+    .cta-banner { flex-direction: column; padding: 40px 28px; min-height: auto; text-align: center; }
+    .cta-banner img { height: 220px; }
+    .cta-text { padding: 20px 0; }
+    .cta-text h2 { font-size: 36px; }
+
+    .badges { padding: 28px 20px; }
+    .badge-item { padding: 12px 20px; }
+
+    .storm-section { flex-direction: column; padding: 48px 28px; gap: 36px; }
+    .storm-content h2 { font-size: 34px; }
+
+    .contact-strip { flex-direction: column; padding: 28px 24px; text-align: center; }
+    .contact-links { justify-content: center; gap: 16px; }
+    .contact-strip h3 { font-size: 20px; }
+
+    footer { flex-direction: column; padding: 28px 24px; text-align: center; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; }
+  }
+
+  /* ============================================================
+     MOBILE — Phone (max 600px)
+  ============================================================ */
+  @media (max-width: 600px) {
+    /* Nav */
+    nav { height: 64px; }
+    nav img.logo { height: 52px; }
+    .mobile-menu { top: 64px; }
+
+    /* Hero */
+    .hero { padding: 84px 18px 48px; }
+    .hero h1 { font-size: 40px; }
+    .hero h2 { font-size: 20px; letter-spacing: 1px; }
+    .hero p { font-size: 14px; line-height: 1.7; }
+    .hero-buttons { flex-direction: column; gap: 12px; }
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-outline { width: 100%; padding: 14px 20px; font-size: 14px; }
+
+    /* Services strip — wrap to 2-col grid */
+    .services-strip { display: grid; grid-template-columns: 1fr 1fr; padding: 12px; gap: 1px; background: rgba(255,255,255,0.2); }
+    .service-item { border-right: none; border-bottom: none; background: #B22222; padding: 12px 8px; font-size: 11px; letter-spacing: 1px; }
+
+    /* Tagline */
+    .tagline-band { padding: 18px 16px; }
+    .tagline-band h2 { font-size: 16px; letter-spacing: 1px; }
+
+    /* Why us */
+    .why-us { padding: 36px 16px; gap: 28px; }
+    .why-us-content h2 { font-size: 28px; }
+    .stats-big { font-size: 56px; }
+    .stats-row { flex-direction: row; }
+    .stat-mini .num { font-size: 24px; }
+
+    /* CTA Banner */
+    .cta-banner { padding: 32px 16px; }
+    .cta-banner img { height: 180px; }
+    .cta-text h2 { font-size: 28px; }
+    .cta-text p { font-size: 14px; }
+    .cta-text .btn-primary { width: 100%; padding: 14px 16px; font-size: 14px; }
+
+    /* Badges — 2 col grid */
+    .badges { display: grid; grid-template-columns: 1fr 1fr; padding: 20px 16px; gap: 1px; background: #2d2c5e; }
+    .badge-item { border-right: none; background: #3C3B6E; padding: 16px 12px; }
+    .badge-item span { font-size: 28px; }
+    .badge-item strong { font-size: 12px; letter-spacing: 1px; }
+
+    /* Storm section */
+    .storm-section { padding: 36px 16px; gap: 28px; }
+    .storm-content h2 { font-size: 28px; }
+    .storm-content p { font-size: 14px; }
+    .storm-content .btn-primary { width: 100%; text-align: center; }
+
+    /* Contact strip */
+    .contact-strip { padding: 24px 16px; }
+    .contact-strip h3 { font-size: 17px; }
+    .contact-links { flex-direction: column; gap: 12px; align-items: center; }
+    .contact-links .btn-primary { width: 100%; }
+
+    /* Footer */
+    footer { padding: 24px 16px; }
+    .footer-links a { margin: 4px 6px; font-size: 12px; }
+  }
 </style>
 
 <!-- NAV -->
@@ -444,7 +669,24 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     <li><a href="/blog">Blog</a></li>
     <li><a href="/contact" class="nav-cta">Free Inspection</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/storm-damage">Storm Damage</a></li>
+    <li><a href="/meet-the-team">Meet the Team</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/contact">★ Free Inspection</a></li>
+  </ul>
+  <a href="tel:5029190278" class="mobile-menu-phone">📞 (502) 919-0278 — Call or Text</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -453,7 +695,7 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     <h1>Protecting <span class="red">Homes.</span></h1>
     <h2>Serving Heroes.</h2>
     <div class="hero-divider"></div>
-    <p>Louisville's premier veteran-owned roofing and exterior restoration company. We bring military discipline, integrity, and craftsmanship to every job. Storm damage, roof replacement, siding, windows, and gutters — mission accomplished every time.</p>
+    <p>Louisville's premier veteran-owned roofing and exterior restoration company. We bring military discipline, integrity, and craftsmanship to every job. Storm damage, roof replacement, siding, and gutters — mission accomplished every time.</p>
     <div class="hero-buttons">
       <a href="/contact" class="btn-primary">★ Schedule Free Inspection</a>
       <a href="/services" class="btn-outline">Our Services</a>
@@ -461,11 +703,10 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   </div>
 </section>
 
-<!-- SERVICES STRIP -->
+<!-- SERVICES STRIP — Windows removed -->
 <div class="services-strip">
   <div class="service-item"><span>🏠</span>Roofing</div>
   <div class="service-item"><span>🏗️</span>Siding</div>
-  <div class="service-item"><span>🪟</span>Windows</div>
   <div class="service-item"><span>🌧️</span>Gutters</div>
   <div class="service-item"><span>⛈️</span>Storm Damage</div>
 </div>
@@ -475,10 +716,17 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   <h2>When The Storm Hits — <span>We've Got Your Six.</span></h2>
 </div>
 
-<!-- WHY CHOOSE US -->
+<!-- WHY CHOOSE US — flyer image replaced with stats panel -->
 <section class="why-us">
-  <div class="why-us-image">
-    <img src="/assets/images/flyer.jpeg" alt="Veterans Restoration Flyer">
+  <div class="why-us-stats">
+    <div class="stats-big">10+</div>
+    <div class="stats-big-label">Years of Industry Experience</div>
+    <div class="stats-divider"></div>
+    <div class="stats-row">
+      <div class="stat-mini"><div class="num">500+</div><div class="lbl">Roofs Done</div></div>
+      <div class="stat-mini"><div class="num">100%</div><div class="lbl">Satisfaction</div></div>
+      <div class="stat-mini"><div class="num">5★</div><div class="lbl">Rated</div></div>
+    </div>
   </div>
   <div class="why-us-content">
     <div class="section-eyebrow">★ Why Choose Us</div>
@@ -520,22 +768,22 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   <img src="/assets/images/Uncle_Sam.jpeg" alt="We Want You">
   <div class="cta-text">
     <div class="stars-row">★ ★ ★ ★ ★</div>
-    <h2>We Want<span class="red">YOU</span><br>To Schedule A<br>Roof Inspection!</h2>
+    <h2>We Want <span class="red">YOU</span><br>To Schedule A<br>Roof Inspection!</h2>
     <p>Free inspections — no pressure, no obligation.<br>Just honest answers from people who served.</p>
     <a href="https://calendly.com" class="btn-primary" target="_blank">★ Book Your Free Inspection</a>
   </div>
 </section>
 
-<!-- BADGES -->
+<!-- BADGES — "Licensed & Insured" → "Fully Insured" -->
 <section class="badges">
   <div class="badge-item"><span>🎖️</span><strong>Veteran Owned</strong><p>Proudly serving those who served</p></div>
   <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
   <div class="badge-item"><span>🏠</span><strong>Owens Corning</strong><p>Preferred Installer</p></div>
   <div class="badge-item"><span>⭐</span><strong>5-Star Rated</strong><p>Google &amp; Facebook</p></div>
-  <div class="badge-item"><span>📋</span><strong>Licensed &amp; Insured</strong><p>Kentucky Certified</p></div>
+  <div class="badge-item"><span>🛡️</span><strong>Fully Insured</strong><p>Kentucky Certified</p></div>
 </section>
 
-<!-- STORM DAMAGE SECTION -->
+<!-- STORM DAMAGE SECTION — windows removed from storm items -->
 <section class="storm-section">
   <div class="storm-content">
     <div class="section-eyebrow" style="color:#ffcc00;">★ Storm Damage &amp; Insurance</div>
@@ -555,7 +803,7 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
     </div>
     <div class="storm-item">
       <h3>🏠 Complete Restoration</h3>
-      <p>Roof, siding, gutters, windows — we handle full exterior restoration in one job.</p>
+      <p>Roof, siding, and gutters — we handle full exterior restoration in one job.</p>
     </div>
     <div class="storm-item">
       <h3>⭐ Owens Corning Materials</h3>
@@ -564,12 +812,12 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   </div>
 </section>
 
-<!-- CONTACT STRIP -->
+<!-- CONTACT STRIP — email updated -->
 <section class="contact-strip">
   <h3>Ready to get started? <span>Call us today.</span></h3>
   <div class="contact-links">
     <a href="tel:5029190278">📞 (502) 919-0278</a>
-    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="mailto:wmiller@roofwithveterans.com">✉️ wmiller@roofwithveterans.com</a>
     <a href="https://www.roofwithveterans.com">🌐 RoofWithVeterans.com</a>
     <a href="/contact" class="btn-primary">Free Inspection →</a>
   </div>
@@ -588,10 +836,29 @@ h1.project-name, body > h1:first-of-type, .project-name { display: none !importa
   </div>
   <div>
     <div class="footer-social">
-      <a href="#" title="Facebook"><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></a>
-      <a href="#" title="Instagram"><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></a>
-      <a href="#" title="Google"><a href="#" title="Google"><i class="fab fa-google"></i></a></a>
+      <a href="#" title="Facebook">&#xf09a;</a>
+      <a href="#" title="Instagram">&#xf16d;</a>
+      <a href="#" title="Google">&#xf1a0;</a>
     </div>
-    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved · Fully Insured</p>
   </div>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', function () {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
