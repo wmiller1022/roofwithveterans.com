@@ -1,223 +1,572 @@
 ---
 layout: default
 title: Employee Portal
-permalink: /employee-portal/
 ---
 
-<link rel="stylesheet" href="/assets/css/site.css">
 <style>
-  body { background:#0f0f23; }
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
 
-  .portal-wrapper {
-    min-height:100vh;
-    display:flex;flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:100px 24px 60px;
-    background:linear-gradient(to bottom,#0f0f23 0%,#1a1a4e 50%,#0f0f23 100%);
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Open Sans', sans-serif; color: #222; overflow-x: hidden; }
+
+  .container-lg { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  .px-3 { padding: 0 !important; }
+  .my-5 { margin: 0 !important; }
+  .markdown-body { max-width: 100% !important; padding: 0 !important; }
+  h1.project-name, body > h1:first-of-type, .project-name { display: none !important; }
+
+  /* ============================================================
+     NAV
+  ============================================================ */
+  nav {
+    background: rgba(15, 15, 35, 0.97);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 999;
+    border-bottom: 3px solid #B22222;
+    height: 75px;
+  }
+  nav img.logo { height: 65px; padding: 4px 0; mix-blend-mode: screen; }
+  nav ul { list-style: none; display: flex; gap: 20px; align-items: center; }
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  nav ul li a:hover { color: #B22222; border-bottom: 2px solid #B22222; }
+  .nav-cta {
+    background: #B22222 !important;
+    color: white !important;
+    padding: 10px 18px !important;
+    border-radius: 3px;
+    border-bottom: none !important;
+  }
+  .nav-cta:hover { background: #8B0000 !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .hamburger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 75px;
+    left: 0; right: 0;
+    background: #0a0a20;
+    border-bottom: 3px solid #B22222;
+    z-index: 998;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .mobile-menu.open { display: block; max-height: 480px; }
+  .mobile-menu ul { list-style: none; }
+  .mobile-menu ul li a {
+    display: block;
+    color: rgba(255,255,255,0.85);
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: all 0.2s;
+  }
+  .mobile-menu ul li a:hover { background: #B22222; color: white; padding-left: 32px; }
+  .mobile-menu-phone {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    color: #ffcc00;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    background: rgba(178,34,34,0.15);
+    text-decoration: none;
   }
 
-  .portal-logo { height:80px;margin:0 auto 32px;display:block;opacity:0.9; }
-
-  .portal-card {
-    background:white;border-radius:6px;
-    border-top:6px solid #B22222;
-    box-shadow:0 20px 60px rgba(0,0,0,0.5);
-    padding:40px 32px;
-    width:100%;max-width:440px;
+  /* ============================================================
+     PASSWORD GATE
+  ============================================================ */
+  #password-gate {
+    position: fixed;
+    inset: 0;
+    background: #0a0a20;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 24px;
   }
-  .portal-card h1 {
-    font-family:'Oswald',sans-serif;font-size:26px;color:#0f0f23;
-    text-transform:uppercase;letter-spacing:2px;
-    margin-bottom:6px;text-align:center;
+  .gate-logo { height: 90px; margin-bottom: 28px; mix-blend-mode: screen; }
+  .gate-box {
+    background: #0f0f23;
+    border: 2px solid #B22222;
+    border-radius: 6px;
+    padding: 40px 36px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
   }
-  .portal-card .portal-sub { color:#888;font-size:14px;text-align:center;margin-bottom:28px;line-height:1.5; }
-  .portal-card .form-group { margin-bottom:18px; }
-  .portal-card .form-group label { display:block;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#0f0f23;margin-bottom:8px;font-weight:600; }
-  .portal-card .form-group input {
-    width:100%;padding:14px 16px;border:2px solid #e0e0e0;border-radius:3px;
-    font-family:'Open Sans',sans-serif;font-size:15px;color:#222;
-    transition:border-color 0.2s;min-height:44px;
+  .gate-box h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
   }
-  .portal-card .form-group input:focus { outline:none;border-color:#B22222; }
-  .portal-login-btn { width:100%;font-size:17px;padding:18px;letter-spacing:2.5px;margin-top:8px; }
-  .portal-forgot { text-align:center;margin-top:16px; }
-  .portal-forgot a { color:#888;font-size:13px;text-decoration:none;transition:color 0.2s; }
-  .portal-forgot a:hover { color:#B22222; }
-  .portal-divider { border:none;border-top:1px solid #eee;margin:24px 0; }
-  .portal-notice { background:#f8f4f4;border-left:4px solid #B22222;padding:14px 16px;border-radius:0 3px 3px 0;font-size:13px;color:#555;line-height:1.6; }
-
-  .portal-footer { margin-top:32px;text-align:center; }
-  .portal-footer p { color:rgba(255,255,255,0.3);font-size:12px;line-height:1.8; }
-  .portal-footer a { color:rgba(178,34,34,0.7);text-decoration:none;transition:color 0.2s; }
-  .portal-footer a:hover { color:#B22222; }
-
-  /* Logged-in dashboard (hidden by default) */
-  .portal-dashboard { display:none; }
-  .portal-dashboard.active { display:block; }
-  .portal-dashboard .dash-header { display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:32px; }
-  .portal-dashboard .dash-header h2 { font-family:'Oswald',sans-serif;font-size:20px;color:#0f0f23;text-transform:uppercase;letter-spacing:1px; }
-
-  .dash-grid { display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:24px; }
-  @media(min-width:500px){ .dash-grid{grid-template-columns:repeat(2,1fr);} }
-
-  .dash-tile {
-    background:#f4f4f4;border-radius:4px;border-top:3px solid #B22222;
-    padding:20px;text-decoration:none;display:block;transition:transform 0.2s;
-    text-align:center;
+  .gate-box p {
+    color: rgba(255,255,255,0.55);
+    font-size: 14px;
+    margin-bottom: 28px;
   }
-  .dash-tile:hover { transform:translateY(-3px); }
-  .dash-tile span { display:block;font-size:32px;margin-bottom:10px; }
-  .dash-tile h3 { font-family:'Oswald',sans-serif;font-size:15px;color:#0f0f23;text-transform:uppercase;letter-spacing:1px; }
+  .gate-box input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 16px;
+    outline: none;
+    transition: border 0.2s;
+  }
+  .gate-box input:focus { border-color: #B22222; }
+  .gate-btn {
+    width: 100%;
+    padding: 14px;
+    background: #B22222;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .gate-btn:hover { background: #8B0000; }
+  .gate-error {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 12px;
+    display: none;
+  }
+  .gate-stars {
+    color: #B22222;
+    font-size: 18px;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+  }
 
-  .portal-wide { max-width:700px;width:100%; }
+  /* ============================================================
+     PORTAL CONTENT
+  ============================================================ */
+  #portal-content { display: none; padding-top: 75px; }
+
+  .portal-header {
+    background: linear-gradient(to right, #0f0f23, #1a1a4e, #0f0f23);
+    border-bottom: 4px solid #B22222;
+    padding: 48px 80px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .portal-header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .portal-header h1 span { color: #B22222; }
+  .portal-header p { color: rgba(255,255,255,0.6); font-size: 14px; margin-top: 4px; }
+  .logout-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.7);
+    padding: 8px 18px;
+    border-radius: 3px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .logout-btn:hover { border-color: #B22222; color: #B22222; }
+
+  .portal-section {
+    padding: 60px 80px;
+    border-bottom: 1px solid #eee;
+  }
+  .portal-section:nth-child(even) { background: #f9f9f9; }
+  .portal-section:nth-child(odd) { background: white; }
+
+  .section-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #B22222;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .portal-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    color: #0f0f23;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .section-divider {
+    width: 50px; height: 4px;
+    background: #B22222;
+    margin-bottom: 32px;
+  }
+
+  /* Form buttons grid */
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 960px;
+  }
+  .form-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 24px;
+    background: #B22222;
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: 2px solid #B22222;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .form-btn:hover { background: #8B0000; border-color: #8B0000; transform: translateY(-2px); }
+  .form-btn .btn-icon { font-size: 20px; }
+
+  /* Download buttons grid */
+  .download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 960px;
+  }
+  .download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 24px;
+    background: transparent;
+    color: #0f0f23;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: 2px solid #0f0f23;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .download-btn:hover { background: #0f0f23; color: white; transform: translateY(-2px); }
+  .download-btn .btn-icon { font-size: 18px; }
+
+  .coming-soon {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .coming-soon-badge {
+    display: inline-block;
+    background: #999;
+    color: white;
+    font-size: 10px;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  footer {
+    background: #080818;
+    color: rgba(255,255,255,0.5);
+    padding: 32px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+  }
+  footer img { height: 50px; opacity: 0.85; mix-blend-mode: screen; }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #B22222; }
+
+  /* ============================================================
+     MOBILE
+  ============================================================ */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    nav ul { display: none; }
+    .hamburger { display: flex; }
+    .portal-header { padding: 36px 28px 28px; }
+    .portal-header h1 { font-size: 30px; }
+    .portal-section { padding: 40px 28px; }
+    footer { flex-direction: column; padding: 28px 24px; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    nav { height: 64px; }
+    nav img.logo { height: 52px; }
+    .mobile-menu { top: 64px; }
+    #portal-content { padding-top: 64px; }
+    .portal-header { padding: 28px 16px; }
+    .portal-header h1 { font-size: 26px; }
+    .portal-section { padding: 32px 16px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .download-grid { grid-template-columns: 1fr; }
+    footer { padding: 24px 16px; }
+    .footer-links a { margin: 4px 6px; font-size: 12px; }
+  }
 </style>
 
-<!-- Minimal NAV for portal -->
-<nav id="site-nav" style="z-index:1000;">
+<!-- NAV -->
+<nav>
   <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
-  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/storm-damage">Storm Damage</a></li>
+    <li><a href="/meet-the-team">Meet the Team</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/contact" class="nav-cta">Free Inspection</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
-  <ul id="nav-menu">
-    <li><a href="/">Home</a></li>
-    <li><a href="/services/">Services</a></li>
-    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
-  </ul>
 </nav>
 
-<!-- PORTAL WRAPPER -->
-<div class="portal-wrapper">
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/storm-damage">Storm Damage</a></li>
+    <li><a href="/meet-the-team">Meet the Team</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/contact">★ Free Inspection</a></li>
+  </ul>
+  <a href="tel:5029190278" class="mobile-menu-phone">📞 (502) 919-0278 — Call or Text</a>
+</div>
 
-  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="portal-logo">
+<!-- PASSWORD GATE -->
+<div id="password-gate">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="gate-logo">
+  <div class="gate-box">
+    <div class="gate-stars">★ ★ ★</div>
+    <h2>Employee Portal</h2>
+    <p>This area is for Veterans Restoration team members only.<br>Enter your access password to continue.</p>
+    <input type="password" id="password-input" placeholder="Enter Password" autocomplete="off">
+    <button class="gate-btn" onclick="checkPassword()">★ Enter Portal</button>
+    <div class="gate-error" id="gate-error">Incorrect password. Please try again.</div>
+  </div>
+</div>
 
-  <!-- Login Card -->
-  <div class="portal-card" id="login-card">
-    <h1>Employee Portal</h1>
-    <p class="portal-sub">Veterans Restoration of Louisville<br>Team Access Only</p>
+<!-- PORTAL CONTENT (hidden until login) -->
+<div id="portal-content">
 
-    <form id="login-form" novalidate>
-      <div class="form-group">
-        <label for="portal-email">Email Address</label>
-        <input type="email" id="portal-email" name="email" placeholder="name@roofwithveterans.com" autocomplete="email" required>
-      </div>
-      <div class="form-group">
-        <label for="portal-pass">Password</label>
-        <input type="password" id="portal-pass" name="password" placeholder="••••••••" autocomplete="current-password" required>
-      </div>
-      <div id="login-error" style="display:none;background:#fff0f0;border:1px solid #B22222;color:#B22222;border-radius:3px;padding:10px 14px;font-size:13px;margin-bottom:14px;">
-        Invalid email or password. Please try again.
-      </div>
-      <button type="submit" class="btn-primary portal-login-btn">Sign In →</button>
-      <div class="portal-forgot">
-        <a href="mailto:info@roofwithveterans.com?subject=Portal%20Password%20Reset">Forgot password? Contact your manager.</a>
-      </div>
-    </form>
+  <!-- PORTAL HEADER -->
+  <div class="portal-header">
+    <div>
+      <h1>Employee <span>Portal</span></h1>
+      <p>Veterans Restoration of Louisville — Team Resources</p>
+    </div>
+    <button class="logout-btn" onclick="logout()">⬤ Log Out</button>
+  </div>
 
-    <hr class="portal-divider">
-    <div class="portal-notice">
-      🔒 This portal is for authorized Veterans Restoration employees only. Unauthorized access is prohibited.
+  <!-- SECTION 1: FORMS -->
+  <div class="portal-section">
+    <div class="section-eyebrow">★ Quick Access</div>
+    <h2>Submit a Form</h2>
+    <div class="section-divider"></div>
+    <div class="form-grid">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxOmIP3jdJbF1JhMvuDVO1qXXf4hzgVEs1gjLmuGDUTBhagw/viewform?usp=header"
+         target="_blank" class="form-btn">
+        <span class="btn-icon">📋</span> Canvasser Time Log
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdKt6DXaiOIK5SyUAsHUEf4FS1AeX8dfTnOQYq86jbl3y_ylw/viewform?usp=header"
+         target="_blank" class="form-btn">
+        <span class="btn-icon">📍</span> New Canvassing Lead
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWljX-KIs-zwO56TvpsIVaV30TgFsArTEijKYno1bhoSSVwg/viewform?usp=header"
+         target="_blank" class="form-btn">
+        <span class="btn-icon">⏱️</span> Employee Time Log
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfF63Qrj9Rym4TpjBeQnUqc22hOGvWP5DrONs2LVm4teAwtXA/viewform?usp=publish-editor"
+         target="_blank" class="form-btn">
+        <span class="btn-icon">💵</span> Reimbursement Request
+      </a>
     </div>
   </div>
 
-  <!-- Dashboard (shown after "login") -->
-  <div class="portal-card portal-wide portal-dashboard" id="portal-dashboard">
-    <div class="dash-header">
-      <div>
-        <h2>Welcome back! 👋</h2>
-        <p style="color:#888;font-size:13px;">Veterans Restoration Employee Portal</p>
-      </div>
-      <button onclick="doLogout()" style="background:none;border:none;color:#B22222;font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;min-height:44px;">Sign Out</button>
-    </div>
-
-    <div class="dash-grid">
-      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
-        <span>📋</span>
-        <h3>Job Schedule</h3>
+  <!-- SECTION 2: CANVASSER DOCS -->
+  <div class="portal-section">
+    <div class="section-eyebrow">★ Canvasser Resources</div>
+    <h2>Canvasser Documents</h2>
+    <div class="section-divider"></div>
+    <div class="download-grid">
+      <a href="/assets/docs/canvassing-script.pdf" target="_blank" class="download-btn">
+        <span class="btn-icon">↓</span> Canvassing Script
       </a>
-      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
-        <span>📸</span>
-        <h3>Submit Photos</h3>
+      <a href="/assets/docs/street-sheets.pdf" target="_blank" class="download-btn">
+        <span class="btn-icon">↓</span> Street Sheets
       </a>
-      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
-        <span>📄</span>
-        <h3>Documents &amp; Forms</h3>
-      </a>
-      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
-        <span>⏱️</span>
-        <h3>Time Tracking</h3>
-      </a>
-      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
-        <span>🛡️</span>
-        <h3>Safety Resources</h3>
-      </a>
-      <a href="mailto:info@roofwithveterans.com" class="dash-tile">
-        <span>📞</span>
-        <h3>Team Directory</h3>
-      </a>
-    </div>
-
-    <div style="background:#f8f8f8;border-radius:4px;padding:20px;border-left:4px solid #3C3B6E;">
-      <p style="font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#0f0f23;margin-bottom:8px;">📢 Announcements</p>
-      <p style="font-size:14px;color:#555;line-height:1.7;">Welcome to the team portal. Full dashboard functionality coming soon. For immediate needs, contact management at <a href="tel:5029190278" style="color:#B22222;">(502) 919-0278</a> or <a href="mailto:info@roofwithveterans.com" style="color:#B22222;">info@roofwithveterans.com</a>.</p>
     </div>
   </div>
 
-  <!-- Portal Footer -->
-  <div class="portal-footer">
-    <p>
-      <a href="/">Veterans Restoration of Louisville</a> · Employee Portal<br>
-      Questions? <a href="mailto:info@roofwithveterans.com">info@roofwithveterans.com</a> · <a href="tel:5029190278">(502) 919-0278</a>
-    </p>
+  <!-- SECTION 3: SALES DOCS -->
+  <div class="portal-section">
+    <div class="section-eyebrow">★ Sales Resources</div>
+    <h2>Sales Documents</h2>
+    <div class="section-divider"></div>
+    <p style="color:#888; font-size:14px; margin-bottom:20px;">Documents will be available for download once uploaded. Check back soon.</p>
+    <div class="download-grid">
+      <a href="/assets/docs/sales-manual.pdf" target="_blank" class="download-btn coming-soon">
+        <span class="btn-icon">↓</span> Sales Manual <span class="coming-soon-badge">Coming Soon</span>
+      </a>
+      <a href="/assets/docs/blank-contracts.pdf" target="_blank" class="download-btn coming-soon">
+        <span class="btn-icon">↓</span> Blank Contracts <span class="coming-soon-badge">Coming Soon</span>
+      </a>
+    </div>
   </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville">
+    <div class="footer-links">
+      <a href="/services">Services</a>
+      <a href="/storm-damage">Storm Damage</a>
+      <a href="/meet-the-team">Meet the Team</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </footer>
 
 </div>
 
 <script>
-// Nav toggle
-(function(){
-  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
-  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
-  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
-})();
+  const CORRECT_PASSWORD = 'Service';
 
-// Portal login — demo only (no real auth)
-// To add real auth: connect to your backend, Firebase, or similar
-var DEMO_EMAIL = 'employee@roofwithveterans.com';
-var DEMO_PASS  = 'VRL2026!';
-
-var form      = document.getElementById('login-form');
-var loginCard = document.getElementById('login-card');
-var dashboard = document.getElementById('portal-dashboard');
-var errMsg    = document.getElementById('login-error');
-
-form.addEventListener('submit', function(e){
-  e.preventDefault();
-  var email = document.getElementById('portal-email').value.trim();
-  var pass  = document.getElementById('portal-pass').value;
-
-  // Check session storage first
-  if(email === DEMO_EMAIL && pass === DEMO_PASS){
-    errMsg.style.display = 'none';
-    sessionStorage.setItem('vrl_portal', '1');
-    showDashboard();
-  } else {
-    errMsg.style.display = 'block';
+  function checkPassword() {
+    const input = document.getElementById('password-input').value;
+    const error = document.getElementById('gate-error');
+    if (input === CORRECT_PASSWORD) {
+      sessionStorage.setItem('vrl_portal_auth', 'true');
+      document.getElementById('password-gate').style.display = 'none';
+      document.getElementById('portal-content').style.display = 'block';
+      error.style.display = 'none';
+    } else {
+      error.style.display = 'block';
+      document.getElementById('password-input').value = '';
+      document.getElementById('password-input').focus();
+    }
   }
-});
 
-function showDashboard(){
-  loginCard.style.display  = 'none';
-  dashboard.classList.add('active');
-}
-function doLogout(){
-  sessionStorage.removeItem('vrl_portal');
-  loginCard.style.display  = '';
-  dashboard.classList.remove('active');
-}
+  function logout() {
+    sessionStorage.removeItem('vrl_portal_auth');
+    location.reload();
+  }
 
-// Auto-show dashboard if already "logged in"
-if(sessionStorage.getItem('vrl_portal')){
-  showDashboard();
-}
+  // Allow Enter key to submit password
+  document.getElementById('password-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  // Check if already logged in this session
+  if (sessionStorage.getItem('vrl_portal_auth') === 'true') {
+    document.getElementById('password-gate').style.display = 'none';
+    document.getElementById('portal-content').style.display = 'block';
+  }
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', function () {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
 </script>
