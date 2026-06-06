@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wes Miller — Military Service | Veterans Restoration of Louisville</title>
+<meta name="description" content="Wes Miller's military service record — 8 years U.S. Army, 14J Air Defense C4I specialist, Iraq deployment 2009–2011, three ARCOMs, Squad Leader, Fort Hood. How the Army forged the man behind VRL.">
+<meta name="keywords" content="veteran-owned roofing Louisville, Army veteran Louisville Kentucky, storm restoration contractor veteran, Wes Miller military service, 14J Air Defense C4I Iraq veteran Louisville">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#1B2A4A; --red:#8B0000; --red-bright:#CC0000;
+    --gold:#C8A84B; --cream:#F5E6C8; --tan:#E8D5B0; --white:#FFFFFF;
+    --steel:#3a5080;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Source Sans 3', sans-serif; background: #0f1a2e; color: var(--white); }
+
+  .site-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(15,26,46,0.97); border-bottom: 3px solid var(--gold);
+    padding: 0 40px; display: flex; align-items: center;
+    justify-content: space-between; height: 60px;
+  }
+  .nav-logo { font-family:'Oswald',sans-serif; font-size:1rem; font-weight:700; color:var(--white); text-decoration:none; }
+  .nav-logo span { color:var(--gold); }
+  .nav-back { font-family:'Oswald',sans-serif; font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); text-decoration:none; }
+  .nav-back:hover { color:var(--white); }
+
+  /* HERO */
+  .chapter-hero {
+    background: linear-gradient(180deg, #070f1c 0%, #0f1a2e 100%);
+    padding: 80px 40px 60px;
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid rgba(200,168,75,0.2);
+  }
+  .chapter-hero::before {
+    content:'';
+    position:absolute; top:-40px; right:-60px;
+    width:400px; height:500px;
+    background: radial-gradient(ellipse, rgba(58,80,128,0.18) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-stars {
+    position:absolute; top:20px; left:50%; transform:translateX(-50%);
+    font-size:1.1rem; letter-spacing:20px; color:var(--gold); opacity:0.5;
+  }
+  .chapter-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+  .chapter-eyebrow { font-family:'Oswald',sans-serif; font-size:0.7rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:block; }
+  .chapter-title { font-family:'Oswald',sans-serif; font-size:clamp(2.5rem,6vw,4.5rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:0.95; margin-bottom:24px; }
+  .chapter-title span { color:var(--gold); display:block; }
+  .chapter-subtitle { font-family:'Merriweather',serif; font-style:italic; font-weight:300; font-size:1.05rem; color:rgba(255,255,255,0.65); max-width:650px; line-height:1.75; margin-bottom:32px; }
+  .chapter-nav { display:flex; gap:12px; flex-wrap:wrap; }
+  .chapter-nav a { font-family:'Oswald',sans-serif; font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.4); text-decoration:none; padding:8px 16px; border:1px solid rgba(255,255,255,0.15); transition:all 0.2s; }
+  .chapter-nav a.active, .chapter-nav a:hover { color:var(--gold); border-color:var(--gold); }
+
+  /* MEDALS BAR */
+  .medals-bar {
+    background: rgba(200,168,75,0.08);
+    border-top: 1px solid rgba(200,168,75,0.15);
+    border-bottom: 1px solid rgba(200,168,75,0.15);
+    padding: 24px 40px;
+    display: flex; justify-content: center;
+    gap: 40px; flex-wrap: wrap;
+  }
+  .medal-item { text-align:center; }
+  .medal-icon { font-size:1.8rem; display:block; margin-bottom:6px; }
+  .medal-name { font-family:'Oswald',sans-serif; font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); }
+
+  /* TIMELINE */
+  .timeline-section { padding: 64px 40px; max-width: 900px; margin: 0 auto; }
+
+  .section-label { font-family:'Oswald',sans-serif; font-size:0.7rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+  .section-title { font-family:'Oswald',sans-serif; font-size:2rem; font-weight:700; text-transform:uppercase; color:var(--white); margin-bottom:40px; line-height:1; }
+
+  .timeline { position:relative; }
+  .timeline::before {
+    content:''; position:absolute; left:20px; top:0; bottom:0;
+    width:2px; background:linear-gradient(180deg, var(--gold) 0%, var(--steel) 100%);
+  }
+
+  .tl-item { display:flex; gap:40px; margin-bottom:48px; position:relative; }
+  .tl-dot {
+    width:42px; height:42px; border-radius:50%;
+    background:var(--navy); border:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; font-size:1rem; position:relative; z-index:1;
+  }
+  .tl-content { flex:1; padding-bottom:8px; }
+  .tl-date { font-family:'Oswald',sans-serif; font-size:0.7rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+  .tl-title { font-family:'Oswald',sans-serif; font-size:1.25rem; font-weight:700; color:var(--white); margin-bottom:12px; }
+  .tl-body { font-family:'Merriweather',serif; font-size:0.9rem; line-height:1.85; color:rgba(255,255,255,0.7); }
+  .tl-body p + p { margin-top:12px; }
+
+  /* CONTENT BLOCKS */
+  .content-section { padding: 0 40px 64px; max-width: 900px; margin: 0 auto; }
+  .block-label { font-family:'Oswald',sans-serif; font-size:0.7rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+  .block-label::before { content:''; display:inline-block; width:24px; height:2px; background:var(--gold); }
+  .block-title { font-family:'Oswald',sans-serif; font-size:1.75rem; font-weight:700; text-transform:uppercase; color:var(--white); margin-bottom:20px; line-height:1.1; }
+  .block-body { font-family:'Merriweather',serif; font-size:0.95rem; line-height:1.9; color:rgba(255,255,255,0.75); }
+  .block-body p + p { margin-top:16px; }
+
+  .pull-quote {
+    background:rgba(200,168,75,0.08); border-left:4px solid var(--gold);
+    padding:32px 36px; margin:40px 0;
+    font-family:'Merriweather',serif; font-style:italic; font-size:1.1rem;
+    line-height:1.8; color:var(--cream);
+  }
+  .pull-quote cite { display:block; margin-top:12px; font-style:normal; font-family:'Oswald',sans-serif; font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); }
+
+  .fact-box {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(200,168,75,0.2);
+    padding: 28px 32px; margin: 32px 0;
+  }
+  .fact-box h4 { font-family:'Oswald',sans-serif; font-size:0.8rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid rgba(200,168,75,0.2); }
+  .fact-box ul { list-style:none; }
+  .fact-box li { font-size:0.88rem; padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; align-items:flex-start; gap:10px; color:rgba(255,255,255,0.75); }
+  .fact-box li::before { content:'▸'; color:var(--gold); flex-shrink:0; }
+
+  .divider { border:none; border-top:1px solid rgba(200,168,75,0.15); margin:48px 0; }
+
+  .conclusion-block {
+    background: var(--red); padding:48px 40px; margin-top:64px;
+    font-family:'Merriweather',serif; font-style:italic; font-size:1.1rem;
+    line-height:1.85; color:var(--white); max-width:900px; margin-left:auto; margin-right:auto;
+    position:relative; overflow:hidden;
+  }
+  .conclusion-block::before { content:'"'; font-size:12rem; line-height:1; color:rgba(255,255,255,0.07); position:absolute; top:-20px; left:20px; font-family:Georgia,serif; pointer-events:none; }
+  .conclusion-block p { position:relative; z-index:1; }
+  .conclusion-block cite { display:block; margin-top:20px; font-style:normal; font-family:'Oswald',sans-serif; font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; color:var(--cream); opacity:0.75; }
+
+  .page-nav { background:rgba(0,0,0,0.4); padding:36px 40px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; border-top:1px solid rgba(200,168,75,0.15); }
+  .page-nav a { font-family:'Oswald',sans-serif; font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); text-decoration:none; }
+  .page-nav a:hover { color:var(--white); }
+
+  footer { background:#050d18; padding:24px 40px; text-align:center; font-size:0.75rem; color:rgba(255,255,255,0.3); letter-spacing:1px; }
+  footer a { color:var(--gold); text-decoration:none; }
+
+  @media(max-width:700px){
+    .chapter-hero,.timeline-section,.content-section{padding-left:20px;padding-right:20px;}
+    .medals-bar{padding:20px;gap:20px;}
+    .timeline::before{left:17px;}
+    .tl-item{gap:20px;}
+    .site-nav{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="/" class="nav-logo">VRL <span>★</span> Roof With Veterans</a>
+  <a href="meet-wes.html" class="nav-back">← Back to Wes Miller</a>
+</nav>
+
+<div class="chapter-hero">
+  <div class="hero-stars">★ ★ ★ ★ ★</div>
+  <div class="chapter-inner">
+    <span class="chapter-eyebrow">Chapter Two — Military Service</span>
+    <h1 class="chapter-title">Eight Years.<span>One Standard: Excellence.</span></h1>
+    <p class="chapter-subtitle">Wes Miller served 5.25 years on active duty in the U.S. Army — with a combat deployment to Northern Iraq — followed by time in the Reserves. This is where his discipline, his leadership, and his zero-excuse work ethic were forged.</p>
+    <nav class="chapter-nav">
+      <a href="wes-personal.html">Personal</a>
+      <a href="wes-military.html" class="active">Military</a>
+      <a href="wes-professional.html">Professional</a>
+      <a href="meet-wes.html">← Back to Overview</a>
+    </nav>
+  </div>
+</div>
+
+<!-- MEDALS BAR -->
+<div class="medals-bar">
+  <div class="medal-item"><span class="medal-icon">🎖️</span><div class="medal-name">ARCOM × 3</div></div>
+  <div class="medal-item"><span class="medal-icon">⭐</span><div class="medal-name">AIT Honor Graduate</div></div>
+  <div class="medal-item"><span class="medal-icon">🏅</span><div class="medal-name">Good Conduct Medal</div></div>
+  <div class="medal-item"><span class="medal-icon">🚁</span><div class="medal-name">Air Assault School</div></div>
+  <div class="medal-item"><span class="medal-icon">🪖</span><div class="medal-name">Iraq Deployment 2009–11</div></div>
+  <div class="medal-item"><span class="medal-icon">🛡️</span><div class="medal-name">Honorable Discharge</div></div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+  <div class="section-label">Service Record</div>
+  <h2 class="section-title">The Timeline</h2>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot">📋</div>
+      <div class="tl-content">
+        <div class="tl-date">February 2007 — Enlistment</div>
+        <h3 class="tl-title">Joined the United States Army</h3>
+        <div class="tl-body">
+          <p>Wes enlisted in February 2007 and was sworn in the following March, though he'd actually enrolled before the graduation date and couldn't ship out until after. He tested well on the ASVAB and GT score and picked the most technical-sounding job they had: 14J — Air Defense C4I (Command, Control, Communications, Computers, and Intelligence). It was also, as he'll tell you with a grin, the only recruitment video that didn't show foot patrols like they were a glorious thing to do.</p>
+          <p>He sprained his knee playing basketball at Wyndotte the week before basic training — failed the duck walk during the Underwear Olympics — and the recruiters took him to a clinic on Broadway and got him sorted out. They were great.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">🏕️</div>
+      <div class="tl-content">
+        <div class="tl-date">June – August 2007</div>
+        <h3 class="tl-title">Basic Training — Fort Sill, Oklahoma</h3>
+        <div class="tl-body">
+          <p>Wes did basic at Fort Sill, Oklahoma — June through August, which meant extreme heat and bad weather. It was mostly college kids. Of the roughly 600 soldiers in his cohort, not a single one had his MOS. He did it, and he did it well.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">🎓</div>
+      <div class="tl-content">
+        <div class="tl-date">Late 2007 – 2008</div>
+        <h3 class="tl-title">AIT — Fort Bliss, Texas (Honor Graduate)</h3>
+        <div class="tl-body">
+          <p>Advanced Individual Training for the 14J MOS ran 10 months at Fort Bliss in El Paso, Texas. Wes graduated as an Honor Graduate — a certification he still has. He also earned the Army Achievement Medal (AAM) for Drill &amp; Ceremony during this period. Fort Bliss is where he started taking every college course he could find, a habit he'd carry into his deployment.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">🏛️</div>
+      <div class="tl-content">
+        <div class="tl-date">2008 – 2012</div>
+        <h3 class="tl-title">Fort Hood, Texas — Home Station</h3>
+        <div class="tl-body">
+          <p>Wes was stationed at Fort Hood for the majority of his active duty career. He joined the Short Range Air Defense Sentinel Radar Team, and his unit received a CRAM (Counter Rocket, Artillery, and Mortar) mission with orders to Iraq. They trained for about a year before deploying. He attended Air Assault School — a 4-spot, 60-person course — and later served as Squad Leader over 9–10 soldiers, and as part of the Sentinel Platoon.</p>
+          <p>He attended NCO Academy and barely missed Honor Graduate. He was also selected for the US Border Patrol Mission in Arizona — and was the only non-Platoon Leader or Platoon Sergeant to earn an ARCOM for that mission. He went to JRTC with the Fourth Cavalry and set up an ADAM shelter. He served regularly in the Honor Guard (Rifle) and as Flag Bearer, including at a Fort Hood Change of Command.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">🌍</div>
+      <div class="tl-content">
+        <div class="tl-date">2009 – 2011</div>
+        <h3 class="tl-title">Deployment — Northern Iraq (Kirkuk Region), CRAM Mission</h3>
+        <div class="tl-body">
+          <p>Wes deployed to Northern Iraq — primarily in the Kirkuk area — as part of a small CRAM (Counter Rocket, Artillery, and Mortar) team. Four sites, approximately 60 people total. They were all over — small teams operating across the region. It was not a cushy deployment. He was in the stick-and-mud huts, and it was genuinely dangerous. He earned an Army Commendation Medal for his service in Iraq.</p>
+          <p>During the deployment, Wes went hard on college coursework — taking every class he could access. When he came back stateside, he was immediately promoted: he got his stripes. The deployment changed him. He came back sharper, hungrier, and more focused.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">🎖️</div>
+      <div class="tl-content">
+        <div class="tl-date">Post-Active Duty</div>
+        <h3 class="tl-title">Civilian Contractor &amp; Reserve Service</h3>
+        <div class="tl-body">
+          <p>After his border patrol mission, Wes transitioned out. His best job offer was a government contractor position — doing similar CRAM work through Northrop Grumman, spending four months certifying on all systems in Huntsville, Alabama. He went to Afghanistan with that position, but it lasted only four months; civilian contractors don't carry weapons, and the conditions were genuinely dangerous.</p>
+          <p>He came back and joined the Army Reserves — an all-cadre (E-5 and above) unit that assisted the Army Cadet Command during summer influx from college programs. They also conducted air assault coursework. He completed three total certifications with Northrop Grumman (CRAM x2, ADAM Cell x1). He separated from the Reserves as an E-5 — there was no available E-6 position to return to at the time.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SERVICE RECORD SUMMARY -->
+<div class="content-section">
+
+  <div class="fact-box">
+    <h4>Complete Service Record</h4>
+    <ul>
+      <li>Enlisted: February 2007 — Sworn in: March 2007</li>
+      <li>MOS: 14J — Air Defense C4I (Command, Control, Communications, Computers &amp; Intelligence)</li>
+      <li>Basic Training: Fort Sill, Oklahoma (June – August 2007)</li>
+      <li>AIT: Fort Bliss, Texas — 10 months, Honor Graduate, AAM earned</li>
+      <li>Home Station: Fort Hood, Texas (2008–2012)</li>
+      <li>Deployment: Northern Iraq / Kirkuk region (2009–2011) — CRAM Mission</li>
+      <li>Civilian Contractor: Northrop Grumman — CRAM certification, Afghanistan (4 months)</li>
+      <li>Army Reserves: All-cadre unit, Army Cadet Command support, Air Assault coursework</li>
+      <li>Total Service: 8 years (5.25 active, ~1 year inactive, 2.75 years Reserves)</li>
+      <li>Separated as: E-5 / Specialist → Sergeant</li>
+      <li>Discharge: Honorable</li>
+    </ul>
+  </div>
+
+  <div class="fact-box">
+    <h4>Awards &amp; Commendations</h4>
+    <ul>
+      <li>Army Commendation Medal (ARCOM) × 3: Iraq Deployment, US Border Patrol Mission (Arizona), Active Duty Honorable Discharge</li>
+      <li>Army Achievement Medal (AAM) — Drill &amp; Ceremony, AIT</li>
+      <li>Good Conduct Medal</li>
+      <li>AIT Honor Graduate Certificate</li>
+      <li>Northrop Grumman Certifications × 3 (CRAM × 2, ADAM Cell × 1)</li>
+      <li>Only non-Platoon Leader / Platoon SGT to receive ARCOM for Border Patrol Mission</li>
+      <li>Highest score at his promotion board</li>
+    </ul>
+  </div>
+
+  <div class="fact-box">
+    <h4>Additional Service Notes</h4>
+    <ul>
+      <li>Air Assault School — 4 spots, 60 people</li>
+      <li>NCO Academy — narrowly missed Honor Graduate</li>
+      <li>US Border Patrol Mission — Arizona — selected; standout performance</li>
+      <li>JRTC deployment — set up ADAM shelter with Fourth Cavalry</li>
+      <li>Honor Guard (Rifle) and Flag Bearer — including Fort Hood Change of Command</li>
+      <li>Served as Squad Leader (9–10 soldiers), Sentinel Platoon</li>
+      <li>PT average: ~250 score. Achieved Expert marksman qualification</li>
+      <li>Volunteered with BOSS (Better Opportunities for Single Soldiers)</li>
+      <li>Played softball and basketball intramural leagues</li>
+      <li>Maximized military education: 200+ total hours</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <div class="block-label">What the Army Gave Him</div>
+  <h2 class="block-title">The Lessons That Built VRL.</h2>
+  <div class="block-body">
+    <p>Wes talks about the Army the way some people talk about a great coach or mentor. He loved it — genuinely. He'll tell you the leaders he had were the best he's ever encountered, and there were too many to name. What they valued was education, structure, and a clear path to growth. Those are the things that stuck.</p>
+    <p>The discipline of showing up every day, the accountability of being responsible for the people under you, the mission-focus of doing what it takes no matter the conditions — those aren't just military traits. They're the traits of a world-class contractor. Wes didn't just bring those traits with him when he left the Army. He built a company around them.</p>
+  </div>
+
+  <div class="pull-quote">
+    "Loved the Military. Best leaders I ever had. Too many to name. They valued education. Structure. A clear path to growth."
+    <cite>— Wes Miller, on his military service</cite>
+  </div>
+
+  <div class="conclusion-block">
+    <p>The 14J MOS no longer exists — it was split into three separate MOSs after Wes served. The work he did in Air Defense C4I was the kind of technical, mission-critical work that only the best-scoring, most squared-away soldiers got. Wes was one of them. He went from a kid who dropped out of high school to an Honor Graduate who led a squad in combat theater. That's not a small thing. That's the foundation of everything that came after.</p>
+    <cite>— Veterans Restoration of Louisville</cite>
+  </div>
+
+</div>
+
+<div class="page-nav">
+  <a href="wes-personal.html">← Personal Story</a>
+  <a href="meet-wes.html">Back to Overview</a>
+  <a href="wes-professional.html">Professional Story →</a>
+</div>
+
+<footer>
+  <p>© 2026 Veterans Restoration of Louisville &nbsp;·&nbsp; <a href="/">roofwithveterans.com</a> &nbsp;·&nbsp; (502) 919-0278</p>
+  <p style="margin-top:8px;">Veteran-Owned. Community-Focused. Built on SERVICE.</p>
+</footer>
+
+</body>
+</html>

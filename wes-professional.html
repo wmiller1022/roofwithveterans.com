@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wes Miller — Roofing Career | Veterans Restoration of Louisville</title>
+<meta name="description" content="Wes Miller's decade-long roofing and storm restoration career — from canvasser in 2016 to Xactimate-certified expert, supplement specialist, and founder of Veterans Restoration of Louisville in 2026.">
+<meta name="keywords" content="storm damage roofing Louisville Kentucky, Xactimate certified estimator Louisville, insurance supplement roofing, veteran roofing contractor Louisville, hail damage roof Louisville KY, storm restoration Louisville expert">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:#1B2A4A; --red:#8B0000; --red-bright:#CC0000;
+    --gold:#C8A84B; --cream:#F5E6C8; --tan:#E8D5B0; --white:#FFFFFF;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Source Sans 3', sans-serif; background: var(--cream); color: #1a1a1a; }
+
+  .site-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy); border-bottom: 3px solid var(--red);
+    padding: 0 40px; display: flex; align-items: center;
+    justify-content: space-between; height: 60px;
+  }
+  .nav-logo { font-family:'Oswald',sans-serif; font-size:1rem; font-weight:700; color:var(--white); text-decoration:none; }
+  .nav-logo span { color:var(--gold); }
+  .nav-back { font-family:'Oswald',sans-serif; font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); text-decoration:none; }
+  .nav-back:hover { color:var(--white); }
+
+  /* HERO */
+  .chapter-hero {
+    background: var(--red);
+    padding: 80px 40px 60px;
+    position: relative; overflow: hidden;
+  }
+  .chapter-hero::before {
+    content:'';
+    position:absolute; bottom:-60px; right:-60px;
+    width:300px; height:300px;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:50%; pointer-events:none;
+  }
+  .chapter-hero::after {
+    content:'';
+    position:absolute; bottom:-20px; right:-20px;
+    width:200px; height:200px;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:50%; pointer-events:none;
+  }
+  .chapter-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+  .chapter-eyebrow { font-family:'Oswald',sans-serif; font-size:0.7rem; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:12px; display:block; }
+  .chapter-title { font-family:'Oswald',sans-serif; font-size:clamp(2.5rem,6vw,4.5rem); font-weight:700; text-transform:uppercase; color:var(--white); line-height:0.95; margin-bottom:24px; }
+  .chapter-title span { color:var(--gold); display:block; }
+  .chapter-subtitle { font-family:'Merriweather',serif; font-style:italic; font-weight:300; font-size:1.05rem; color:rgba(255,255,255,0.8); max-width:640px; line-height:1.75; margin-bottom:32px; }
+  .chapter-nav { display:flex; gap:12px; flex-wrap:wrap; }
+  .chapter-nav a { font-family:'Oswald',sans-serif; font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.45); text-decoration:none; padding:8px 16px; border:1px solid rgba(255,255,255,0.2); transition:all 0.2s; }
+  .chapter-nav a.active, .chapter-nav a:hover { color:var(--gold); border-color:var(--gold); }
+
+  /* SKILLS STRIP */
+  .skills-strip { background: var(--navy); padding: 32px 40px; display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+  .skill-pill {
+    background: rgba(255,255,255,0.06); border:1px solid rgba(200,168,75,0.25);
+    padding:10px 20px; display:flex; align-items:center; gap:8px;
+  }
+  .skill-pill span { font-family:'Oswald',sans-serif; font-size:0.75rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--cream); }
+  .skill-pill em { color:var(--gold); font-style:normal; font-size:0.85rem; }
+
+  /* CONTENT */
+  .content-wrap { max-width:880px; margin:0 auto; padding:64px 40px; }
+
+  .content-block { margin-bottom:52px; }
+  .block-label { font-family:'Oswald',sans-serif; font-size:0.68rem; letter-spacing:3px; text-transform:uppercase; color:var(--red); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .block-label::before { content:''; display:inline-block; width:20px; height:2px; background:var(--red); }
+  .block-title { font-family:'Oswald',sans-serif; font-size:1.8rem; font-weight:700; text-transform:uppercase; color:var(--navy); margin-bottom:18px; line-height:1.1; }
+  .block-body { font-family:'Merriweather',serif; font-size:0.98rem; line-height:1.9; color:#2a2a2a; }
+  .block-body p + p { margin-top:16px; }
+
+  /* CAREER TIMELINE */
+  .career-timeline { margin: 0 0 40px; }
+  .ct-item {
+    display: grid; grid-template-columns: 140px 1fr;
+    gap: 0; margin-bottom: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .ct-item:last-child { border-bottom: none; }
+  .ct-date {
+    background: var(--navy); color:var(--gold);
+    font-family:'Oswald',sans-serif; font-size:0.8rem; font-weight:600;
+    letter-spacing:1px; text-transform:uppercase;
+    padding: 20px 16px; display:flex; align-items:flex-start;
+    border-right:3px solid var(--red);
+  }
+  .ct-content { background:var(--tan); padding:20px 24px; }
+  .ct-company { font-family:'Oswald',sans-serif; font-size:1rem; font-weight:700; color:var(--navy); text-transform:uppercase; margin-bottom:4px; }
+  .ct-role { font-size:0.8rem; color:var(--red); font-weight:600; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+  .ct-desc { font-size:0.88rem; color:#3a3a3a; line-height:1.65; }
+
+  .pull-quote {
+    background:var(--navy); color:var(--white);
+    padding:36px 40px; margin:40px 0;
+    border-left:5px solid var(--gold);
+    font-family:'Merriweather',serif; font-style:italic;
+    font-size:1.1rem; line-height:1.8;
+  }
+  .pull-quote cite { display:block; margin-top:12px; font-style:normal; font-family:'Oswald',sans-serif; font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); }
+
+  .fact-box {
+    background:var(--navy); padding:28px 32px; margin:32px 0;
+  }
+  .fact-box h4 { font-family:'Oswald',sans-serif; font-size:0.8rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid rgba(200,168,75,0.25); }
+  .fact-box ul { list-style:none; }
+  .fact-box li { font-size:0.88rem; padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; align-items:flex-start; gap:10px; color:rgba(255,255,255,0.75); }
+  .fact-box li::before { content:'▸'; color:var(--gold); flex-shrink:0; }
+
+  .highlight-box {
+    background: var(--red); padding:36px 40px; color:var(--white);
+    margin:40px 0; display:grid; grid-template-columns:1fr 1fr; gap:28px;
+  }
+  .hl-stat { text-align:center; }
+  .hl-num { font-family:'Oswald',sans-serif; font-size:2.8rem; font-weight:700; color:var(--gold); line-height:1; }
+  .hl-label { font-size:0.75rem; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.75); margin-top:4px; }
+
+  .divider { border:none; border-top:2px solid rgba(0,0,0,0.08); margin:48px 0; }
+
+  .cta-wrap { background:var(--navy); padding:48px 40px; text-align:center; margin-top:64px; }
+  .cta-wrap p { font-family:'Merriweather',serif; font-style:italic; font-size:1rem; color:rgba(255,255,255,0.7); max-width:560px; margin:0 auto 28px; line-height:1.75; }
+  .btn { display:inline-block; font-family:'Oswald',sans-serif; font-size:0.82rem; letter-spacing:2px; text-transform:uppercase; text-decoration:none; padding:14px 28px; border:2px solid transparent; }
+  .btn-primary { background:var(--red); color:var(--white); border-color:var(--red); }
+  .btn-gold { background:transparent; color:var(--gold); border-color:var(--gold); }
+  .btn-gold:hover { background:var(--gold); color:var(--navy); }
+
+  .page-nav { background:var(--navy); padding:36px 40px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .page-nav a { font-family:'Oswald',sans-serif; font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); text-decoration:none; }
+  .page-nav a:hover { color:var(--white); }
+
+  footer { background:#0a1221; padding:24px 40px; text-align:center; font-size:0.75rem; color:rgba(255,255,255,0.3); letter-spacing:1px; }
+  footer a { color:var(--gold); text-decoration:none; }
+
+  @media(max-width:700px){
+    .content-wrap{padding:40px 20px;}
+    .chapter-hero{padding:70px 20px 50px;}
+    .skills-strip{padding:20px;}
+    .ct-item{grid-template-columns:1fr;}
+    .ct-date{border-right:none;border-bottom:3px solid var(--red);padding:12px 16px;}
+    .highlight-box{grid-template-columns:1fr 1fr;}
+    .site-nav{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="/" class="nav-logo">VRL <span>★</span> Roof With Veterans</a>
+  <a href="meet-wes.html" class="nav-back">← Back to Wes Miller</a>
+</nav>
+
+<div class="chapter-hero">
+  <div class="chapter-inner">
+    <span class="chapter-eyebrow">Chapter Three — Roofing &amp; Restoration Career</span>
+    <h1 class="chapter-title">Decade in<span>the Trenches.</span></h1>
+    <p class="chapter-subtitle">Wes Miller started in roofing the hard way — knocking doors in summer heat with no leads and no script — and worked his way through every role in the industry before founding Veterans Restoration of Louisville. This is what ten years of hard work looks like.</p>
+    <nav class="chapter-nav">
+      <a href="wes-personal.html">Personal</a>
+      <a href="wes-military.html">Military</a>
+      <a href="wes-professional.html" class="active">Professional</a>
+      <a href="meet-wes.html">← Back to Overview</a>
+    </nav>
+  </div>
+</div>
+
+<!-- SKILLS STRIP -->
+<div class="skills-strip">
+  <div class="skill-pill"><em>✓</em><span>Xactimate Level 1 Certified</span></div>
+  <div class="skill-pill"><em>✓</em><span>Storm Damage Documentation</span></div>
+  <div class="skill-pill"><em>✓</em><span>Insurance Supplement Writing</span></div>
+  <div class="skill-pill"><em>✓</em><span>Denial Reversals</span></div>
+  <div class="skill-pill"><em>✓</em><span>Appraisal Clause Process</span></div>
+  <div class="skill-pill"><em>✓</em><span>Sales Leadership</span></div>
+  <div class="skill-pill"><em>✓</em><span>Production Management</span></div>
+  <div class="skill-pill"><em>✓</em><span>Retail Roofing</span></div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- ENTRY -->
+  <div class="content-block">
+    <div class="block-label">How It Started</div>
+    <h2 class="block-title">Canvasser. June 2016. No Leads. No Script.</h2>
+    <div class="block-body">
+      <p>Wes entered the roofing and storm restoration industry in June 2016, starting as a canvasser. The freedom of working when he wanted was a foreign concept after eight years of military structure. He struggled with the lack of confidence that door-to-door sales demands. He'll tell you plainly: going door to door felt terrible at first.</p>
+      <p>After a lackluster June and July, he got a call from the top of the leadership chain — a pay restructuring conversation. His response? "I was surprised y'all hadn't done something sooner." The same week of that call, he hit three jobs. The following week he had four. The week after that, three more. He had figured something out.</p>
+      <p>What he had wasn't the numbers of the top salespeople — he'd only done it for a couple of months. What he had was leadership experience, and he ran his sales team hard, trained hard, and produced hard. He studied every day. On bad days he wouldn't go home — he'd hit the books and learn the script. By the end of 2016, his team finished with 180 total jobs, including 60 that Wes sold himself.</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="hl-stat"><div class="hl-num">180</div><div class="hl-label">Team jobs, first full year</div></div>
+    <div class="hl-stat"><div class="hl-num">60</div><div class="hl-label">Personal jobs, same year</div></div>
+    <div class="hl-stat"><div class="hl-num">$38k+</div><div class="hl-label">Highest supplement written</div></div>
+    <div class="hl-stat"><div class="hl-num">8 for 8</div><div class="hl-label">Appraisal win rate</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- CAREER TIMELINE -->
+  <div class="content-block">
+    <div class="block-label">Career Timeline</div>
+    <h2 class="block-title">Every Role. Every Company. Every Lesson.</h2>
+
+    <div class="career-timeline">
+
+      <div class="ct-item">
+        <div class="ct-date">2016</div>
+        <div class="ct-content">
+          <div class="ct-company">American Dream Home Improvement</div>
+          <div class="ct-role">Canvasser → Sales Rep → Informal Team Lead</div>
+          <div class="ct-desc">Started June 16th as a canvasser. Went from struggling to landing 3–4 jobs in a week consistently. Led a team of 5–8 reps that constantly out-performed others — despite management chaos and deliberate interference. Won "Newcomer of the Year" at the company show. His team did 380–390 jobs in 2017. Later exited after organizational issues and a difficult management environment.</div>
+        </div>
+      </div>
+
+      <div class="ct-item">
+        <div class="ct-date">Feb–Aug 2018</div>
+        <div class="ct-content">
+          <div class="ct-company">Code Louisville</div>
+          <div class="ct-role">Student — Front-End Web Development</div>
+          <div class="ct-desc">Between roofing roles, Wes attended Code Louisville — learning HTML, CSS, and JavaScript. In August 2018, golf ball-sized hail hit Louisville and changed his trajectory back into restoration immediately. The technical knowledge stayed with him.</div>
+        </div>
+      </div>
+
+      <div class="ct-item">
+        <div class="ct-date">Aug 2018 – Aug 2019</div>
+        <div class="ct-content">
+          <div class="ct-company">Storm Guard (Franchised Location)</div>
+          <div class="ct-role">Sales / Production</div>
+          <div class="ct-desc">Storm Guard was a franchise owned by a former restauranteur — a margins-focused operator who taught Wes a lot about how tight companies can be and why. He'd never sold laminate shingles before joining (previous employer used 3-tab), and learned the full upgrade pathway. His owner connected him with supplement specialist John Salbeck, whose knowledge and Wes's commitment to learning led to a major breakthrough: Xactimate.</div>
+        </div>
+      </div>
+
+      <div class="ct-item">
+        <div class="ct-date">Sept 2018</div>
+        <div class="ct-content">
+          <div class="ct-company">Roof It Right (Sergei, Owner)</div>
+          <div class="ct-role">Sales / Supplement Specialist</div>
+          <div class="ct-desc">Recruited by a former canvasser from a previous company — someone who started in Oklahoma on roofs as a laborer, worked up to running a crew, and went into business for himself. Sergei was a religious refugee from Russia and had built something real from nothing. He invested in Wes — paid for him to take the XMS University course to learn Xactimate. The moment Wes learned Xactimate, it changed everything. His highest supplement grew from $12–15k to $18k, then to $27k. He went 8 for 8 in appraisals — winning full scope and OOP every time. His owner once told him: "Most people bring knives to the fight. You are a nuclear missile."</div>
+        </div>
+      </div>
+
+      <div class="ct-item">
+        <div class="ct-date">2023–2025</div>
+        <div class="ct-content">
+          <div class="ct-company">Independent Consulting</div>
+          <div class="ct-role">Estimator / Supplement Writer</div>
+          <div class="ct-desc">Wrote estimates and supplements for 5–8 local contractors at a time. Did paid inspections. Survived rough market conditions — insurance becoming increasingly difficult and slow. Refined his craft at the highest individual level before building a team of his own.</div>
+        </div>
+      </div>
+
+      <div class="ct-item">
+        <div class="ct-date">2025–2026</div>
+        <div class="ct-content">
+          <div class="ct-company">Multiple Engagements</div>
+          <div class="ct-role">Sales / Estimating / Consulting</div>
+          <div class="ct-desc">Worked across several operations including Triple Crown / Knocking Doors (4 months, sold over $150k), Prestige Home Solutions (retail sales, home shows, 40+ and 23+ leads from individual events), and Champions Choice Roofing. Built confidence, refined retail skills, and confirmed that owning his own operation was the only path that made sense.</div>
+        </div>
+      </div>
+
+      <div class="ct-item">
+        <div class="ct-date">May 2026</div>
+        <div class="ct-content">
+          <div class="ct-company">Veterans Restoration of Louisville</div>
+          <div class="ct-role">Founder &amp; Owner</div>
+          <div class="ct-desc">Founded Veterans Restoration of Louisville — veteran-owned, veteran-led, veteran-operated. Everything before this was preparation. VRL is the vehicle for all of it: the military discipline, the supplementing expertise, the retail skills, the community commitment, and the belief that homeowners deserve a contractor who fights for them.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- WHAT MAKES HIM DIFFERENT -->
+  <div class="content-block">
+    <div class="block-label">What Makes Him Different</div>
+    <h2 class="block-title">The Xactimate Edge.</h2>
+    <div class="block-body">
+      <p>The thing that separates Wes from most contractors in the Louisville market isn't just experience — it's Xactimate Level 1 Certification. Xactimate is the industry-standard insurance estimating software, and very few contractors in the field know how to use it at a high level. Wes does. He learned it from a dedicated mentor, spent real time studying it, and then proved it in the field — going 8-for-8 in formal appraisals, always getting full scope and Out-of-Pocket.</p>
+      <p>That's the game most contractors don't even know how to play. Insurance carriers make money by underpaying. Wes knows every line item. He knows what's owed, what's been missed, and how to write a supplement that forces a fair result. His highest supplement written was over $38,000. He's turned claims that were denied into full replacements. He's helped homeowners navigate the appraisal clause — a legal process most contractors have never even heard of.</p>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    "Most people bring knives to the fight. You are a nuclear missile."
+    <cite>— Wes's former employer, describing his supplementing ability</cite>
+  </div>
+
+  <div class="fact-box">
+    <h4>Professional Capabilities — At a Glance</h4>
+    <ul>
+      <li>Xactimate Level 1 Certified (XMS University)</li>
+      <li>Supplement writing — highest single supplement: $38,000+</li>
+      <li>Appraisal clause navigation — 8 for 8 all-time win rate</li>
+      <li>Denial reversal experience — turned rejected claims into full scopes</li>
+      <li>Full scope insurance claim management — from inspection through completion</li>
+      <li>Sales leadership — led teams of 5–20 reps at a time</li>
+      <li>Canvassing, door-to-door, home shows, referral &amp; retail sales experience</li>
+      <li>Production management oversight &amp; crew coordination</li>
+      <li>Roofing, siding, gutters, wraps, soffit/fascia — full exterior scope</li>
+      <li>Front-end web development (HTML, CSS, JS — Code Louisville graduate)</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <!-- WHY VRL -->
+  <div class="content-block">
+    <div class="block-label">Why He Started VRL</div>
+    <h2 class="block-title">Control. Accountability. No One Else to Blame.</h2>
+    <div class="block-body">
+      <p>Wes says it plainly: he came to realize he would never be happy unless he had the final voice and responsibility. Only then would there be no one else to blame. Sales were frustrating. Management was a source of friction. He wanted control — and he decided the time was now.</p>
+      <p>He's been around the block. He's seen the shady operators, the volume-at-all-costs machines, the guys who feed their salesmen leads and don't care about the homeowner. He's also seen the great ones — the operators with wisdom, foresight, and the willingness to invest in their people. He's taken something from every one of them. VRL is the company he always wanted to work for but never found.</p>
+      <p>"I have big dreams and big goals. I know how to get what I want — I have to help others get what they want first. God, Family, Community." That's not a marketing line. That's how he operates.</p>
+    </div>
+  </div>
+
+  <div class="cta-wrap">
+    <div style="font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Ready to Talk?</div>
+    <h3 style="font-family:'Oswald',sans-serif;font-size:2rem;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:20px;">Wes Answers His Own Phone.</h3>
+    <p>Call or text (502) 919-0278 — no call center, no runaround. Just a straight answer from the guy who's going to run your job.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
+      <a href="tel:5029190278" class="btn btn-primary">(502) 919-0278</a>
+      <a href="/contact.html" class="btn btn-gold">Schedule Free Inspection</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-nav">
+  <a href="wes-military.html">← Military Story</a>
+  <a href="meet-wes.html">Back to Overview</a>
+</div>
+
+<footer>
+  <p>© 2026 Veterans Restoration of Louisville &nbsp;·&nbsp; <a href="/">roofwithveterans.com</a> &nbsp;·&nbsp; (502) 919-0278</p>
+  <p style="margin-top:8px;">Veteran-Owned. Community-Focused. Built on SERVICE.</p>
+</footer>
+
+</body>
+</html>

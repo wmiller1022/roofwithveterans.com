@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet Wes Miller | Veterans Restoration of Louisville</title>
+<meta name="description" content="Wesley 'Wes' Miller — founder of Veterans Restoration of Louisville. Army veteran, storm restoration expert, Xactimate-certified, and Louisville native. Over a decade of roofing industry leadership.">
+<meta name="keywords" content="Wes Miller, Veterans Restoration Louisville, veteran-owned roofing Louisville, storm restoration Louisville, Xactimate certified estimator, roofing contractor Louisville Kentucky">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy:    #1B2A4A;
+    --red:     #8B0000;
+    --red-bright: #CC0000;
+    --gold:    #C8A84B;
+    --cream:   #F5E6C8;
+    --tan:     #E8D5B0;
+    --white:   #FFFFFF;
+    --navy-light: #243356;
+    --shadow:  0 4px 24px rgba(27,42,74,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #0d1a2e 0%, var(--navy) 50%, #1a2f55 100%);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(200,168,75,0.06) 80px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(200,168,75,0.06) 80px);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '★ ★ ★ ★ ★';
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold);
+    letter-spacing: 18px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    white-space: nowrap;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 40px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-text {}
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    margin-bottom: 24px;
+  }
+
+  .hero-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 0.95;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+
+  .hero-name span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-title {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+    margin-bottom: 28px;
+  }
+
+  .hero-quote {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--cream);
+    line-height: 1.75;
+    border-left: 3px solid var(--gold);
+    padding-left: 20px;
+    margin-bottom: 40px;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 28px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    border-color: var(--red);
+  }
+  .btn-primary:hover { background: var(--red-bright); border-color: var(--red-bright); }
+
+  .btn-gold {
+    background: transparent;
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+  .btn-gold:hover { background: var(--gold); color: var(--navy); }
+
+  /* ── SHIELD GRAPHIC SIDE ── */
+  .hero-graphic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .shield-wrap {
+    position: relative;
+    width: 260px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shield-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 8px 32px rgba(200,168,75,0.25));
+    animation: shieldFloat 4s ease-in-out infinite;
+  }
+
+  @keyframes shieldFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,168,75,0.2);
+    padding: 18px 16px;
+    text-align: center;
+    transition: border-color 0.25s;
+  }
+  .stat-card:hover { border-color: var(--gold); }
+
+  .stat-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+
+  /* ── NAV BAR ── */
+  .site-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(27,42,74,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(200,168,75,0.2);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── SECTION SHELL ── */
+  section { padding: 80px 40px; }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .section-rule {
+    width: 60px;
+    height: 3px;
+    background: var(--red);
+    margin-bottom: 40px;
+  }
+
+  /* ── INTRO STRIP ── */
+  .intro-strip {
+    background: var(--cream);
+    color: var(--navy);
+  }
+
+  .intro-strip .section-title { color: var(--navy); }
+  .intro-strip .section-label { color: var(--red); }
+
+  .intro-body {
+    font-family: 'Merriweather', serif;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #2a2a2a;
+    max-width: 780px;
+  }
+
+  .intro-body p + p { margin-top: 20px; }
+
+  /* ── THREE SUMMARY CARDS ── */
+  .cards-section {
+    background: var(--navy-light);
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .summary-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,168,75,0.15);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .summary-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+  }
+
+  .card-accent-bar {
+    height: 4px;
+    width: 100%;
+  }
+  .card-accent-bar.red  { background: linear-gradient(90deg, var(--red), var(--red-bright)); }
+  .card-accent-bar.gold { background: linear-gradient(90deg, var(--gold), #e8c46a); }
+  .card-accent-bar.navy { background: linear-gradient(90deg, #3a5080, #5a78b0); }
+
+  .card-body {
+    padding: 36px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .card-category {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .card-summary {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.75);
+    flex: 1;
+    margin-bottom: 28px;
+  }
+
+  .card-highlights {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+
+  .card-highlights li {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .card-highlights li::before {
+    content: '▸';
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .card-link {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+    align-self: flex-start;
+  }
+  .card-link:hover { color: var(--white); border-color: var(--white); }
+
+  /* ── VALUES STRIP ── */
+  .values-strip {
+    background: var(--red);
+  }
+
+  .values-row {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .value-item {
+    flex: 1;
+    min-width: 180px;
+    padding: 32px 28px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    text-align: center;
+  }
+  .value-item:last-child { border-right: none; }
+
+  .value-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+
+  .value-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .value-desc {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+  }
+
+  /* ── CONTACT CTA ── */
+  .cta-section {
+    background: var(--navy);
+    text-align: center;
+    padding: 80px 40px;
+    border-top: 1px solid rgba(200,168,75,0.2);
+  }
+
+  .cta-section .section-rule { margin: 16px auto 40px; }
+
+  .cta-phone {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+  .cta-phone:hover { color: var(--white); }
+
+  .cta-email {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 36px;
+  }
+  .cta-email:hover { color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0a1221;
+    padding: 28px 40px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1px;
+  }
+
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+    .hero-graphic { order: -1; }
+    .hero-quote { text-align: left; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .hero-cta-group { justify-content: center; }
+    .site-nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    section { padding: 60px 20px; }
+    .hero-inner { padding: 80px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="/" class="nav-logo">VRL <span>★</span> Roof With Veterans</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/meet-the-team.html">Team</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Founder &amp; Owner — Veterans Restoration of Louisville</div>
+      <h1 class="hero-name">Wesley<span>"Wes" Miller</span></h1>
+      <p class="hero-title">Army Veteran &nbsp;·&nbsp; Storm Restoration Expert &nbsp;·&nbsp; Louisville, KY Native</p>
+      <div class="hero-divider"></div>
+      <blockquote class="hero-quote">
+        "What I learned in the Army — discipline, accountability, extreme ownership — that's exactly what a homeowner deserves from a contractor. That's why I built VRL."
+      </blockquote>
+      <div class="hero-cta-group">
+        <a href="#story" class="btn btn-primary">Read His Story</a>
+        <a href="tel:5029190278" class="btn btn-gold">(502) 919-0278</a>
+      </div>
+    </div>
+
+    <div class="hero-graphic">
+      <!-- VRL Shield SVG -->
+      <div class="shield-wrap">
+        <svg class="shield-svg" viewBox="0 0 240 280" xmlns="http://www.w3.org/2000/svg">
+          <!-- Shield body -->
+          <path d="M120 10 L220 50 L220 160 Q220 240 120 270 Q20 240 20 160 L20 50 Z"
+                fill="#1B2A4A" stroke="#C8A84B" stroke-width="3"/>
+          <!-- Inner shield -->
+          <path d="M120 28 L200 62 L200 158 Q200 228 120 252 Q40 228 40 158 L40 62 Z"
+                fill="none" stroke="rgba(200,168,75,0.3)" stroke-width="1.5"/>
+          <!-- Red banner -->
+          <rect x="30" y="90" width="180" height="40" rx="2" fill="#8B0000"/>
+          <!-- Banner text -->
+          <text x="120" y="116" text-anchor="middle"
+                font-family="Oswald,sans-serif" font-weight="700" font-size="19"
+                fill="#FFFFFF" letter-spacing="3">VETERANS</text>
+          <!-- Stars row -->
+          <text x="120" y="72" text-anchor="middle"
+                font-family="Georgia,serif" font-size="11"
+                fill="#C8A84B" letter-spacing="8">★ ★ ★ ★ ★</text>
+          <!-- RESTORATION text -->
+          <text x="120" y="158" text-anchor="middle"
+                font-family="Oswald,sans-serif" font-weight="700" font-size="16"
+                fill="#C8A84B" letter-spacing="2">RESTORATION</text>
+          <!-- of Louisville -->
+          <text x="120" y="182" text-anchor="middle"
+                font-family="Oswald,sans-serif" font-weight="400" font-size="10"
+                fill="rgba(255,255,255,0.7)" letter-spacing="2">of LOUISVILLE</text>
+          <!-- Bottom tagline -->
+          <text x="120" y="240" text-anchor="middle"
+                font-family="Oswald,sans-serif" font-size="8.5"
+                fill="rgba(200,168,75,0.6)" letter-spacing="1.5">VETERAN-OWNED · COMMUNITY-FOCUSED</text>
+        </svg>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years Industry Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">8</div>
+          <div class="stat-label">Years Military Service</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Lvl 1</div>
+          <div class="stat-label">Xactimate Certified</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">ARCOMs Earned</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-strip" id="story">
+  <div class="section-inner">
+    <div class="section-label">The Man Behind the Mission</div>
+    <h2 class="section-title">Built on Service.<br>Sharpened by Experience.</h2>
+    <div class="section-rule"></div>
+    <div class="intro-body">
+      <p>Wes Miller is a Louisville, Kentucky native who has spent his adult life doing two things exceptionally well: serving and building. He served his country as a U.S. Army soldier for eight years — earning three Army Commendation Medals and graduating AIT at Fort Bliss with Honor — then spent over a decade mastering every corner of the storm restoration and roofing industry before founding Veterans Restoration of Louisville in May 2026.</p>
+      <p>He's been the guy knocking doors in June heat. He's been the estimator learning Xactimate late at night because a mentor believed in him. He's been the team leader pushing his crew to out-produce everyone around them. He's fought insurance carriers in appraisals and won. He's worn every hat in this business — and now he's putting everything he learned to work for the homeowners of Louisville.</p>
+      <p>Wes lives by a simple code: love God, love family, serve community. He attends Celebrate Recovery monthly, holds a leadership role at his local VFW post, and raises three kids alongside his partner Stephanie. He'll tell you plainly — this business wasn't built to get rich. It was built to do right by people.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THREE SUMMARY CARDS -->
+<section class="cards-section">
+  <div class="section-inner">
+    <div class="section-label">Three Chapters</div>
+    <h2 class="section-title">His Full Story</h2>
+    <div class="section-rule" style="background:var(--gold);"></div>
+
+    <div class="cards-grid">
+
+      <!-- PERSONAL -->
+      <div class="summary-card fade-in">
+        <div class="card-accent-bar gold"></div>
+        <div class="card-body">
+          <span class="card-icon">🏡</span>
+          <div class="card-category">Chapter One</div>
+          <h3 class="card-title">The Personal Story</h3>
+          <p class="card-summary">Born in Arizona, raised in Louisville. A kid who bounced between schools, earned his GED, and joined the Army before anyone expected much from him. What he lacked in a traditional start, he made up for in grit, faith, and a relentless drive to learn.</p>
+          <ul class="card-highlights">
+            <li>Louisville, KY raised — born in Arizona</li>
+            <li>GED → Army → Jefferson Community College (Engineering)</li>
+            <li>Follower of Jesus Christ, serves at Celebrate Recovery</li>
+            <li>VFW Iroquois Hill Post — Adjutant (leadership role)</li>
+            <li>Husband &amp; father of three; avid cook, reader &amp; gardener</li>
+          </ul>
+          <a href="wes-personal.html" class="card-link">Read Full Personal Story →</a>
+        </div>
+      </div>
+
+      <!-- MILITARY -->
+      <div class="summary-card fade-in" style="transition-delay:0.15s">
+        <div class="card-accent-bar navy"></div>
+        <div class="card-body">
+          <span class="card-icon">🎖️</span>
+          <div class="card-category">Chapter Two</div>
+          <h3 class="card-title">Military Service</h3>
+          <p class="card-summary">Wes enlisted in February 2007 as a 14J — Air Defense C4I specialist. He served 5.25 years on active duty including a deployment to northern Iraq with a CRAM (Counter Rocket, Artillery, and Mortar) team, earned his stripes as a Squad Leader, and was honored with three ARCOMs before his honorable discharge.</p>
+          <ul class="card-highlights">
+            <li>14J MOS — Air Defense C4I, Fort Bliss AIT Honor Graduate</li>
+            <li>Deployed to Northern Iraq (Kirkuk) 2009–2011, CRAM Mission</li>
+            <li>Squad Leader — Sentinel Platoon, Fort Hood</li>
+            <li>3 Army Commendation Medals (Iraq, Border Patrol, Discharge)</li>
+            <li>Good Conduct Medal · Air Assault School</li>
+          </ul>
+          <a href="wes-military.html" class="card-link">Read Full Military Story →</a>
+        </div>
+      </div>
+
+      <!-- PROFESSIONAL -->
+      <div class="summary-card fade-in" style="transition-delay:0.3s">
+        <div class="card-accent-bar red"></div>
+        <div class="card-body">
+          <span class="card-icon">🏗️</span>
+          <div class="card-category">Chapter Three</div>
+          <h3 class="card-title">Roofing &amp; Restoration Career</h3>
+          <p class="card-summary">Wes entered the roofing industry in 2016 as a canvasser and worked his way through every role — sales, production, supplementing, estimating, and management — before going independent and ultimately founding VRL. He is Xactimate Level 1 Certified and has personally turned denied or underfunded claims into full scopes.</p>
+          <ul class="card-highlights">
+            <li>Started in roofing 2016; has worked every role in the business</li>
+            <li>Xactimate Level 1 Certified — the industry standard estimating software</li>
+            <li>Expert in insurance claims, supplements, appraisals &amp; denial reversals</li>
+            <li>Highest supplement written: $38,000+</li>
+            <li>Founded Veterans Restoration of Louisville — May 2026</li>
+          </ul>
+          <a href="wes-professional.html" class="card-link">Read Full Professional Story →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VALUES STRIP -->
+<section class="values-strip" style="padding: 0;">
+  <div class="values-row">
+    <div class="value-item">
+      <span class="value-icon">⚔️</span>
+      <div class="value-name">Extreme Ownership</div>
+      <div class="value-desc">If it went wrong, that's on me. No excuses.</div>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">🛡️</span>
+      <div class="value-name">Honor &amp; Integrity</div>
+      <div class="value-desc">We do what we say. Every time.</div>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">📋</span>
+      <div class="value-name">Competence</div>
+      <div class="value-desc">We've earned the right to be in this room.</div>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">🤝</span>
+      <div class="value-name">Service First</div>
+      <div class="value-desc">Community over commission. Always.</div>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">🎯</span>
+      <div class="value-name">Mission Focus</div>
+      <div class="value-desc">Every job is a mission. We don't quit.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-label" style="text-align:center;">Get in Touch</div>
+  <h2 class="section-title" style="margin-bottom:16px;">Talk Directly to Wes</h2>
+  <div class="section-rule"></div>
+  <p style="color:rgba(255,255,255,0.65); max-width:520px; margin:0 auto 32px; font-size:0.95rem; line-height:1.7;">
+    Call or text anytime. Wes answers his own phone. No call center, no runaround — just a straight answer from the guy who'll be running your job.
+  </p>
+  <a href="tel:5029190278" class="cta-phone">(502) 919-0278</a>
+  <a href="mailto:wmiller@roofwithveterans.com" class="cta-email">wmiller@roofwithveterans.com</a>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="/contact.html" class="btn btn-primary">Schedule Free Inspection</a>
+    <a href="/" class="btn btn-gold">Back to Home</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Veterans Restoration of Louisville &nbsp;·&nbsp; <a href="/">roofwithveterans.com</a> &nbsp;·&nbsp; (502) 919-0278 &nbsp;·&nbsp; Louisville, KY</p>
+  <p style="margin-top:8px;">Veteran-Owned. Community-Focused. Built on SERVICE.</p>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
