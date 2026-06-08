@@ -1,0 +1,257 @@
+---
+layout: default
+title: Roof Repairs
+permalink: /roof-repairs/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  /* Roof Repairs page–specific styles */
+  .two-col { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
+  @media (min-width: 860px) { .two-col { grid-template-columns: 1fr 1fr; } }
+
+  .checklist { list-style: none; }
+  .checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #e8e8e8; font-size: 15px; color: #444; }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '✓'; color: #B22222; font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  .type-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
+  @media (min-width: 600px) { .type-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 960px) { .type-grid { grid-template-columns: repeat(3, 1fr); } }
+  .type-card { background: #fff; border-radius: 4px; border-top: 4px solid #3C3B6E; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 24px 22px; transition: transform 0.2s; }
+  .type-card:hover { transform: translateY(-3px); }
+  .type-card .ico { font-size: 32px; margin-bottom: 12px; }
+  .type-card h3 { font-family: 'Oswald', sans-serif; font-size: 18px; color: #0f0f23; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .type-card p { color: #555; font-size: 14px; line-height: 1.65; }
+
+  .why-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 22px; }
+  .why-icon { background: #B22222; color: #fff; width: 42px; height: 42px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; font-family: 'Oswald', sans-serif; font-weight: 700; }
+  .why-item h3 { font-family: 'Oswald', sans-serif; font-size: 18px; color: #0f0f23; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .why-item p { color: #555; font-size: 14.5px; line-height: 1.65; }
+
+  .pull-quote { background: #B22222; padding: 48px 24px; text-align: center; }
+  .pull-quote p { font-family: 'Oswald', sans-serif; font-size: 26px; color: #fff; line-height: 1.3; max-width: 720px; margin: 0 auto; text-transform: uppercase; letter-spacing: 1px; }
+  .pull-quote p span { color: #C8A84B; }
+  @media (min-width: 768px) { .pull-quote { padding: 56px 80px; } .pull-quote p { font-size: 32px; } }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Affordable Solutions · Done Right</div>
+  <h1>Roof <span class="red">Repairs</span></h1>
+  <p class="hero-sub">The big national companies won't touch repairs. We will. We're experts at diagnosing leaks and fixing the problem the right way — so you don't pay twice.</p>
+  <div class="hero-buttons">
+    <a href="/contact/" class="btn-primary">★ Schedule Free Inspection</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- TAGLINE -->
+<div class="tagline-band">
+  <h2>Stop The Leak. <span>Protect The Investment.</span></h2>
+</div>
+
+<!-- FACTS + WHY WE DO THEM -->
+<section class="section-light">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow">★ Straight Talk</span>
+        <h2 class="section-heading">Facts About <span class="red">Roof Repairs</span></h2>
+        <div class="section-divider"></div>
+        <ul class="checklist">
+          <li>Most big companies don't do repairs — it's not worth their time</li>
+          <li>A repair is often the same amount of work as a full replacement</li>
+          <li>Customer expectations don't always match reality — we'll be honest with you</li>
+          <li>Repairs can carry sticker shock because the labor is real, not the material</li>
+        </ul>
+      </div>
+      <div>
+        <span class="section-eyebrow">★ Our Stance</span>
+        <h2 class="section-heading">Why <span class="red">We Do Them</span></h2>
+        <div class="section-divider"></div>
+        <ul class="checklist">
+          <li>It's a chance to build trust with you as a homeowner</li>
+          <li>We can offer more affordable solutions for different budgets</li>
+          <li>It earns your business for the future — when the roof finally needs replacing</li>
+          <li>Plain and simple: we know what we're doing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS A REPAIR -->
+<section class="section-white">
+  <div class="inner">
+    <span class="section-eyebrow text-center">★ The Honest Answer</span>
+    <h2 class="section-heading text-center">What Is A <span class="red">Roof Repair?</span></h2>
+    <div class="section-divider mx-auto"></div>
+    <div style="max-width:760px;margin:28px auto 0;">
+      <div class="why-item">
+        <div class="why-icon">?</div>
+        <div>
+          <h3>Is It Repairable?</h3>
+          <p>First we check whether the material is still pliable, available, and uniform in color. If yes — a repair uses your existing material and ties cleanly into it. That's different from a full replacement, where we strip everything off.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">✓</div>
+        <div>
+          <h3>Will It Actually Fix The Problem?</h3>
+          <p>That's the dilemma of repairs — you pay, and if it doesn't hold, then what? We don't take that lightly. We diagnose the real cause before we quote a fix.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">★</div>
+        <div>
+          <h3>We Are Leak Experts</h3>
+          <p>We're experts at diagnosing leaks and at spotting what won't last the life of the roof. If your roof has 10 years or less left, an early repair can buy you time — wait too long and you risk paying for a repair that fails, or footing the replacement yourself.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPES OF REPAIRS -->
+<section class="section-light">
+  <div class="inner">
+    <span class="section-eyebrow text-center">★ Field Manual</span>
+    <h2 class="section-heading text-center">Types Of <span class="red">Roof Repairs</span></h2>
+    <div class="section-divider mx-auto"></div>
+    <div class="type-grid">
+
+      <div class="type-card">
+        <div class="ico">🌊</div>
+        <h3>Valleys</h3>
+        <p>Valleys take a massive amount of water. We pull the shingles, add Ice &amp; Water Shield, and tie cleanly back into your existing roof.</p>
+      </div>
+
+      <div class="type-card">
+        <div class="ico">🔩</div>
+        <h3>Flashings</h3>
+        <p>Counter-flashing re-used during a past replacement won't last the life of the new roof. We can replace it — sometimes without even touching your shingles.</p>
+      </div>
+
+      <div class="type-card">
+        <div class="ico">🧱</div>
+        <h3>Chimneys</h3>
+        <p>A leaking chimney could be bad flashing, a missing cricket (30"+ is code), or something not roof-related at all. You may need a tuck-point or chimney cap. We've got you.</p>
+      </div>
+
+      <div class="type-card">
+        <div class="ico">🔧</div>
+        <h3>Penetrations</h3>
+        <p>Vents and pipe jacks are notorious for leaking. A repair typically means replacing the item plus roughly a 3' x 3' area around it — new IWS and new shingles.</p>
+      </div>
+
+      <div class="type-card">
+        <div class="ico">🌪️</div>
+        <h3>Tree Limb / Acts Of Nature</h3>
+        <p>Something blows off, falls, gets thrown — whatever hits your roof. We do spot replacements for freak accidents and emergencies.</p>
+      </div>
+
+      <div class="type-card">
+        <div class="ico">🔗</div>
+        <h3>Tie-Ins</h3>
+        <p>Adding on and need to tie into your existing roof? We tie it in and stand behind it. If it leaks, we fix it.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY SCHEDULE -->
+<section class="section-dark">
+  <div class="inner">
+    <span class="section-eyebrow" style="color:rgba(255,255,255,0.5)">★ Make The Call</span>
+    <h2 class="section-heading light">Why Schedule An <span class="red">Estimate?</span></h2>
+    <div class="section-divider"></div>
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:760px;margin-top:8px;">
+      <div class="storm-item"><h3>🧭 Honest Opinion</h3><p>We give you our straight recommendation on repair versus replacement — no agenda.</p></div>
+      <div class="storm-item"><h3>📋 Tailor-Made Proposal</h3><p>If the problem needs handling in phases, we'll build a plan that fits.</p></div>
+      <div class="storm-item"><h3>🛑 Stop The Bleeding</h3><p>We can help stop leaks now while the business and admin side gets figured out.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <p>"Whether repair or replacement is the right option… <span>Veterans Restoration is the right contractor."</span></p>
+</div>
+
+<!-- BADGES -->
+<section class="badges">
+  <div class="badge-item"><span>🎖️</span><strong>Veteran Owned</strong><p>Serving those who served</p></div>
+  <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
+  <div class="badge-item"><span>🏠</span><strong>Owens Corning</strong><p>Preferred Installer</p></div>
+  <div class="badge-item"><span>⭐</span><strong>5-Star Rated</strong><p>Google &amp; Facebook</p></div>
+  <div class="badge-item"><span>📋</span><strong>Licensed &amp; Insured</strong><p>Kentucky Certified</p></div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="stars-row">★ ★ ★ ★ ★</div>
+  <h2>Got A <span class="red">Leak?</span></h2>
+  <p>No pressure. No obligation. Just honest answers from people who served.</p>
+  <div class="cta-buttons">
+    <a href="https://calendly.com" class="btn-primary" target="_blank" rel="noopener">★ Book Online</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <h3>Repair or replace? <span>Let's take a look.</span></h3>
+  <div class="contact-links">
+    <a href="tel:5029190278">📞 (502) 919-0278</a>
+    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="/contact/" class="btn-primary">Free Inspection →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+})();
+</script>
