@@ -1,0 +1,407 @@
+---
+layout: default
+title: "Operation: Roof"
+permalink: /operation-roof/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  /* Operation: Roof page–specific styles */
+
+  /* CLASSIFIED GATE */
+  .classified-gate {
+    background:
+      repeating-linear-gradient(45deg, rgba(204,0,0,0.06) 0 14px, transparent 14px 28px),
+      #0f0f23;
+    min-height: 78vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 64px 24px;
+    border-bottom: 4px solid #B22222;
+    text-align: center;
+  }
+  .classified-stamp {
+    border: 3px solid #CC0000; color: #CC0000;
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    letter-spacing: 6px; text-transform: uppercase;
+    font-size: 18px; padding: 8px 22px; border-radius: 3px;
+    display: inline-block; transform: rotate(-4deg);
+    margin-bottom: 28px; opacity: 0.92;
+  }
+  .classified-folder {
+    max-width: 640px; margin: 0 auto;
+    background: rgba(245,230,200,0.04);
+    border: 1px solid rgba(200,168,75,0.4);
+    border-radius: 4px; padding: 40px 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .classified-folder h1 {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    color: #fff; text-transform: uppercase; letter-spacing: 3px;
+    font-size: 38px; line-height: 1.05; margin-bottom: 6px;
+  }
+  .classified-folder h1 .red { color: #CC0000; }
+  .classified-eyebrow {
+    font-family: 'Oswald', sans-serif; letter-spacing: 4px;
+    text-transform: uppercase; font-size: 12px;
+    color: #C8A84B; margin-bottom: 18px;
+  }
+  .disclaimer {
+    color: rgba(255,255,255,0.82); font-size: 16px; line-height: 1.8;
+    font-style: italic; max-width: 520px; margin: 22px auto 30px;
+    padding: 18px 22px; border-left: 3px solid #CC0000;
+    background: rgba(0,0,0,0.25); text-align: left;
+  }
+  .gate-btn {
+    display: inline-block; cursor: pointer; border: none;
+    background: #B22222; color: #fff;
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 3px; font-size: 16px;
+    padding: 16px 40px; border-radius: 3px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .gate-btn:hover { background: #CC0000; transform: translateY(-2px); }
+  .gate-sub { color: rgba(255,255,255,0.5); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-top: 16px; font-family: 'Oswald', sans-serif; }
+
+  /* The briefing (hidden until gate opened) */
+  #briefing { display: none; }
+  #briefing.revealed { display: block; animation: fadeUp 0.5s ease; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Mission brief list */
+  .mission-list { list-style: none; max-width: 720px; margin: 28px auto 0; }
+  .mission-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85); font-size: 16px; line-height: 1.6; text-align: left;
+  }
+  .mission-list li:last-child { border-bottom: none; }
+  .mission-list .num {
+    background: #B22222; color: #fff; flex-shrink: 0;
+    width: 30px; height: 30px; border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 15px;
+  }
+
+  /* Sit Rep */
+  .two-col { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
+  @media (min-width: 860px) { .two-col { grid-template-columns: 1fr 1fr; } }
+  .checklist { list-style: none; }
+  .checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #e8e8e8; font-size: 15px; color: #444; }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '✓'; color: #B22222; font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* Included grid */
+  .include-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 36px; }
+  @media (min-width: 600px) { .include-grid { grid-template-columns: repeat(2, 1fr); } }
+  .include-item { display: flex; align-items: flex-start; gap: 12px; background: #fff; border-radius: 4px; border-left: 4px solid #B22222; padding: 16px 18px; box-shadow: 0 3px 14px rgba(0,0,0,0.06); }
+  .include-item h3 { font-family: 'Oswald', sans-serif; font-size: 15px; color: #0f0f23; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+  .include-item p { color: #666; font-size: 13.5px; line-height: 1.55; }
+
+  /* Good / Better / Best */
+  .tier-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 40px; }
+  @media (min-width: 600px) { .tier-grid { grid-template-columns: repeat(3, 1fr); } }
+  .tier-card { background: #fff; border-radius: 4px; border-top: 4px solid #3C3B6E; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 28px 22px; transition: transform 0.2s; display: flex; flex-direction: column; }
+  .tier-card:hover { transform: translateY(-3px); }
+  .tier-card.featured { border-top-color: #B22222; }
+  .tier-label { display: inline-block; align-self: flex-start; background: #3C3B6E; color: #fff; font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; margin-bottom: 12px; }
+  .tier-card.featured .tier-label { background: #B22222; }
+  .tier-card h3 { font-family: 'Oswald', sans-serif; font-size: 21px; color: #0f0f23; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .tier-card .lead { color: #555; font-size: 14px; line-height: 1.6; margin-bottom: 14px; }
+  .tier-card ul { list-style: none; text-align: left; margin-top: auto; }
+  .tier-card ul li { font-size: 13px; color: #555; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
+  .tier-card ul li::before { content: '✓  '; color: #B22222; font-weight: 700; }
+
+  /* Other materials */
+  .mat-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
+  @media (min-width: 600px) { .mat-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 960px) { .mat-grid { grid-template-columns: repeat(3, 1fr); } }
+  .mat-item { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 4px; padding: 20px; }
+  .mat-item h3 { font-family: 'Oswald', sans-serif; font-size: 16px; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .mat-item p { color: rgba(255,255,255,0.72); font-size: 13.5px; line-height: 1.6; }
+
+  .vent-band { background: #3C3B6E; padding: 40px 24px; text-align: center; }
+  .vent-band h2 { font-family: 'Oswald', sans-serif; font-size: 30px; color: #fff; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+  .vent-band p { color: rgba(255,255,255,0.9); font-size: 15px; line-height: 1.7; max-width: 640px; margin: 0 auto; }
+  @media (min-width: 768px) { .vent-band { padding: 48px 80px; } }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- CLASSIFIED GATE -->
+<section class="classified-gate" id="gate">
+  <div class="classified-folder">
+    <div class="classified-eyebrow">★ Eyes Only · File Designation: ROOF ★</div>
+    <span class="classified-stamp">Top Secret // Classified</span>
+    <h1>Operation: <span class="red">Roof</span></h1>
+    <p class="disclaimer">
+      "We are about to blow your mind about our knowledge of roofs. By reviewing this content, you do it at your own reconnaissance."
+    </p>
+    <button class="gate-btn" id="enter-btn" type="button">★ Enter Briefing ★</button>
+    <div class="gate-sub">Authorized Personnel Welcome</div>
+  </div>
+</section>
+
+<!-- BRIEFING (revealed on enter) -->
+<div id="briefing">
+
+  <!-- MISSION -->
+  <section class="section-dark">
+    <div class="inner text-center">
+      <span class="section-eyebrow" style="color:rgba(255,255,255,0.55)">★ The Mission</span>
+      <h2 class="section-heading light">Our <span class="red">Mission</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <p style="color:rgba(255,255,255,0.82);font-size:16px;line-height:1.8;max-width:640px;margin:0 auto;">
+        When the storm hits, we've got your six. Every roof we touch comes down to three commitments we make to every customer — no exceptions.
+      </p>
+      <ul class="mission-list">
+        <li><span class="num">1</span> Provide every customer <strong>outstanding service</strong> from the first knock to the final cleanup.</li>
+        <li><span class="num">2</span> Provide every customer <strong>quality solutions</strong> built to last — not shortcuts.</li>
+        <li><span class="num">3</span> Provide every customer a <strong>fair price within their budget</strong> — options for every mission.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- MISSION BRIEF: HOW WE EXECUTE -->
+  <section class="section-light">
+    <div class="inner">
+      <span class="section-eyebrow text-center">★ Mission Brief</span>
+      <h2 class="section-heading text-center">How We <span class="red">Execute</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <div class="include-grid" style="max-width:760px;margin:36px auto 0;">
+        <div class="include-item"><div><h3>Options For Every Budget</h3><p>Good, Better, and Best — you choose the mission that fits.</p></div></div>
+        <div class="include-item"><div><h3>Break Down Every Option</h3><p>We explain the perks of each tier so you know exactly what you're getting.</p></div></div>
+        <div class="include-item"><div><h3>Detail What We Do</h3><p>No mystery. We walk you through the full scope of work, line by line.</p></div></div>
+        <div class="include-item"><div><h3>Secure The Objective</h3><p>A roof installed right, backed by warranty, and a yard left cleaner than we found it.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIT REP -->
+  <section class="section-white">
+    <div class="inner">
+      <div class="two-col">
+        <div>
+          <span class="section-eyebrow">★ Sit Rep</span>
+          <h2 class="section-heading">Signs You Need A <span class="red">Roof</span></h2>
+          <div class="section-divider"></div>
+          <ul class="checklist">
+            <li>Shingles curling, cracking, blistering, or missing</li>
+            <li>Granules collecting in gutters or at downspouts</li>
+            <li>Roof is 20+ years old</li>
+            <li>Daylight or water stains showing in the attic or ceilings</li>
+            <li>Sagging or soft spots in the roof deck</li>
+            <li>Damage after hail, high wind, or fallen debris</li>
+            <li>Repeated leaks that keep coming back</li>
+          </ul>
+          <p style="margin-top:18px;color:#666;font-size:15px;line-height:1.7;">
+            Not sure? That's what we're here for. Call us — we'll get out there and give you a straight answer.
+          </p>
+          <div style="margin-top:24px;">
+            <a href="/contact/" class="btn-primary">★ Schedule Free Inspection</a>
+          </div>
+        </div>
+        <div>
+          <span class="section-eyebrow">★ Chapter: Every Roof</span>
+          <h2 class="section-heading">What Every Replacement <span class="red">Includes</span></h2>
+          <div class="section-divider"></div>
+          <ul class="checklist">
+            <li>Complete tear-off to the wood deck</li>
+            <li>Full deck inspection &amp; cleaning — board replacement documented before &amp; after</li>
+            <li>Synthetic underlayment (no old-school felt)</li>
+            <li>Ice &amp; Water Shield in all valleys</li>
+            <li>Owens Corning starter strip on eaves &amp; rakes</li>
+            <li>Pre-cut hip &amp; ridge cap</li>
+            <li>New flashings — step, chimney, skylights, drip edge</li>
+            <li>New ventilation — ridge, box, or turbine</li>
+            <li>New plumbing boots &amp; lead pipe jacks</li>
+            <li>Landscape protection — whatever it takes</li>
+            <li>Complete magnetic nail sweep of the yard</li>
+            <li>Six-nail install for full wind warranty</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARRANTY -->
+  <div class="warranty-band">
+    <h2>🏆 Warranty You Can Count On</h2>
+    <p>Every replacement is backed by a manufacturer warranty — up to 50 years with 10-year tree protection — plus a minimum 5-year VRL workmanship warranty. When eligible, we add extended non-prorated coverage. Built right, backed in writing.</p>
+  </div>
+
+  <!-- GOOD / BETTER / BEST -->
+  <section class="section-light">
+    <div class="inner">
+      <span class="section-eyebrow text-center">★ Choose Your Loadout</span>
+      <h2 class="section-heading text-center">Good · Better · <span class="red">Best</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <div class="tier-grid">
+
+        <div class="tier-card">
+          <span class="tier-label">Good</span>
+          <h3>OC Oakridge</h3>
+          <p class="lead">The "O.C." of shingles — Owens Corning has been around for a reason. A proven laminated shingle that outperforms generic brands.</p>
+          <ul>
+            <li>Laminated architectural shingle</li>
+            <li>Six-nail install — full wind warranty</li>
+            <li>OC hip &amp; ridge cap</li>
+            <li>5-year VRL workmanship warranty</li>
+            <li>Limited Lifetime OC warranty</li>
+          </ul>
+        </div>
+
+        <div class="tier-card featured">
+          <span class="tier-label">Better</span>
+          <h3>OC Duration &amp; Designer</h3>
+          <p class="lead">A clear step up from "Good." SureNail® Technology, color-matched ridge, and Rhino Roof protection where it counts.</p>
+          <ul>
+            <li>SureNail® Technology for a stronger grip</li>
+            <li>Color-matched OC hip &amp; ridge</li>
+            <li>Rhino Roof underlayment &amp; Ice &amp; Water Shield</li>
+            <li>Automatic ventilation calculation</li>
+            <li>10-year VRL workmanship warranty</li>
+            <li>Eligible for extended 50-yr non-prorated warranty</li>
+          </ul>
+        </div>
+
+        <div class="tier-card">
+          <span class="tier-label">Best</span>
+          <h3>OC Duration FLEX</h3>
+          <p class="lead">The toughest option we install. SBS-modified bitumen and Class 4 impact resistance — built to stand up to golf-ball-size hail.</p>
+          <ul>
+            <li>SBS-modified bitumen — Class 4 impact resistant</li>
+            <li>Impact-resistant hip &amp; ridge cap</li>
+            <li>May save money on your insurance premium</li>
+            <li>Rhino Roof synthetic + Ice &amp; Water Shield</li>
+            <li>IWS on all penetration points — flashings, pipe jacks, vents</li>
+            <li>10-year workmanship &amp; manufacturer coverage</li>
+          </ul>
+        </div>
+
+      </div>
+      <p style="text-align:center;margin-top:24px;color:#888;font-size:13px;">Want to see the colors? Ask us for the Owens Corning color links during your free inspection.</p>
+    </div>
+  </section>
+
+  <!-- VENTILATION -->
+  <div class="vent-band">
+    <h2>🌬️ Ventilation Calculation</h2>
+    <p>Upon request, we calculate your attic ventilation and see what it takes to bring your roof up to code. If your policy includes a "code upgrade," that work can be included at no additional cost. Get it wrong and the warranty can be compromised — we get it right.</p>
+  </div>
+
+  <!-- MORE UPGRADES -->
+  <section class="section-white">
+    <div class="inner">
+      <span class="section-eyebrow text-center">★ Reinforcements</span>
+      <h2 class="section-heading text-center">More <span class="red">Upgrades</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <div class="include-grid" style="max-width:760px;margin:36px auto 0;">
+        <div class="include-item"><div><h3>Decking</h3><p>Full OSB re-deck or spot replacement, depending on what the deck needs.</p></div></div>
+        <div class="include-item"><div><h3>Winterize It</h3><p>Ice &amp; Water Shield on all eaves up to code — 3" versus 6" coverage options.</p></div></div>
+        <div class="include-item"><div><h3>Ventilation</h3><p>So important it's worth repeating — proper ventilation protects your warranty and your roof's life.</p></div></div>
+        <div class="include-item"><div><h3>Code Upgrades</h3><p>If your policy allows it, code-required upgrades may be included at no extra cost.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER MATERIALS -->
+  <section class="section-dark">
+    <div class="inner">
+      <span class="section-eyebrow text-center" style="color:rgba(255,255,255,0.55)">★ Beyond Asphalt</span>
+      <h2 class="section-heading light text-center">Other Roofing <span class="red">Options</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <div class="mat-grid">
+        <div class="mat-item"><h3>Metal — Barn Style</h3><p>Exposed-fastener metal panels. Durable, economical, and a great fit for outbuildings and rustic looks.</p></div>
+        <div class="mat-item"><h3>Metal — Standing Seam</h3><p>Concealed-fastener premium metal. Sleek, long-lasting, and built for decades of performance.</p></div>
+        <div class="mat-item"><h3>OC Berkshire</h3><p>Designer luxury shingle that mimics natural slate — premium curb appeal without the slate price.</p></div>
+        <div class="mat-item"><h3>CertainTeed Presidential Shake</h3><p>Triple-laminate designer shingle with the dimensional look of hand-split wood shake.</p></div>
+        <div class="mat-item"><h3>Modified Bitumen</h3><p>Rolled, torch- or self-adhered membrane for low-slope sections of residential roofs.</p></div>
+        <div class="mat-item"><h3>PVC / TPO</h3><p>Single-ply membrane systems for flat and low-slope commercial and residential roofs.</p></div>
+        <div class="mat-item"><h3>EPDM</h3><p>Rubber membrane roofing — a proven, cost-effective choice for flat-roof applications.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINK-OUTS -->
+  <section class="section-light">
+    <div class="inner text-center">
+      <h2 class="section-heading">Where To <span class="red">Next?</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <div class="hero-buttons" style="justify-content:center;margin-top:28px;">
+        <a href="/storm-damage/" class="btn-primary">⛈️ Storm Damage &amp; Insurance</a>
+        <a href="/contact/" class="btn-outline" style="color:#0f0f23;border-color:#0f0f23;">🆓 Free Replacement Quote</a>
+      </div>
+      <p style="margin-top:22px;color:#666;font-size:15px;">
+        Just need a repair or maintenance? See <a href="/roof-repairs/" style="color:#B22222;font-weight:600;">Roof Repairs</a> or <a href="/roof-maintenance/" style="color:#B22222;font-weight:600;">Roof Maintenance</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="stars-row">★ ★ ★ ★ ★</div>
+    <h2>Mission <span class="red">Accepted?</span></h2>
+    <p>No pressure. No obligation. Just an honest assessment from veterans who stand behind their work.</p>
+    <div class="cta-buttons">
+      <a href="https://calendly.com" class="btn-primary" target="_blank" rel="noopener">★ Book Online</a>
+      <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+    </div>
+  </section>
+
+</div><!-- /#briefing -->
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+
+  // Classified gate reveal
+  var btn=document.getElementById('enter-btn'),
+      gate=document.getElementById('gate'),
+      brief=document.getElementById('briefing');
+  if(btn){
+    btn.addEventListener('click',function(){
+      brief.classList.add('revealed');
+      gate.style.display='none';
+      brief.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+})();
+</script>
