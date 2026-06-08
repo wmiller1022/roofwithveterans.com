@@ -844,9 +844,8 @@ title: Home
   </div>
 </section>
 
-<!-- UNCLE SAM CTA BANNER -->
-<section class="cta-banner">
-  <img src="/assets/images/Uncle_Sam.jpeg" alt="We Want You">
+<!-- CTA BANNER (Uncle Sam now in popup) -->
+<section class="cta-banner" style="justify-content:center;">
   <div class="cta-text">
     <div class="stars-row">★ ★ ★ ★ ★</div>
     <h2>We Want <span class="red">YOU</span><br>To Schedule A<br>Roof Inspection!</h2>
@@ -972,6 +971,100 @@ title: Home
     <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved · Fully Insured</p>
   </div>
 </footer>
+
+<!-- UNCLE SAM POPUP -->
+<style>
+  .us-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(8,8,20,0.82); backdrop-filter: blur(3px);
+    display: none; align-items: center; justify-content: center; padding: 20px;
+  }
+  .us-overlay.show { display: flex; animation: usFade 0.3s ease; }
+  @keyframes usFade { from { opacity: 0; } to { opacity: 1; } }
+  .us-modal {
+    position: relative; width: 100%; max-width: 520px;
+    background: linear-gradient(to bottom, #0f0f23 0%, #1a1a4e 100%);
+    border: 3px solid #B22222; border-radius: 8px;
+    padding: 28px 26px 32px; text-align: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    animation: usPop 0.4s cubic-bezier(0.2,0.9,0.3,1.3);
+  }
+  @keyframes usPop { from { transform: scale(0.85) translateY(20px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+  .us-close {
+    position: absolute; top: 10px; right: 14px;
+    background: none; border: none; color: rgba(255,255,255,0.55);
+    font-size: 30px; line-height: 1; cursor: pointer; padding: 4px;
+  }
+  .us-close:hover { color: #fff; }
+  .us-modal img { height: 230px; object-fit: contain; margin-bottom: 6px; }
+  .us-stars { color: #B22222; font-size: 16px; letter-spacing: 6px; margin-bottom: 12px; }
+  .us-modal h2 {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    color: #fff; text-transform: uppercase; line-height: 1.1;
+    font-size: 28px; margin-bottom: 16px;
+  }
+  .us-modal h2 .red { color: #B22222; }
+  .us-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .us-buttons a {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px; font-size: 14px;
+    padding: 13px 22px; border-radius: 4px; text-decoration: none;
+    transition: transform 0.15s, background 0.15s;
+  }
+  .us-btn-red { background: #B22222; color: #fff; }
+  .us-btn-red:hover { background: #CC0000; transform: translateY(-2px); }
+  .us-btn-gold { background: #C8A84B; color: #0f0f23; }
+  .us-btn-gold:hover { background: #d8b95c; transform: translateY(-2px); }
+  .us-continue {
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,0.6); font-size: 13px; letter-spacing: 1px;
+    text-transform: uppercase; font-family: 'Oswald', sans-serif;
+    text-decoration: underline; padding: 6px;
+  }
+  .us-continue:hover { color: #fff; }
+  @media (max-width: 480px) {
+    .us-modal img { height: 180px; }
+    .us-modal h2 { font-size: 23px; }
+    .us-buttons a { width: 100%; }
+  }
+</style>
+<div class="us-overlay" id="us-overlay" role="dialog" aria-modal="true" aria-label="Schedule your inspection">
+  <div class="us-modal">
+    <button class="us-close" id="us-close" aria-label="Close">&times;</button>
+    <img src="/assets/images/Uncle_Sam.jpeg" alt="Uncle Sam — We Want You">
+    <div class="us-stars">★ ★ ★ ★ ★</div>
+    <h2>We Want <span class="red">YOU</span> To Schedule An Inspection or Estimate Today!</h2>
+    <div class="us-buttons">
+      <a href="/contact/" class="us-btn-red">★ Schedule Inspection</a>
+      <a href="/contact/" class="us-btn-gold">Get an Estimate</a>
+    </div>
+    <button class="us-continue" id="us-continue">Continue to Website →</button>
+  </div>
+</div>
+
+<script>
+  /* Uncle Sam popup — shows once per visitor */
+  (function () {
+    var overlay = document.getElementById('us-overlay');
+    if (!overlay) return;
+    var KEY = 'vrl_unclesam_seen';
+    var seen;
+    try { seen = localStorage.getItem(KEY); } catch (e) { seen = null; }
+    function dismiss() {
+      overlay.classList.remove('show');
+      document.body.style.overflow = '';
+      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    }
+    if (!seen) {
+      overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    document.getElementById('us-close').addEventListener('click', dismiss);
+    document.getElementById('us-continue').addEventListener('click', dismiss);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) dismiss(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') dismiss(); });
+  })();
+</script>
 
 <script>
   /* Hamburger */
