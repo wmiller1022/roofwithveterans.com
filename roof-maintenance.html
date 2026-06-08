@@ -1,0 +1,227 @@
+---
+layout: default
+title: Roof Maintenance
+permalink: /roof-maintenance/
+---
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  /* Roof Maintenance page–specific styles */
+  .two-col { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
+  @media (min-width: 860px) { .two-col { grid-template-columns: 1fr 1fr; } }
+
+  .checklist { list-style: none; }
+  .checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #e8e8e8; font-size: 15px; color: #444; }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '✓'; color: #B22222; font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* Schedule timeline */
+  .sched-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 40px; }
+  @media (min-width: 600px) { .sched-grid { grid-template-columns: repeat(3, 1fr); } }
+  .sched-card { background: #fff; border-radius: 4px; border-top: 4px solid #3C3B6E; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 28px 22px; text-align: center; transition: transform 0.2s; }
+  .sched-card:hover { transform: translateY(-3px); }
+  .sched-card.featured { border-top-color: #B22222; }
+  .sched-year { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 44px; color: #C8A84B; line-height: 1; }
+  .sched-card h3 { font-family: 'Oswald', sans-serif; font-size: 17px; color: #0f0f23; text-transform: uppercase; letter-spacing: 1px; margin: 10px 0 10px; }
+  .sched-card p { color: #555; font-size: 14px; line-height: 1.6; }
+
+  .why-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 22px; }
+  .why-icon { background: #B22222; color: #fff; width: 42px; height: 42px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; font-family: 'Oswald', sans-serif; font-weight: 700; }
+  .why-item h3 { font-family: 'Oswald', sans-serif; font-size: 18px; color: #0f0f23; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .why-item p { color: #555; font-size: 14.5px; line-height: 1.65; }
+
+  /* Coupon */
+  .coupon-wrap { padding: 64px 24px; background: #0f0f23; }
+  .coupon {
+    max-width: 760px; margin: 0 auto;
+    background: #F5E6C8;
+    border: 3px dashed #B22222; border-radius: 6px;
+    padding: 38px 34px; text-align: center; position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  }
+  .coupon .ribbon {
+    display: inline-block; background: #B22222; color: #fff;
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; font-size: 13px;
+    padding: 6px 18px; border-radius: 3px; margin-bottom: 18px;
+  }
+  .coupon h2 { font-family: 'Oswald', sans-serif; font-weight: 700; color: #0f0f23; text-transform: uppercase; letter-spacing: 1px; font-size: 30px; line-height: 1.15; margin-bottom: 14px; }
+  .coupon h2 span { color: #B22222; }
+  .coupon p { color: #3a3a3a; font-size: 15.5px; line-height: 1.75; max-width: 580px; margin: 0 auto 10px; }
+  .coupon .fine { font-size: 12.5px; color: #6b5b3a; font-style: italic; margin-top: 14px; }
+  @media (min-width: 768px) { .coupon h2 { font-size: 36px; } }
+</style>
+
+<!-- NAV -->
+<nav id="site-nav">
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/storm-damage/">Storm Damage</a></li>
+    <li><a href="/meet-the-team/">Meet the Team</a></li>
+    <li><a href="/gallery/">Gallery</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Proactive · Preventive · Protective</div>
+  <h1>Roof <span class="red">Maintenance</span></h1>
+  <p class="hero-sub">Whether we like it or not, roofs require maintenance. A little attention now prevents pricey leaks later — and every dollar you spend protects your investment.</p>
+  <div class="hero-buttons">
+    <a href="/contact/" class="btn-primary">★ Schedule Maintenance</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- TAGLINE -->
+<div class="tagline-band">
+  <h2>Maintain It Now. <span>Or Pay For It Later.</span></h2>
+</div>
+
+<!-- WHY MAINTENANCE MATTERS -->
+<section class="section-light">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow">★ The Reality</span>
+        <h2 class="section-heading">Why Roofs Need <span class="red">Maintenance</span></h2>
+        <div class="section-divider"></div>
+        <ul class="checklist">
+          <li>Debris buildup causes water to back up under shingles</li>
+          <li>Pipe boot flashings are known to fail before the life of the roof</li>
+          <li>Nail pops caught early are easy fixes — left alone, they cause pricey leaks</li>
+          <li>Loose shingles get blown off; hand-sealed shingles stay put</li>
+          <li>Exposed fasteners need re-caulking roughly every 5 years</li>
+          <li>Blown-out gutters need debris cleared so water can flow</li>
+          <li>Simple repairs of a few shingles, paired with maintenance, extend the roof's life</li>
+        </ul>
+      </div>
+      <div>
+        <span class="section-eyebrow">★ Why We Offer It</span>
+        <h2 class="section-heading">It's In Your <span class="red">Best Interest</span></h2>
+        <div class="section-divider"></div>
+        <div class="why-item">
+          <div class="why-icon">💰</div>
+          <div><h3>Saves You Money</h3><p>Like repairs, maintenance is in our customer's best interest — it saves money and extends roof life.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🛡️</div>
+          <div><h3>Prevents Costly Repairs</h3><p>Water mitigation gets expensive fast. Performing maintenance keeps you proactive instead of reactive.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🤝</div>
+          <div><h3>Shows Our Service</h3><p>It lets us showcase our customer service to homeowners who are a long way from needing a replacement.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="section-white">
+  <div class="inner">
+    <span class="section-eyebrow text-center">★ The Maintenance Schedule</span>
+    <h2 class="section-heading text-center">What We <span class="red">Recommend</span></h2>
+    <div class="section-divider mx-auto"></div>
+    <div class="sched-grid">
+
+      <div class="sched-card">
+        <div class="sched-year">5</div>
+        <h3>1st Maintenance — Year 5</h3>
+        <p>Check boots, flashings, and shingle seal. Remove debris and re-caulk exposed fasteners.</p>
+      </div>
+
+      <div class="sched-card featured">
+        <div class="sched-year">10</div>
+        <h3>2nd Maintenance — Year 10</h3>
+        <p>If the first pass was done, repeat the same service to keep everything sealed and protected.</p>
+      </div>
+
+      <div class="sched-card">
+        <div class="sched-year">15</div>
+        <h3>3rd Maintenance — Year 15</h3>
+        <p>If the first two were done. After year 15, maintain every other year to maximize roof life. Expect yearly service after year 25 for asphalt shingles.</p>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:24px;color:#888;font-size:13px;">After year 15 we recommend every-other-year service unless we suggest otherwise — every year once you pass 25 years on asphalt shingles.</p>
+  </div>
+</section>
+
+<!-- COUPON -->
+<div class="coupon-wrap">
+  <div class="coupon">
+    <span class="ribbon">★ VRL Loyalty Credit ★</span>
+    <h2>Every Dollar You Spend <span>Comes Back To You</span></h2>
+    <p>
+      Any money spent with us on repairs or maintenance will be applied toward any future replacement cost estimate — at any time. If legally allowed, we'll apply it toward your insurance deductible; if not, we'll apply it toward any upgrade option.
+    </p>
+    <p class="fine">Credit applies to a VRL replacement estimate. Deductible application subject to applicable law and your insurance policy. Ask us for details.</p>
+  </div>
+</div>
+
+<!-- BADGES -->
+<section class="badges">
+  <div class="badge-item"><span>🎖️</span><strong>Veteran Owned</strong><p>Serving those who served</p></div>
+  <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
+  <div class="badge-item"><span>🏠</span><strong>Owens Corning</strong><p>Preferred Installer</p></div>
+  <div class="badge-item"><span>⭐</span><strong>5-Star Rated</strong><p>Google &amp; Facebook</p></div>
+  <div class="badge-item"><span>📋</span><strong>Licensed &amp; Insured</strong><p>Kentucky Certified</p></div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="stars-row">★ ★ ★ ★ ★</div>
+  <h2>Protect Your <span class="red">Investment</span></h2>
+  <p>No pressure. No obligation. Just honest answers from people who served.</p>
+  <div class="cta-buttons">
+    <a href="https://calendly.com" class="btn-primary" target="_blank" rel="noopener">★ Book Online</a>
+    <a href="tel:5029190278" class="btn-outline">📞 (502) 919-0278</a>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<section class="contact-strip">
+  <h3>Ready to set up maintenance? <span>Let's talk.</span></h3>
+  <div class="contact-links">
+    <a href="tel:5029190278">📞 (502) 919-0278</a>
+    <a href="mailto:info@roofwithveterans.com">✉️ info@roofwithveterans.com</a>
+    <a href="/contact/" class="btn-primary">Free Inspection →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="footer-logo">
+  <div class="footer-links">
+    <a href="/services/">Services</a>
+    <a href="/storm-damage/">Storm Damage</a>
+    <a href="/meet-the-team/">Meet the Team</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div>
+    <div class="footer-social">
+      <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" title="Google"><i class="fab fa-google"></i></a>
+    </div>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+})();
+</script>
