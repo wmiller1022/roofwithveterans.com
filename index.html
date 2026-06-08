@@ -1043,22 +1043,16 @@ title: Home
 </div>
 
 <script>
-  /* Uncle Sam popup — shows once per visitor */
+  /* Uncle Sam popup — shows on every visit */
   (function () {
     var overlay = document.getElementById('us-overlay');
     if (!overlay) return;
-    var KEY = 'vrl_unclesam_seen';
-    var seen;
-    try { seen = localStorage.getItem(KEY); } catch (e) { seen = null; }
     function dismiss() {
       overlay.classList.remove('show');
       document.body.style.overflow = '';
-      try { localStorage.setItem(KEY, '1'); } catch (e) {}
     }
-    if (!seen) {
-      overlay.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
     document.getElementById('us-close').addEventListener('click', dismiss);
     document.getElementById('us-continue').addEventListener('click', dismiss);
     overlay.addEventListener('click', function (e) { if (e.target === overlay) dismiss(); });

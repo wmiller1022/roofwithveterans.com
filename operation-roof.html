@@ -472,14 +472,16 @@ permalink: /operation-roof/
 <script>
 (function(){
   var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
-  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
-  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+  if(t && m){
+    t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
+    document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
+  }
 
   // Classified gate reveal
   var btn=document.getElementById('enter-btn'),
       gate=document.getElementById('gate'),
       brief=document.getElementById('briefing');
-  if(btn){
+  if(btn && gate && brief){
     btn.addEventListener('click',function(){
       brief.classList.add('revealed');
       gate.style.display='none';
@@ -622,4 +624,5 @@ permalink: /operation-roof/
       window.setTimeout(maybeAutoOpen, 2000);
     }
   })();
+})();
 </script>
