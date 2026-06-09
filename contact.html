@@ -27,6 +27,10 @@ permalink: /contact/
   .form-group textarea { min-height:120px;resize:vertical; }
   .form-note { font-size:12px;color:#999;margin-top:4px; }
   .submit-btn { width:100%;font-size:17px;padding:18px;letter-spacing:2.5px; }
+  .submit-btn:disabled { opacity:0.6;cursor:not-allowed; }
+
+  /* Form error state */
+  .form-error-msg { display:none;background:#fdecea;border:1px solid #f5c2c0;color:#a12622;border-radius:3px;padding:14px 16px;margin-bottom:16px;font-size:14px;line-height:1.5; }
 
   /* Form success state */
   .form-success { display:none;text-align:center;padding:32px 0; }
@@ -91,7 +95,6 @@ permalink: /contact/
   <p class="hero-sub">Schedule your free inspection, ask a question, or get a quote. Our veteran team responds fast and treats every homeowner with the respect they deserve.</p>
   <div class="hero-buttons">
     <a href="tel:5029190278" class="btn-primary">📞 Call Now: (502) 919-0278</a>
-    <a href="https://calendly.com" class="btn-outline" target="_blank" rel="noopener">★ Book Online</a>
   </div>
 </section>
 
@@ -104,7 +107,8 @@ permalink: /contact/
       <div>
         <div class="contact-form-wrapper">
           <h2>Request Your Free Inspection</h2>
-          <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <form id="contact-form" action="https://formspree.io/f/xeewkgez" method="POST" novalidate>
+            <div class="form-error-msg" id="form-error-msg">Something went wrong submitting your request. Please call us at (502) 919-0278 and we'll take care of you right away.</div>
             <div class="form-row">
               <div class="form-group">
                 <label for="first-name">First Name *</label>
@@ -135,13 +139,28 @@ permalink: /contact/
                 <option value="">Select a service...</option>
                 <option value="free-inspection">Free Roof Inspection</option>
                 <option value="storm-damage">Storm Damage Assessment</option>
-                <option value="roof-replacement">Roof Replacement Quote</option>
+                <option value="roof-replacement">Roof Replacement / Repair</option>
                 <option value="siding">Siding</option>
-                <option value="windows">Windows</option>
-                <option value="gutters">Gutters</option>
+                <option value="gutters">Gutters &amp; Gutter Guards</option>
                 <option value="insurance">Insurance Claim Assistance</option>
                 <option value="other">Other / Not Sure</option>
               </select>
+            </div>
+            <div class="form-group">
+              <label for="hear-about">How Did You Hear About Us?</label>
+              <select id="hear-about" name="hear_about">
+                <option value="">Select one...</option>
+                <option value="google">Google Search</option>
+                <option value="facebook">Facebook</option>
+                <option value="referral">Referral / Word of Mouth</option>
+                <option value="canvasser">Door Knock / Canvasser</option>
+                <option value="yard-sign">Yard Sign</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="promo-code">Promo / Referral Code</label>
+              <input type="text" id="promo-code" name="promo_code" placeholder="Optional — e.g. VETSTRONG">
             </div>
             <div class="form-group">
               <label for="message">Tell Us More</label>
@@ -154,7 +173,14 @@ permalink: /contact/
               </label>
               <p class="form-note">Veterans and active duty receive special pricing.</p>
             </div>
-            <button type="submit" class="btn-primary submit-btn">★ Submit — Get My Free Inspection</button>
+            <div class="form-group">
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;text-transform:none;letter-spacing:0;">
+                <input type="checkbox" name="insurance_claim" value="yes" style="width:20px;height:20px;min-height:auto;accent-color:#B22222;">
+                I think I have storm damage or need insurance claim help
+              </label>
+              <p class="form-note">We work directly with your adjuster — no cost to find out if you have a claim.</p>
+            </div>
+            <button type="submit" class="btn-primary submit-btn" id="submit-btn">★ Submit — Get My Free Inspection</button>
             <p class="form-note" style="margin-top:12px;text-align:center;">We respond within 1 business hour. No spam, no pressure.</p>
           </form>
 
@@ -250,7 +276,7 @@ permalink: /contact/
   <div class="badge-item"><span>🏆</span><strong>BBB Member</strong><p>Accredited Business</p></div>
   <div class="badge-item"><span>🏠</span><strong>Owens Corning</strong><p>Preferred Installer</p></div>
   <div class="badge-item"><span>⭐</span><strong>5-Star Rated</strong><p>Google &amp; Facebook</p></div>
-  <div class="badge-item"><span>📋</span><strong>Licensed &amp; Insured</strong><p>Kentucky Certified</p></div>
+  <div class="badge-item"><span>🛡️</span><strong>Fully Insured</strong><p>Kentucky Certified</p></div>
 </section>
 
 <!-- FOOTER -->
@@ -270,7 +296,7 @@ permalink: /contact/
       <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="#" title="Google"><i class="fab fa-google"></i></a>
     </div>
-    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
+    <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved · Fully Insured</p>
   </div>
 </footer>
 
@@ -281,16 +307,48 @@ permalink: /contact/
   document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
 })();
 
-// Form handling — Formspree or replace with your backend
-var form=document.getElementById('contact-form');
-if(form){
+// Form handling — submits to Formspree via AJAX, keeps customer on this page
+(function(){
+  var form=document.getElementById('contact-form');
+  if(!form) return;
+  var submitBtn=document.getElementById('submit-btn');
+  var errorMsg=document.getElementById('form-error-msg');
+
   form.addEventListener('submit',function(e){
-    // If you have a real Formspree ID, remove the e.preventDefault() below
-    // and update the action URL. For now, show success UI only.
     e.preventDefault();
-    form.style.display='none';
-    document.getElementById('form-success').style.display='block';
-    window.scrollTo({top:form.parentElement.offsetTop,behavior:'smooth'});
+
+    // Browser-native validation for required fields
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+
+    errorMsg.style.display='none';
+    submitBtn.disabled=true;
+    submitBtn.textContent='Sending...';
+
+    fetch(form.action,{
+      method:'POST',
+      body:new FormData(form),
+      headers:{'Accept':'application/json'}
+    }).then(function(response){
+      if(response.ok){
+        form.style.display='none';
+        document.getElementById('form-success').style.display='block';
+        window.scrollTo({top:form.parentElement.offsetTop,behavior:'smooth'});
+      }else{
+        showError();
+      }
+    }).catch(function(){
+      showError();
+    });
+
+    function showError(){
+      errorMsg.style.display='block';
+      submitBtn.disabled=false;
+      submitBtn.textContent='★ Submit — Get My Free Inspection';
+      window.scrollTo({top:form.parentElement.offsetTop,behavior:'smooth'});
+    }
   });
-}
+})();
 </script>
