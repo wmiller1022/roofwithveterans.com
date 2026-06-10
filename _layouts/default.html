@@ -20,6 +20,204 @@
     h1.project-name, .project-name, .project-tagline { display: none !important; }
   </style>
 </head>
+<!--
+  ============================================================
+   GUNNY CHAT WIDGET — Veterans Restoration of Louisville
+  ------------------------------------------------------------
+   HOW TO USE:
+   1. Set BACKEND_URL below to your deployed Vercel URL +"/api/chat"
+      e.g. "https://gunny-chatbot.vercel.app/api/chat"
+   2. Paste this ENTIRE block into any page on your site, right
+      before the closing </body> tag. It adds a floating bubble
+      in the bottom-right corner. Nothing else on the page changes.
+   3. To put it on every page, paste it into your shared layout/footer.
+  ============================================================
+-->
+<div id="gunny-root" data-gunny>
+<style>
+  #gunny-root{--g-navy:#1B2A4A;--g-red:#8B0000;--g-bright:#CC0000;--g-gold:#C8A84B;--g-cream:#F5E6C8;
+    --g-user:#1B2A4A;--g-bot:#EFE9DA;
+    position:fixed;bottom:20px;right:20px;z-index:99999;
+    font-family:'Segoe UI',-apple-system,Roboto,Arial,sans-serif;}
+  #gunny-root *{box-sizing:border-box;}
+
+  /* launcher bubble */
+  #gunny-launch{display:flex;align-items:center;gap:10px;cursor:pointer;
+    background:var(--g-navy);color:#fff;border:2px solid var(--g-gold);
+    border-radius:50px;padding:12px 18px 12px 14px;box-shadow:0 6px 22px rgba(0,0,0,.28);
+    transition:transform .15s ease;}
+  #gunny-launch:hover{transform:translateY(-2px);}
+  #gunny-launch .shield{width:34px;height:34px;border-radius:50%;background:var(--g-red);
+    display:flex;align-items:center;justify-content:center;font-size:18px;flex:0 0 auto;}
+  #gunny-launch .ll{display:flex;flex-direction:column;line-height:1.15;text-align:left;}
+  #gunny-launch .ll b{font-size:15px;letter-spacing:.3px;}
+  #gunny-launch .ll span{font-size:11px;color:var(--g-gold);font-weight:600;}
+
+  /* chat panel */
+  #gunny-panel{display:none;flex-direction:column;width:370px;max-width:calc(100vw - 32px);
+    height:560px;max-height:calc(100vh - 110px);background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:0 14px 44px rgba(0,0,0,.34);border:1px solid rgba(0,0,0,.08);}
+  #gunny-root.open #gunny-panel{display:flex;}
+  #gunny-root.open #gunny-launch{display:none;}
+
+  #gunny-head{background:var(--g-navy);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;
+    border-bottom:3px solid var(--g-red);}
+  #gunny-head .shield{width:40px;height:40px;border-radius:50%;background:var(--g-red);
+    display:flex;align-items:center;justify-content:center;font-size:20px;flex:0 0 auto;}
+  #gunny-head .ht{flex:1;line-height:1.2;}
+  #gunny-head .ht b{font-size:16px;display:block;letter-spacing:.3px;}
+  #gunny-head .ht span{font-size:11px;color:var(--g-gold);font-weight:600;text-transform:uppercase;letter-spacing:.5px;}
+  #gunny-head .status{font-size:11px;color:#cfe9cf;display:flex;align-items:center;gap:5px;}
+  #gunny-head .dot{width:7px;height:7px;border-radius:50%;background:#46d160;display:inline-block;}
+  #gunny-close{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;line-height:1;opacity:.85;padding:0 2px;}
+  #gunny-close:hover{opacity:1;}
+
+  #gunny-log{flex:1;overflow-y:auto;padding:16px;background:#f6f4ef;}
+  .g-msg{margin:0 0 12px;display:flex;}
+  .g-msg .bub{padding:10px 13px;border-radius:14px;font-size:14px;line-height:1.45;max-width:84%;
+    white-space:pre-wrap;word-wrap:break-word;}
+  .g-msg.bot .bub{background:var(--g-bot);color:var(--g-navy);border-bottom-left-radius:4px;}
+  .g-msg.user{justify-content:flex-end;}
+  .g-msg.user .bub{background:var(--g-user);color:#fff;border-bottom-right-radius:4px;}
+  .g-typing .bub{color:#7a766c;font-style:italic;}
+
+  #gunny-quick{padding:8px 12px;display:flex;flex-wrap:wrap;gap:6px;background:#f6f4ef;border-top:1px solid #e6e1d6;}
+  #gunny-quick button{background:#fff;border:1px solid var(--g-gold);color:var(--g-navy);
+    font-size:12px;padding:6px 10px;border-radius:14px;cursor:pointer;font-weight:600;}
+  #gunny-quick button:hover{background:var(--g-cream);}
+
+  #gunny-input{display:flex;border-top:1px solid #e6e1d6;background:#fff;}
+  #gunny-input textarea{flex:1;border:none;outline:none;resize:none;padding:13px 14px;font-size:14px;
+    font-family:inherit;max-height:90px;color:var(--g-navy);}
+  #gunny-input button{border:none;background:var(--g-red);color:#fff;font-weight:bold;padding:0 18px;cursor:pointer;font-size:14px;}
+  #gunny-input button:hover{background:var(--g-bright);}
+  #gunny-input button:disabled{opacity:.5;cursor:wait;}
+
+  #gunny-foot{font-size:10px;color:#9a958a;text-align:center;padding:6px;background:#fff;}
+  @media (max-width:420px){
+    #gunny-root{bottom:12px;right:12px;}
+    #gunny-panel{height:calc(100vh - 90px);}
+  }
+</style>
+
+  <!-- launcher -->
+  <div id="gunny-launch" onclick="GunnyToggle(true)">
+    <div class="shield">🛡️</div>
+    <div class="ll"><b>Ask Gunny</b><span>Free roof inspection</span></div>
+  </div>
+
+  <!-- panel -->
+  <div id="gunny-panel">
+    <div id="gunny-head">
+      <div class="shield">🛡️</div>
+      <div class="ht">
+        <b>Gunny</b>
+        <span>Veterans Restoration of Louisville</span>
+      </div>
+      <div class="status"><span class="dot"></span>On duty</div>
+      <button id="gunny-close" onclick="GunnyToggle(false)" aria-label="Close chat">&times;</button>
+    </div>
+
+    <div id="gunny-log"></div>
+
+    <div id="gunny-quick">
+      <button onclick="GunnyQuick('I think my roof has storm damage')">Storm damage</button>
+      <button onclick="GunnyQuick('Can you help with my insurance claim?')">Insurance claim</button>
+      <button onclick="GunnyQuick('I want to schedule a free inspection')">Free inspection</button>
+    </div>
+
+    <div id="gunny-input">
+      <textarea id="gunny-text" rows="1" placeholder="Ask Gunny..." onkeydown="GunnyKey(event)"></textarea>
+      <button id="gunny-send" onclick="GunnySend()">Send</button>
+    </div>
+    <div id="gunny-foot">Veteran-Owned &bull; (502) 919-0278 &bull; roofwithveterans.com</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ====== SET THIS to your deployed Vercel URL + /api/chat ======
+  const BACKEND_URL = "https://gunny-chatbot.vercel.app/api/chat";
+
+  const root = document.getElementById("gunny-root");
+  const log  = document.getElementById("gunny-log");
+  const text = document.getElementById("gunny-text");
+  const send = document.getElementById("gunny-send");
+
+  // conversation history sent to the backend each turn (gives Gunny memory)
+  let history = [];
+  let greeted = false;
+
+  window.GunnyToggle = function(open){
+    root.classList.toggle("open", open);
+    if(open){
+      if(!greeted){
+        addBot("Gunny here. I help folks around Louisville with roofing, siding, gutters, and storm damage \u2014 and I know the insurance side cold.\n\nWhat's going on with your place? Or if you'd rather just talk to someone, call or text (502) 919-0278.");
+        greeted = true;
+      }
+      setTimeout(()=>text.focus(), 100);
+    }
+  };
+
+  window.GunnyKey = function(e){
+    if(e.key === "Enter" && !e.shiftKey){ e.preventDefault(); GunnySend(); }
+  };
+
+  window.GunnyQuick = function(msg){
+    text.value = msg;
+    GunnySend();
+  };
+
+  function addBot(t){
+    const d = document.createElement("div");
+    d.className = "g-msg bot";
+    d.innerHTML = '<div class="bub"></div>';
+    d.querySelector(".bub").textContent = t;
+    log.appendChild(d); scroll();
+  }
+  function addUser(t){
+    const d = document.createElement("div");
+    d.className = "g-msg user";
+    d.innerHTML = '<div class="bub"></div>';
+    d.querySelector(".bub").textContent = t;
+    log.appendChild(d); scroll();
+  }
+  function scroll(){ log.scrollTop = log.scrollHeight; }
+
+  window.GunnySend = async function(){
+    const msg = text.value.trim();
+    if(!msg) return;
+    addUser(msg);
+    history.push({ role:"user", content: msg });
+    text.value = "";
+    send.disabled = true;
+
+    const typing = document.createElement("div");
+    typing.className = "g-msg bot g-typing";
+    typing.innerHTML = '<div class="bub">Gunny is typing\u2026</div>';
+    log.appendChild(typing); scroll();
+
+    try{
+      const res = await fetch(BACKEND_URL, {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ messages: history })
+      });
+      const data = await res.json();
+      typing.remove();
+      const reply = (data && data.reply) ? data.reply : "Sorry \u2014 I'm having trouble connecting right now. Give us a call or text at (502) 919-0278 and we'll take care of you.";
+      addBot(reply);
+      history.push({ role:"assistant", content: reply });
+    }catch(err){
+      typing.remove();
+      addBot("Looks like my line dropped. Easiest thing is to call or text us at (502) 919-0278 \u2014 we'll get you squared away.");
+    }finally{
+      send.disabled = false;
+      text.focus();
+    }
+  };
+})();
+</script>
 <body>
   {{ content }}
 </body>
