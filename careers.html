@@ -15,106 +15,7 @@ title: Careers
   .markdown-body { max-width: 100% !important; padding: 0 !important; }
   h1.project-name, body > h1:first-of-type, .project-name { display: none !important; }
 
-  /* ============================================================
-     NAV
-  ============================================================ */
-  nav {
-    background: rgba(15, 15, 35, 0.97);
-    padding: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 999;
-    border-bottom: 3px solid #B22222;
-    height: 75px;
-  }
-  nav img.logo { height: 65px; padding: 4px 0; mix-blend-mode: screen; }
-  nav ul { list-style: none; display: flex; gap: 20px; align-items: center; }
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-family: 'Oswald', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 6px 0;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-  }
-  nav ul li a:hover { color: #B22222; border-bottom: 2px solid #B22222; }
-  .nav-cta {
-    background: #B22222 !important;
-    color: white !important;
-    padding: 10px 18px !important;
-    border-radius: 3px;
-    border-bottom: none !important;
-  }
-  .nav-cta:hover { background: #8B0000 !important; }
-
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-  }
-  .hamburger span {
-    display: block;
-    width: 26px;
-    height: 2px;
-    background: white;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 75px;
-    left: 0; right: 0;
-    background: #0a0a20;
-    border-bottom: 3px solid #B22222;
-    z-index: 998;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-  }
-  .mobile-menu.open { display: block; max-height: 480px; }
-  .mobile-menu ul { list-style: none; }
-  .mobile-menu ul li a {
-    display: block;
-    color: rgba(255,255,255,0.85);
-    font-family: 'Oswald', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    transition: all 0.2s;
-  }
-  .mobile-menu ul li a:hover { background: #B22222; color: white; padding-left: 32px; }
-  .mobile-menu-phone {
-    display: block;
-    text-align: center;
-    padding: 16px;
-    color: #ffcc00;
-    font-family: 'Oswald', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    background: rgba(178,34,34,0.15);
-    text-decoration: none;
-  }
+  /* Nav markup/CSS now lives in _includes/nav.html — see there. */
 
   /* ============================================================
      HERO
@@ -391,9 +292,6 @@ title: Careers
      MOBILE
   ============================================================ */
   @media (max-width: 900px) {
-    nav { padding: 0 20px; }
-    nav ul { display: none; }
-    .hamburger { display: flex; }
     .careers-hero { padding: 110px 28px 60px; }
     .careers-hero h1 { font-size: 48px; }
     .careers-hero h2 { font-size: 18px; }
@@ -405,9 +303,6 @@ title: Careers
   }
 
   @media (max-width: 600px) {
-    nav { height: 64px; }
-    nav img.logo { height: 52px; }
-    .mobile-menu { top: 64px; }
     .careers-hero { padding: 90px 16px 48px; }
     .careers-hero h1 { font-size: 36px; }
     .careers-hero h2 { font-size: 15px; letter-spacing: 1px; }
@@ -422,37 +317,6 @@ title: Careers
     .footer-links a { margin: 4px 6px; font-size: 12px; }
   }
 </style>
-
-<!-- NAV -->
-<nav>
-  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/services">Services</a></li>
-    <li><a href="/storm-damage">Storm Damage</a></li>
-    <li><a href="/meet-the-team">Meet the Team</a></li>
-    <li><a href="/gallery">Gallery</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/contact" class="nav-cta">Free Inspection</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/services">Services</a></li>
-    <li><a href="/storm-damage">Storm Damage</a></li>
-    <li><a href="/meet-the-team">Meet the Team</a></li>
-    <li><a href="/gallery">Gallery</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/contact">★ Free Inspection</a></li>
-  </ul>
-  <a href="tel:5029190278" class="mobile-menu-phone">📞 (502) 919-0278 — Call or Text</a>
-</div>
 
 <!-- HERO / WHY WORK WITH US -->
 <section class="careers-hero">
@@ -575,19 +439,3 @@ title: Careers
   <p>© 2026 Veterans Restoration of Louisville · All Rights Reserved</p>
 </footer>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', function () {
-    const isOpen = mobileMenu.classList.toggle('open');
-    hamburger.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
-  });
-  mobileMenu.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      mobileMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
-  });
-</script>

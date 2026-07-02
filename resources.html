@@ -63,22 +63,6 @@ permalink: /resources/
   .glossary-term dd { color:#555;font-size:13px;line-height:1.6; }
 </style>
 
-<!-- NAV -->
-<nav id="site-nav">
-  <img src="/assets/images/LOGO.jpeg" alt="Veterans Restoration of Louisville" class="logo">
-  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <ul id="nav-menu">
-    <li><a href="/">Home</a></li>
-    <li><a href="/services/">Services</a></li>
-    <li><a href="/storm-damage/">Storm Damage</a></li>
-    <li><a href="/meet-the-team/">Meet the Team</a></li>
-    <li><a href="/gallery/">Gallery</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="/contact/" class="nav-cta">Free Inspection</a></li>
-  </ul>
-</nav>
 
 <!-- PAGE HERO -->
 <section class="page-hero">
@@ -280,12 +264,6 @@ permalink: /resources/
 </footer>
 
 <script>
-(function(){
-  var t=document.getElementById('nav-toggle'),m=document.getElementById('nav-menu');
-  t.addEventListener('click',function(){var o=m.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',String(o));});
-  document.addEventListener('click',function(e){if(!e.target.closest('#site-nav')){m.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}});
-})();
-
 // FAQ Accordion
 document.querySelectorAll('.faq-question').forEach(function(btn){
   btn.addEventListener('click',function(){

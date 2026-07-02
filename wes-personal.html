@@ -17,18 +17,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Source Sans 3', sans-serif; background: var(--cream); color: #1a1a1a; }
 
-  .site-nav {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--navy); border-bottom: 3px solid var(--gold);
-    padding: 0 40px; display: flex; align-items: center;
-    justify-content: space-between; height: 60px;
-  }
-  .nav-logo { font-family:'Oswald',sans-serif; font-size:1rem; font-weight:700;
-    color:var(--white); text-decoration:none; letter-spacing:1px; }
-  .nav-logo span { color:var(--gold); }
-  .nav-back { font-family:'Oswald',sans-serif; font-size:0.78rem; letter-spacing:2px;
-    text-transform:uppercase; color:var(--gold); text-decoration:none; }
-  .nav-back:hover { color:var(--white); }
+  /* Nav CSS now injected inline with the Pattern A nav markup below. */
 
   /* CHAPTER HERO */
   .chapter-hero {
@@ -159,16 +148,251 @@
     .content-wrap{padding:40px 20px;}
     .chapter-hero{padding:70px 20px 50px;}
     .interest-grid{grid-template-columns:1fr 1fr;}
-    .site-nav{padding:0 20px;}
   }
 </style>
 </head>
 <body>
 
-<nav class="site-nav">
-  <a href="/" class="nav-logo">VRL <span>★</span> Roof With Veterans</a>
-  <a href="meet-wes.html" class="nav-back">← Back to Wes Miller</a>
+<!-- ============================================================
+     SHARED SITE NAV — kept in sync with _includes/nav.html
+     (this page is standalone HTML, not run through Jekyll, so
+     the nav is pasted in directly rather than {% include %}'d)
+============================================================ -->
+<style>
+  nav.vrl-nav {
+    background: rgba(15, 15, 35, 0.97);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 999;
+    border-bottom: 3px solid #B22222;
+    height: 75px;
+  }
+  nav.vrl-nav img.logo { height: 65px; padding: 4px 0; }
+  nav.vrl-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  nav.vrl-nav ul li { position: relative; }
+  nav.vrl-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  nav.vrl-nav ul li a:hover { color: #B22222; border-bottom: 2px solid #B22222; }
+
+  .nav-cta {
+    background: #B22222 !important;
+    color: white !important;
+    padding: 10px 18px !important;
+    border-radius: 3px;
+    border-bottom: none !important;
+  }
+  .nav-cta:hover { background: #8B0000 !important; color: white !important; border-bottom: none !important; }
+
+  .nav-portal {
+    background: #1a3a6b !important;
+    color: white !important;
+    padding: 10px 16px !important;
+    border-radius: 3px;
+    border-bottom: none !important;
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-portal:hover { background: #122d55 !important; color: white !important; border-bottom: none !important; }
+
+  .nav-more-btn {
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .nav-more-btn:hover { color: #B22222; }
+  .nav-more-btn .caret {
+    font-size: 10px;
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  .nav-more-btn.active .caret { transform: rotate(180deg); }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    background: #0f0f23;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-top: 3px solid #B22222;
+    border-radius: 0 0 4px 4px;
+    min-width: 180px;
+    z-index: 1000;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  }
+  .dropdown-menu.open { display: block; }
+  .dropdown-menu a {
+    display: block;
+    color: rgba(255,255,255,0.85) !important;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 13px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    text-decoration: none;
+    transition: all 0.15s;
+    border-bottom-width: 1px !important;
+  }
+  .dropdown-menu a:last-child { border-bottom: none !important; }
+  .dropdown-menu a:hover { background: #B22222; color: white !important; padding-left: 26px; border-bottom-color: rgba(255,255,255,0.07) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 3px;
+  }
+  .hamburger span {
+    display: block;
+    width: 26px; height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 75px; left: 0; right: 0;
+    background: #0a0a20;
+    border-bottom: 3px solid #B22222;
+    z-index: 998;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+  }
+  .mobile-menu.open { display: block; max-height: 560px; }
+  .mobile-menu ul { list-style: none; }
+  .mobile-menu ul li a {
+    display: block;
+    color: rgba(255,255,255,0.85);
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: all 0.2s;
+  }
+  .mobile-menu ul li a:hover,
+  .mobile-menu ul li a:active { background: #B22222; color: white; padding-left: 32px; }
+  .mobile-menu ul li a.mobile-portal-link {
+    background: rgba(26,58,107,0.4);
+    color: #7ab3f5;
+  }
+  .mobile-menu ul li a.mobile-portal-link:hover { background: #1a3a6b; color: white; }
+  .mobile-menu-phone {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    color: #ffcc00;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: rgba(178,34,34,0.15);
+    text-decoration: none;
+  }
+
+  @media (max-width: 900px) {
+    nav.vrl-nav { padding: 0 20px; }
+    nav.vrl-nav ul { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 600px) {
+    nav.vrl-nav { height: 64px; }
+    nav.vrl-nav img.logo { height: 52px; }
+    .mobile-menu { top: 64px; }
+  }
+</style>
+
+<nav class="vrl-nav">
+  <img src="/assets/images/LOGO_transparent.png" alt="Veterans Restoration of Louisville" class="logo">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/storm-damage">Storm Damage</a></li>
+    <li><a href="/careers">Careers</a></li>
+    <li>
+      <button class="nav-more-btn" id="more-btn" aria-expanded="false" aria-haspopup="true">
+        More <span class="caret">▾</span>
+      </button>
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <a href="/meet-the-team">Meet the Team</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/blog">Blog</a>
+        <a href="/review">Leave a Review</a>
+      </div>
+    </li>
+    <li><a href="/employee-portal" class="nav-portal">🔒 Employee Portal</a></li>
+    <li><a href="/contact" class="nav-cta">Free Inspection</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/storm-damage">Storm Damage</a></li>
+    <li><a href="/meet-the-team">Meet the Team</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/review">Leave a Review</a></li>
+    <li><a href="/careers">★ Careers — We're Hiring!</a></li>
+    <li><a href="/employee-portal" class="mobile-portal-link">🔒 Employee Portal</a></li>
+    <li><a href="/contact">★ Free Inspection</a></li>
+  </ul>
+  <a href="tel:5029190278" class="mobile-menu-phone">📞 (502) 919-0278 — Call or Text</a>
+</div>
 
 <div class="chapter-hero">
   <div class="chapter-inner">
@@ -336,6 +560,48 @@
   <p>© 2026 Veterans Restoration of Louisville &nbsp;·&nbsp; <a href="/">roofwithveterans.com</a> &nbsp;·&nbsp; (502) 919-0278</p>
   <p style="margin-top:8px;">Veteran-Owned. Community-Focused. Built on SERVICE.</p>
 </footer>
+
+<script>
+  (function(){
+    /* Hamburger */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const moreBtn = document.getElementById('more-btn');
+    const dropdown = document.getElementById('dropdown-menu');
+
+    hamburger.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      if (isOpen) {
+        dropdown.classList.remove('open');
+        moreBtn.classList.remove('active');
+        moreBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* More dropdown */
+    moreBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.toggle('open');
+      moreBtn.classList.toggle('active', isOpen);
+      moreBtn.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', function () {
+      dropdown.classList.remove('open');
+      moreBtn.classList.remove('active');
+      moreBtn.setAttribute('aria-expanded', 'false');
+    });
+    dropdown.addEventListener('click', function (e) { e.stopPropagation(); });
+  })();
+</script>
 
 </body>
 </html>
