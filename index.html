@@ -291,93 +291,63 @@ title: Home
   .storm-item p { color: rgba(255,255,255,0.75); font-size: 14px; line-height: 1.6; }
 
   /* ============================================================
-     CAREERS SECTION — NEW
+     REVIEWS SECTION — replaces Careers on homepage
   ============================================================ */
-  .careers-section {
-    background: #f4f4f4;
-    padding: 70px 80px;
-    border-top: 4px solid #B22222;
+  .reviews-section {
+    padding: 70px 60px;
+    background: #f7f7f9;
+    border-top: 1px solid #e3e3e8;
   }
-  .careers-header {
+  .reviews-header {
     display: flex;
-    align-items: flex-end;
     justify-content: space-between;
-    margin-bottom: 40px;
-    gap: 20px;
-    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-bottom: 36px;
+    gap: 24px;
   }
-  .careers-header-text .section-eyebrow { margin-bottom: 8px; }
-  .careers-header-text h2 {
+  .reviews-header-text .section-eyebrow { margin-bottom: 8px; }
+  .reviews-header-text h2 {
     font-family: 'Oswald', sans-serif;
-    font-size: 42px; color: #0f0f23;
-    text-transform: uppercase; line-height: 1.1;
+    font-size: 38px; line-height: 1.1;
+    color: #0f0f23; text-transform: uppercase;
   }
-  .careers-header-text h2 span { color: #B22222; }
-  .careers-cards {
+  .reviews-header-text h2 span { color: #B22222; }
+  .reviews-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 36px;
+    gap: 22px;
   }
-  .career-card {
-    background: white;
-    border: 1px solid #ddd;
-    border-top: 4px solid #B22222;
-    border-radius: 3px;
-    padding: 28px 24px;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-  .career-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-3px); }
-  .career-badge {
-    display: inline-block;
-    background: #B22222;
-    color: white;
-    font-family: 'Oswald', sans-serif;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 2px;
-    margin-bottom: 14px;
-  }
-  .career-badge.hiring { background: #1a6b3a; }
-  .career-card h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px; color: #0f0f23;
-    text-transform: uppercase; letter-spacing: 1px;
-    margin-bottom: 8px;
-  }
-  .career-card p { color: #555; font-size: 14px; line-height: 1.6; margin-bottom: 18px; }
-  .career-card-meta {
-    display: flex; gap: 12px; flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-  .career-tag {
-    font-size: 12px; color: #666;
-    background: #f0f0f0;
-    padding: 4px 10px; border-radius: 2px;
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 1px; text-transform: uppercase;
-  }
-  .btn-careers-apply {
-    display: inline-block;
-    background: transparent; color: #B22222;
-    border: 2px solid #B22222;
-    padding: 10px 22px;
-    font-family: 'Oswald', sans-serif;
-    font-size: 13px; font-weight: 600;
-    letter-spacing: 2px; text-transform: uppercase;
-    text-decoration: none; border-radius: 3px;
+  .review-card {
+    background: #fff;
+    border: 1px solid #e3e3e8;
+    border-top: 3px solid #C8A84B;
+    border-radius: 4px;
+    padding: 26px 22px;
+    display: flex; flex-direction: column;
     transition: all 0.2s;
   }
-  .btn-careers-apply:hover { background: #B22222; color: white; }
-  .careers-cta-row {
-    text-align: center;
-    padding-top: 8px;
+  .review-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-3px); }
+  .review-stars { color: #C8A84B; font-size: 19px; letter-spacing: 3px; margin-bottom: 12px; }
+  .review-text {
+    color: #444; font-size: 15px; line-height: 1.7;
+    margin-bottom: 18px; flex-grow: 1; font-style: italic;
   }
-  .careers-cta-row p {
-    color: #666; font-size: 15px; margin-bottom: 16px;
+  .review-meta {
+    display: flex; flex-direction: column; gap: 4px;
+    border-top: 1px solid #eee; padding-top: 14px;
   }
+  .review-name {
+    font-family: 'Oswald', sans-serif; font-size: 15px;
+    font-weight: 600; color: #0f0f23; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .review-area { font-size: 13px; color: #777; }
+  .reviews-cta-row {
+    margin-top: 32px; text-align: center;
+    padding-top: 24px; border-top: 1px solid #e3e3e8;
+  }
+  .reviews-cta-row p { color: #555; font-size: 15px; line-height: 1.7; }
+  .reviews-cta-row a { color: #B22222; font-weight: 600; text-decoration: none; }
+  .reviews-cta-row a:hover { text-decoration: underline; }
 
   /* ============================================================
      CONTACT STRIP
@@ -448,9 +418,9 @@ title: Home
     .storm-section { flex-direction: column; padding: 48px 28px; gap: 36px; }
     .storm-content h2 { font-size: 34px; }
 
-    .careers-section { padding: 48px 28px; }
-    .careers-cards { grid-template-columns: 1fr; }
-    .careers-header { flex-direction: column; align-items: flex-start; }
+    .reviews-section { padding: 48px 28px; }
+    .reviews-cards { grid-template-columns: 1fr; }
+    .reviews-header { flex-direction: column; align-items: flex-start; }
 
     .contact-strip { flex-direction: column; padding: 28px 24px; text-align: center; }
     .contact-links { justify-content: center; gap: 16px; }
@@ -504,10 +474,9 @@ title: Home
     .storm-content p { font-size: 14px; }
     .storm-content .btn-primary { width: 100%; text-align: center; }
 
-    .careers-section { padding: 36px 16px; }
-    .careers-header-text h2 { font-size: 30px; }
-    .career-card { padding: 20px 16px; }
-    .btn-careers-apply { width: 100%; text-align: center; }
+    .reviews-section { padding: 36px 16px; }
+    .reviews-header-text h2 { font-size: 30px; }
+    .review-card { padding: 20px 16px; }
 
     .contact-strip { padding: 24px 16px; }
     .contact-strip h3 { font-size: 17px; }
@@ -656,49 +625,43 @@ title: Home
   </div>
 </section>
 
-<!-- CAREERS SECTION -->
-<section class="careers-section">
-  <div class="careers-header">
-    <div class="careers-header-text">
-      <div class="section-eyebrow">★ Join The Mission</div>
-      <h2>We're <span>Hiring.</span><br>Are You Ready?</h2>
+<!-- REVIEWS SECTION -->
+<section class="reviews-section">
+  <div class="reviews-header">
+    <div class="reviews-header-text">
+      <div class="section-eyebrow">★ Word From The Neighborhood</div>
+      <h2>What Our <span>Customers</span><br>Have To Say</h2>
     </div>
-    <a href="/careers" class="btn-primary">View All Openings →</a>
+    <a href="/reviews" class="btn-primary">Read All Reviews →</a>
   </div>
-  <div class="careers-cards">
-    <div class="career-card">
-      <span class="career-badge hiring">Now Hiring</span>
-      <h3>Roofing Crew Member</h3>
-      <p>Join our field crews installing premium Owens Corning roofing systems across Louisville and surrounding areas.</p>
-      <div class="career-card-meta">
-        <span class="career-tag">📍 Louisville, KY</span>
-        <span class="career-tag">Full-Time</span>
+  <div class="reviews-cards">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Placeholder review. Replace this text in <code>_data/reviews.yml</code> — the homepage automatically shows the three most recent featured reviews.</p>
+      <div class="review-meta">
+        <span class="review-name">Customer Name</span>
+        <span class="review-area">📍 St. Matthews</span>
       </div>
-      <a href="/careers" class="btn-careers-apply">Apply Now →</a>
     </div>
-    <div class="career-card">
-      <span class="career-badge hiring">Now Hiring</span>
-      <h3>Sales Representative</h3>
-      <p>Help homeowners navigate storm damage claims and connect them with our restoration services. Commission-based.</p>
-      <div class="career-card-meta">
-        <span class="career-tag">📍 Louisville, KY</span>
-        <span class="career-tag">Commission</span>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Placeholder review. Replace this text in <code>_data/reviews.yml</code> — the homepage automatically shows the three most recent featured reviews.</p>
+      <div class="review-meta">
+        <span class="review-name">Customer Name</span>
+        <span class="review-area">📍 Mt. Washington</span>
       </div>
-      <a href="/careers" class="btn-careers-apply">Apply Now →</a>
     </div>
-    <div class="career-card">
-      <span class="career-badge" style="background:#444;">Coming Soon</span>
-      <h3>More Roles</h3>
-      <p>We're growing fast. Check back or send us your resume — we're always looking for hardworking people who share our values.</p>
-      <div class="career-card-meta">
-        <span class="career-tag">📍 Louisville, KY</span>
-        <span class="career-tag">Various</span>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Placeholder review. Replace this text in <code>_data/reviews.yml</code> — the homepage automatically shows the three most recent featured reviews.</p>
+      <div class="review-meta">
+        <span class="review-name">Customer Name</span>
+        <span class="review-area">📍 Jeffersontown</span>
       </div>
-      <a href="/careers" class="btn-careers-apply">Learn More →</a>
     </div>
   </div>
-  <div class="careers-cta-row">
-    <p>Veterans receive priority consideration. We honor your service by giving you the opportunity to build something great.</p>
+  <div class="reviews-cta-row">
+    <p>Every roof we install is backed by our workmanship warranty and the reputation we've built serving Louisville families. <a href="/reviews#leave-review">Worked with us? Leave a review →</a></p>
   </div>
 </section>
 
@@ -807,7 +770,7 @@ title: Home
 </div>
 
 <script>
-  /* Uncle Sam popup — shows on every visit */
+  /* Uncle Sam popup — shows on every visit, 3s delay */
   (function () {
     var overlay = document.getElementById('us-overlay');
     if (!overlay) return;
@@ -815,8 +778,10 @@ title: Home
       overlay.classList.remove('show');
       document.body.style.overflow = '';
     }
-    overlay.classList.add('show');
-    document.body.style.overflow = 'hidden';
+    window.setTimeout(function () {
+      overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }, 3000);
     document.getElementById('us-close').addEventListener('click', dismiss);
     document.getElementById('us-continue').addEventListener('click', dismiss);
     overlay.addEventListener('click', function (e) { if (e.target === overlay) dismiss(); });
