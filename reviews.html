@@ -77,28 +77,6 @@ permalink: /reviews/
   }
   .carousel-dots button.active { background:#C8A84B; width:26px; border-radius:5px; }
 
-  /* GALLERY */
-  .gal-filters { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:24px; }
-  .gal-filter {
-    background:#fff; border:1px solid #d5d5dd; color:#333;
-    font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1px;
-    text-transform:uppercase; padding:9px 16px; border-radius:3px; cursor:pointer; transition:all .18s;
-  }
-  .gal-filter:hover { border-color:#B22222; color:#B22222; }
-  .gal-filter.active { background:#B22222; border-color:#B22222; color:#fff; }
-  .gal-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px; }
-  .gal-item { background:#fff; border:1px solid #e3e3e8; border-radius:4px; overflow:hidden; }
-  .gal-thumb {
-    height:170px; background:#e8e8ee; background-size:cover; background-position:center;
-    display:flex; align-items:center; justify-content:center;
-    color:#aaa; font-size:12px; font-family:'Oswald',sans-serif; letter-spacing:1px; text-align:center; padding:12px;
-  }
-  .gal-body { padding:14px 15px; }
-  .gal-body h4 { font-family:'Oswald',sans-serif; font-size:15px; color:#0f0f23; text-transform:uppercase; margin-bottom:5px; }
-  .gal-body .swatch { font-size:13px; color:#B22222; font-weight:600; margin-bottom:3px; }
-  .gal-body .loc { font-size:12px; color:#888; }
-  .gal-empty { color:#888; padding:30px; text-align:center; grid-column:1/-1; }
-
   /* TESTIMONIALS */
   .tst-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:18px; }
   .tst-card {
@@ -311,41 +289,16 @@ permalink: /reviews/
   </div>
 </section>
 
-<!-- ===== 2. MATERIAL GALLERY ===== -->
-<section class="rv-section" id="gallery">
+<!-- ===== 2. MATERIALS TEASER (full gallery lives on /gallery) ===== -->
+<section class="rv-section">
   <div class="rv-wrap">
     <div class="rv-head">
       <div class="eyebrow">★ Materials &amp; Colors</div>
       <h2>See It On A <span>Real Roof</span></h2>
-      <p>Pick a brand or color to see every home we've completed with that exact material. Fair options to fit any budget — from dependable everyday systems to premium architectural lines.</p>
+      <p>Picking a shingle from a tiny sample board is hard. Browse our full material gallery to see every brand and color on actual Louisville homes we've completed — fair options to fit any budget.</p>
     </div>
-
-    <div class="gal-filters" id="gal-filters">
-      <button class="gal-filter active" data-filter="all">All Projects</button>
-      {% assign brands = site.data.projects | map: "brand" | uniq | sort %}
-      {% for b in brands %}
-      <button class="gal-filter" data-filter="brand" data-value="{{ b }}">{{ b }}</button>
-      {% endfor %}
-    </div>
-    <div class="gal-filters" id="gal-colors">
-      {% assign colors = site.data.projects | map: "color" | uniq | sort %}
-      {% for c in colors %}
-      <button class="gal-filter" data-filter="color" data-value="{{ c }}">{{ c }}</button>
-      {% endfor %}
-    </div>
-
-    <div class="gal-grid" id="gal-grid">
-      {% for p in site.data.projects %}
-      <div class="gal-item" data-brand="{{ p.brand }}" data-color="{{ p.color }}">
-        <div class="gal-thumb" style="background-image:url('{{ p.photo }}');">Photo placeholder</div>
-        <div class="gal-body">
-          <h4>{{ p.brand }}</h4>
-          <div class="swatch">{{ p.color }}</div>
-          <div class="loc">📍 {{ p.area }} · {{ p.material }}</div>
-        </div>
-      </div>
-      {% endfor %}
-      <div class="gal-empty" id="gal-empty" style="display:none;">No projects match that selection yet.</div>
+    <div style="text-align:center;padding:8px 0 4px;">
+      <a href="/gallery#materials" class="btn-outline">Browse Materials &amp; Colors →</a>
     </div>
   </div>
 </section>
@@ -615,26 +568,6 @@ permalink: /reviews/
     document.getElementById('car-next').addEventListener('click', function(){ go(idx+1); });
     if (slides) go(0);
   }
-
-  /* ===== GALLERY FILTERS ===== */
-  var filterBtns = document.querySelectorAll('.gal-filter');
-  var items = document.querySelectorAll('.gal-item');
-  var empty = document.getElementById('gal-empty');
-  filterBtns.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      filterBtns.forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      var type = btn.getAttribute('data-filter');
-      var val  = btn.getAttribute('data-value');
-      var shown = 0;
-      items.forEach(function(it){
-        var match = (type === 'all') || (it.getAttribute('data-'+type) === val);
-        it.style.display = match ? '' : 'none';
-        if (match) shown++;
-      });
-      if (empty) empty.style.display = shown ? 'none' : 'block';
-    });
-  });
 
   /* ===== VIEW ALL REVIEWS ===== */
   var viewAll = document.getElementById('view-all-btn');
