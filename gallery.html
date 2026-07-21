@@ -55,6 +55,35 @@ permalink: /gallery/
     cursor:pointer;display:flex;align-items:center;justify-content:center;
   }
   .lightbox-close:hover { background:#8B0000; }
+
+  /* ===== MATERIALS & COLORS ===== */
+  #materials { scroll-margin-top: 90px; }
+  .mat-filters { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:14px; justify-content:center; }
+  .mat-filter-label {
+    width:100%; text-align:center; font-family:'Oswald',sans-serif; font-size:11px;
+    letter-spacing:2px; text-transform:uppercase; color:#888; margin-bottom:4px;
+  }
+  .mat-filter {
+    background:#fff; border:1px solid #d5d5dd; color:#333;
+    font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1px;
+    text-transform:uppercase; padding:9px 16px; border-radius:3px; cursor:pointer; transition:all .18s;
+  }
+  .mat-filter:hover { border-color:#B22222; color:#B22222; }
+  .mat-filter.active { background:#B22222; border-color:#B22222; color:#fff; }
+  .mat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px; margin-top:24px; }
+  .mat-item { background:#fff; border:1px solid #e3e3e8; border-radius:4px; overflow:hidden; transition:all .2s; }
+  .mat-item:hover { box-shadow:0 6px 20px rgba(0,0,0,.1); transform:translateY(-3px); }
+  .mat-thumb {
+    height:170px; background:#e8e8ee; background-size:cover; background-position:center;
+    display:flex; align-items:center; justify-content:center;
+    color:#aaa; font-size:12px; font-family:'Oswald',sans-serif; letter-spacing:1px; text-align:center; padding:12px;
+  }
+  .mat-body { padding:14px 15px; }
+  .mat-body h4 { font-family:'Oswald',sans-serif; font-size:15px; color:#0f0f23; text-transform:uppercase; margin-bottom:5px; }
+  .mat-body .swatch { font-size:13px; color:#B22222; font-weight:600; margin-bottom:3px; }
+  .mat-body .loc { font-size:12px; color:#888; }
+  .mat-empty { color:#888; padding:30px; text-align:center; grid-column:1/-1; }
+  .mat-count { text-align:center; color:#888; font-size:13px; margin-top:18px; }
 </style>
 
 
@@ -160,6 +189,51 @@ permalink: /gallery/
   </div>
 </section>
 
+
+<!-- MATERIALS & COLORS -->
+<section class="section-white" id="materials" style="border-top:1px solid #e3e3e8;">
+  <div class="inner-wide">
+    <span class="section-eyebrow text-center">★ Materials &amp; Colors</span>
+    <h2 class="section-heading text-center">See It On A <span class="red">Real Roof</span></h2>
+    <div class="section-divider mx-auto"></div>
+    <p style="text-align:center;max-width:680px;margin:0 auto 28px;color:#666;font-size:15px;line-height:1.7;">
+      Sample boards never tell the whole story. Pick a brand or color below to see it installed on actual Louisville-area homes — fair options to fit any budget, from dependable everyday systems to premium architectural lines.
+    </p>
+
+    <div class="mat-filters">
+      <span class="mat-filter-label">Filter by Brand</span>
+      <button class="mat-filter active" data-filter="all">All Projects</button>
+      {% assign brands = site.data.projects | map: "brand" | uniq | sort %}
+      {% for b in brands %}
+      <button class="mat-filter" data-filter="brand" data-value="{{ b }}">{{ b }}</button>
+      {% endfor %}
+    </div>
+
+    <div class="mat-filters">
+      <span class="mat-filter-label">Filter by Color</span>
+      {% assign colors = site.data.projects | map: "color" | uniq | sort %}
+      {% for c in colors %}
+      <button class="mat-filter" data-filter="color" data-value="{{ c }}">{{ c }}</button>
+      {% endfor %}
+    </div>
+
+    <div class="mat-grid" id="mat-grid">
+      {% for p in site.data.projects %}
+      <div class="mat-item" data-brand="{{ p.brand }}" data-color="{{ p.color }}">
+        <div class="mat-thumb" style="background-image:url('{{ p.photo }}');">Photo placeholder</div>
+        <div class="mat-body">
+          <h4>{{ p.brand }}</h4>
+          <div class="swatch">{{ p.color }}</div>
+          <div class="loc">📍 {{ p.area }} · {{ p.material }}</div>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="mat-empty" id="mat-empty" style="display:none;">No projects match that selection yet.</div>
+    </div>
+    <div class="mat-count" id="mat-count"></div>
+  </div>
+</section>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
@@ -233,4 +307,31 @@ function closeLightbox(){
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
+
+// Materials & Colors filter
+(function(){
+  var btns = document.querySelectorAll('.mat-filter');
+  var items = document.querySelectorAll('.mat-item');
+  var empty = document.getElementById('mat-empty');
+  var count = document.getElementById('mat-count');
+  if(!btns.length) return;
+  function apply(type, val, btn){
+    btns.forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var shown = 0;
+    items.forEach(function(it){
+      var match = (type === 'all') || (it.getAttribute('data-'+type) === val);
+      it.style.display = match ? '' : 'none';
+      if(match) shown++;
+    });
+    if(empty) empty.style.display = shown ? 'none' : 'block';
+    if(count) count.textContent = shown ? 'Showing ' + shown + ' project' + (shown===1?'':'s') : '';
+  }
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      apply(btn.getAttribute('data-filter'), btn.getAttribute('data-value'), btn);
+    });
+  });
+  if(count) count.textContent = 'Showing ' + items.length + ' project' + (items.length===1?'':'s');
+})();
 </script>
