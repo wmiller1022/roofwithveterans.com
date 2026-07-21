@@ -6,7 +6,7 @@
 <style>
   nav {
     background: rgba(15, 15, 35, 0.97);
-    padding: 0 40px;
+    padding: 0 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,11 +16,18 @@
     border-bottom: 3px solid #B22222;
     height: 75px;
   }
-  nav img.logo { height: 65px; padding: 4px 0; }
+  .nav-brand { display: flex; align-items: center; flex-shrink: 0; text-decoration: none; }
+  nav img.logo {
+    height: 52px;
+    width: auto;
+    display: block;
+    transition: opacity 0.2s;
+  }
+  .nav-brand:hover img.logo { opacity: 0.85; }
   nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 17px;
     align-items: center;
   }
   nav ul li { position: relative; }
@@ -28,13 +35,14 @@
     color: white;
     text-decoration: none;
     font-family: 'Oswald', sans-serif;
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     padding: 6px 0;
     border-bottom: 2px solid transparent;
     transition: all 0.2s;
+    white-space: nowrap;
   }
   nav ul li a:hover { color: #B22222; border-bottom: 2px solid #B22222; }
 
@@ -42,7 +50,7 @@
   .nav-cta {
     background: #B22222 !important;
     color: white !important;
-    padding: 10px 18px !important;
+    padding: 10px 16px !important;
     border-radius: 3px;
     border-bottom: none !important;
   }
@@ -52,7 +60,8 @@
   .nav-portal {
     background: #1a3a6b !important;
     color: white !important;
-    padding: 10px 16px !important;
+    padding: 9px 13px !important;
+    font-size: 15px !important;
     border-radius: 3px;
     border-bottom: none !important;
     display: flex !important;
@@ -60,64 +69,6 @@
     gap: 6px;
   }
   .nav-portal:hover { background: #122d55 !important; color: white !important; border-bottom: none !important; }
-
-  /* "More" dropdown */
-  .nav-more-btn {
-    color: white;
-    text-decoration: none;
-    font-family: 'Oswald', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 6px 0;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .nav-more-btn:hover { color: #B22222; }
-  .nav-more-btn .caret {
-    font-size: 10px;
-    transition: transform 0.2s;
-    display: inline-block;
-  }
-  .nav-more-btn.active .caret { transform: rotate(180deg); }
-
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 14px);
-    right: 0;
-    background: #0f0f23;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-top: 3px solid #B22222;
-    border-radius: 0 0 4px 4px;
-    min-width: 180px;
-    z-index: 1000;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-  }
-  .dropdown-menu.open { display: block; }
-  .dropdown-menu a {
-    display: block;
-    color: rgba(255,255,255,0.85) !important;
-    font-family: 'Oswald', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 13px 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    text-decoration: none;
-    transition: all 0.15s;
-    border-bottom-width: 1px !important;
-  }
-  .dropdown-menu a:last-child { border-bottom: none !important; }
-  .dropdown-menu a:hover { background: #B22222; color: white !important; padding-left: 26px; border-bottom-color: rgba(255,255,255,0.07) !important; }
 
   /* Hamburger */
   .hamburger {
@@ -189,38 +140,32 @@
     text-decoration: none;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     nav { padding: 0 20px; }
     nav ul { display: none; }
     .hamburger { display: flex; }
   }
   @media (max-width: 600px) {
     nav { height: 64px; }
-    nav img.logo { height: 52px; }
+    nav img.logo { height: 44px; }
     .mobile-menu { top: 64px; }
   }
 </style>
 
 <nav>
-  <img src="/assets/images/LOGO_transparent.png" alt="Veterans Restoration of Louisville" class="logo">
+  <a href="/" class="nav-brand" aria-label="Veterans Restoration of Louisville — Home">
+    <img src="/assets/images/LOGO_nav.png" alt="Veterans Restoration of Louisville" class="logo">
+  </a>
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="/services">Services</a></li>
     <li><a href="/storm-damage">Storm Damage</a></li>
     <li><a href="/reviews">Reviews</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/meet-the-team">Meet the Team</a></li>
+    <li><a href="/blog">Blog</a></li>
     <li><a href="/careers">Careers</a></li>
-    <li>
-      <button class="nav-more-btn" id="more-btn" aria-expanded="false" aria-haspopup="true">
-        More <span class="caret">▾</span>
-      </button>
-      <div class="dropdown-menu" id="dropdown-menu" role="menu">
-        <a href="/meet-the-team">Meet the Team</a>
-        <a href="/gallery">Gallery</a>
-        <a href="/blog">Blog</a>
-        <a href="/reviews#leave-review">Leave a Review</a>
-      </div>
-    </li>
-    <li><a href="/employee-portal" class="nav-portal">🔒 Employee Portal</a></li>
+    <li><a href="/employee-portal" class="nav-portal" aria-label="Employee Portal">🔒</a></li>
     <li><a href="/contact" class="nav-cta">Free Inspection</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -234,11 +179,10 @@
     <li><a href="/">Home</a></li>
     <li><a href="/services">Services</a></li>
     <li><a href="/storm-damage">Storm Damage</a></li>
-    <li><a href="/meet-the-team">Meet the Team</a></li>
-    <li><a href="/gallery">Gallery</a></li>
-    <li><a href="/blog">Blog</a></li>
     <li><a href="/reviews">Reviews</a></li>
-    <li><a href="/reviews#leave-review">Leave a Review</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/meet-the-team">Meet the Team</a></li>
+    <li><a href="/blog">Blog</a></li>
     <li><a href="/careers">★ Careers — We're Hiring!</a></li>
     <li><a href="/employee-portal" class="mobile-portal-link">🔒 Employee Portal</a></li>
     <li><a href="/contact">★ Free Inspection</a></li>
@@ -251,18 +195,11 @@
     /* Hamburger */
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
-    const moreBtn = document.getElementById('more-btn');
-    const dropdown = document.getElementById('dropdown-menu');
 
     hamburger.addEventListener('click', function () {
       const isOpen = mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('open', isOpen);
       hamburger.setAttribute('aria-expanded', isOpen);
-      if (isOpen) {
-        dropdown.classList.remove('open');
-        moreBtn.classList.remove('active');
-        moreBtn.setAttribute('aria-expanded', 'false');
-      }
     });
     mobileMenu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
@@ -271,19 +208,5 @@
         hamburger.setAttribute('aria-expanded', 'false');
       });
     });
-
-    /* More dropdown */
-    moreBtn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      const isOpen = dropdown.classList.toggle('open');
-      moreBtn.classList.toggle('active', isOpen);
-      moreBtn.setAttribute('aria-expanded', isOpen);
-    });
-    document.addEventListener('click', function () {
-      dropdown.classList.remove('open');
-      moreBtn.classList.remove('active');
-      moreBtn.setAttribute('aria-expanded', 'false');
-    });
-    dropdown.addEventListener('click', function (e) { e.stopPropagation(); });
   })();
 </script>
