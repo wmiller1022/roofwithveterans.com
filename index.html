@@ -770,7 +770,7 @@ title: Home
 </div>
 
 <script>
-  /* Uncle Sam popup — shows on every visit, 3s delay */
+  /* Uncle Sam popup — shows on every visit, 8s delay */
   (function () {
     var overlay = document.getElementById('us-overlay');
     if (!overlay) return;
@@ -781,7 +781,7 @@ title: Home
     window.setTimeout(function () {
       overlay.classList.add('show');
       document.body.style.overflow = 'hidden';
-    }, 3000);
+    }, 8000);
     document.getElementById('us-close').addEventListener('click', dismiss);
     document.getElementById('us-continue').addEventListener('click', dismiss);
     overlay.addEventListener('click', function (e) { if (e.target === overlay) dismiss(); });
