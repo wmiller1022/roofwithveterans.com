@@ -1,0 +1,46 @@
+# ============================================================
+# CUSTOMER REVIEWS — VRL
+# ------------------------------------------------------------
+# HOW TO ADD A REVIEW:
+#   1. Copy a block below (from "- name:" to "featured:")
+#   2. Paste it at the TOP of the list
+#   3. Fill in the values, save, commit. Site rebuilds itself.
+#
+# RULES:
+#   stars:    1-5. ONLY 4 and 5 star reviews display publicly.
+#   featured: true = also appears on the homepage (keep to 3)
+#   source:   Website / Google / Facebook / BBB
+#   NO company names — first name + last initial only.
+# ============================================================
+
+- name: "Customer Name"
+  area: "St. Matthews"
+  stars: 5
+  date: "2026-07-01"
+  source: "Google"
+  text: "Placeholder review text. Replace with a real customer review. Keep company names out — first name and last initial only."
+  featured: true
+
+- name: "Customer Name"
+  area: "Mt. Washington"
+  stars: 5
+  date: "2026-06-24"
+  source: "Facebook"
+  text: "Placeholder review text. Replace with a real customer review."
+  featured: true
+
+- name: "Customer Name"
+  area: "Jeffersontown"
+  stars: 5
+  date: "2026-06-15"
+  source: "BBB"
+  text: "Placeholder review text. Replace with a real customer review."
+  featured: true
+
+- name: "Customer Name"
+  area: "Fern Creek"
+  stars: 4
+  date: "2026-06-02"
+  source: "Website"
+  text: "Placeholder review text. Four-star reviews display publicly too."
+  featured: false
