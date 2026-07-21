@@ -1,0 +1,103 @@
+# ============================================================
+# COMPLETED PROJECTS — VRL
+# Powers: homepage-adjacent carousel + material gallery filters
+# ------------------------------------------------------------
+# HOW TO ADD A JOB:
+#   1. Copy a block below, paste at the TOP
+#   2. Fill it in, drop photos in /assets/images/projects/
+#   3. Save + commit. Filters rebuild automatically.
+#
+# FIELDS:
+#   material: Shingle | Siding
+#   brand:    Oakridge | Duration | Duration Designer | Duration FLEX
+#             Ovation | Carvewood | James Hardie
+#   color:    exact manufacturer color name
+#   quote:    optional customer words for the carousel ("" = none)
+#   featured: true = appears in the top carousel
+#
+# NOTE: "James Hardie" — correct manufacturer spelling.
+# ============================================================
+
+- id: "VRL-1001"
+  title: "Full Roof Replacement"
+  area: "St. Matthews"
+  material: "Shingle"
+  brand: "Duration"
+  color: "Estate Gray"
+  date: "2026-06-18"
+  photo: "/assets/images/projects/placeholder-1.jpg"
+  quote: "Placeholder — type the customer's words here, or leave empty."
+  quote_name: "Customer Name"
+  featured: true
+
+- id: "VRL-1002"
+  title: "Storm Damage Restoration"
+  area: "Mt. Washington"
+  material: "Shingle"
+  brand: "Duration Designer"
+  color: "Sand Dune"
+  date: "2026-06-05"
+  photo: "/assets/images/projects/placeholder-2.jpg"
+  quote: ""
+  quote_name: ""
+  featured: true
+
+- id: "VRL-1003"
+  title: "Roof + Siding Package"
+  area: "Jeffersontown"
+  material: "Siding"
+  brand: "James Hardie"
+  color: "Arctic White"
+  date: "2026-05-22"
+  photo: "/assets/images/projects/placeholder-3.jpg"
+  quote: "Placeholder — type the customer's words here."
+  quote_name: "Customer Name"
+  featured: true
+
+- id: "VRL-1004"
+  title: "Full Roof Replacement"
+  area: "Fern Creek"
+  material: "Shingle"
+  brand: "Duration FLEX"
+  color: "Onyx Black"
+  date: "2026-05-10"
+  photo: "/assets/images/projects/placeholder-4.jpg"
+  quote: ""
+  quote_name: ""
+  featured: false
+
+- id: "VRL-1005"
+  title: "Roof Replacement"
+  area: "Okolona"
+  material: "Shingle"
+  brand: "Oakridge"
+  color: "Driftwood"
+  date: "2026-04-28"
+  photo: "/assets/images/projects/placeholder-5.jpg"
+  quote: ""
+  quote_name: ""
+  featured: false
+
+- id: "VRL-1006"
+  title: "Siding Replacement"
+  area: "Shively"
+  material: "Siding"
+  brand: "Ovation"
+  color: "Cypress"
+  date: "2026-04-14"
+  photo: "/assets/images/projects/placeholder-6.jpg"
+  quote: ""
+  quote_name: ""
+  featured: false
+
+- id: "VRL-1007"
+  title: "Siding Replacement"
+  area: "Middletown"
+  material: "Siding"
+  brand: "Carvewood"
+  color: "Mountain Cedar"
+  date: "2026-03-30"
+  photo: "/assets/images/projects/placeholder-7.jpg"
+  quote: ""
+  quote_name: ""
+  featured: false
