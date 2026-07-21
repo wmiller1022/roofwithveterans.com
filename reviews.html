@@ -1,1 +1,707 @@
+---
+layout: default
+title: "Reviews | Veterans Restoration of Louisville"
+permalink: /reviews/
+---
 
+<style>
+  .rv-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .rv-hero {
+    background: linear-gradient(rgba(15,15,35,0.88), rgba(15,15,35,0.94));
+    background-color: #0f0f23;
+    padding: 130px 24px 70px; text-align: center;
+    border-bottom: 4px solid #B22222;
+  }
+  .rv-hero .eyebrow {
+    color: #C8A84B; font-family:'Oswald',sans-serif; font-size:13px;
+    letter-spacing:4px; text-transform:uppercase; margin-bottom:14px;
+  }
+  .rv-hero h1 {
+    font-family:'Oswald',sans-serif; font-size:52px; color:#fff;
+    text-transform:uppercase; line-height:1.05; margin-bottom:16px;
+  }
+  .rv-hero h1 span { color:#B22222; }
+  .rv-hero p { color:rgba(255,255,255,0.75); font-size:17px; max-width:660px; margin:0 auto; }
+  .rv-section { padding: 64px 0; border-bottom:1px solid #e3e3e8; }
+  .rv-section:nth-child(even){ background:#f7f7f9; }
+  .rv-head { margin-bottom:28px; }
+  .rv-head .eyebrow {
+    color:#B22222; font-family:'Oswald',sans-serif; font-size:12px;
+    letter-spacing:3px; text-transform:uppercase; margin-bottom:8px;
+  }
+  .rv-head h2 {
+    font-family:'Oswald',sans-serif; font-size:36px; color:#0f0f23;
+    text-transform:uppercase; line-height:1.1;
+  }
+  .rv-head h2 span { color:#B22222; }
+  .rv-head p { color:#666; margin-top:10px; font-size:15px; max-width:680px; }
+
+  /* CAROUSEL */
+  .carousel { position:relative; background:#0f0f23; border-radius:6px; overflow:hidden; border:1px solid #22224a; }
+  .carousel-track { display:flex; transition:transform 0.45s ease; }
+  .carousel-slide { min-width:100%; display:grid; grid-template-columns:1.3fr 1fr; }
+  .carousel-photo {
+    background:#1a1a3a; min-height:380px;
+    display:flex; align-items:center; justify-content:center;
+    background-size:cover; background-position:center;
+  }
+  .carousel-photo .ph {
+    color:rgba(255,255,255,0.28); font-family:'Oswald',sans-serif;
+    font-size:14px; letter-spacing:2px; text-transform:uppercase; text-align:center; padding:20px;
+  }
+  .carousel-info { padding:34px 30px; display:flex; flex-direction:column; justify-content:center; }
+  .carousel-info .badge {
+    display:inline-block; align-self:flex-start; background:#B22222; color:#fff;
+    font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:2px;
+    text-transform:uppercase; padding:5px 12px; border-radius:2px; margin-bottom:14px;
+  }
+  .carousel-info h3 { font-family:'Oswald',sans-serif; color:#fff; font-size:25px; text-transform:uppercase; margin-bottom:6px; }
+  .carousel-info .meta { color:#C8A84B; font-size:14px; margin-bottom:18px; }
+  .carousel-quote {
+    border-left:3px solid #C8A84B; padding:12px 0 12px 16px;
+    color:rgba(255,255,255,0.85); font-style:italic; line-height:1.7; font-size:15px;
+  }
+  .carousel-quote .who { display:block; margin-top:10px; color:#C8A84B; font-style:normal; font-size:13px; }
+  .carousel-quote.empty { color:rgba(255,255,255,0.3); border-left-color:rgba(255,255,255,0.15); }
+  .carousel-btn {
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:rgba(178,34,34,0.9); color:#fff; border:none;
+    width:44px; height:44px; font-size:22px; cursor:pointer; border-radius:3px; z-index:2;
+  }
+  .carousel-btn:hover { background:#B22222; }
+  .carousel-btn.prev { left:14px; } .carousel-btn.next { right:14px; }
+  .carousel-dots { display:flex; justify-content:center; gap:8px; padding:16px; background:#0f0f23; }
+  .carousel-dots button {
+    width:9px; height:9px; border-radius:50%; border:none;
+    background:rgba(255,255,255,0.25); cursor:pointer; padding:0;
+  }
+  .carousel-dots button.active { background:#C8A84B; width:26px; border-radius:5px; }
+
+  /* GALLERY */
+  .gal-filters { display:flex; flex-wrap:wrap; gap:9px; margin-bottom:24px; }
+  .gal-filter {
+    background:#fff; border:1px solid #d5d5dd; color:#333;
+    font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1px;
+    text-transform:uppercase; padding:9px 16px; border-radius:3px; cursor:pointer; transition:all .18s;
+  }
+  .gal-filter:hover { border-color:#B22222; color:#B22222; }
+  .gal-filter.active { background:#B22222; border-color:#B22222; color:#fff; }
+  .gal-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px; }
+  .gal-item { background:#fff; border:1px solid #e3e3e8; border-radius:4px; overflow:hidden; }
+  .gal-thumb {
+    height:170px; background:#e8e8ee; background-size:cover; background-position:center;
+    display:flex; align-items:center; justify-content:center;
+    color:#aaa; font-size:12px; font-family:'Oswald',sans-serif; letter-spacing:1px; text-align:center; padding:12px;
+  }
+  .gal-body { padding:14px 15px; }
+  .gal-body h4 { font-family:'Oswald',sans-serif; font-size:15px; color:#0f0f23; text-transform:uppercase; margin-bottom:5px; }
+  .gal-body .swatch { font-size:13px; color:#B22222; font-weight:600; margin-bottom:3px; }
+  .gal-body .loc { font-size:12px; color:#888; }
+  .gal-empty { color:#888; padding:30px; text-align:center; grid-column:1/-1; }
+
+  /* TESTIMONIALS */
+  .tst-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:18px; }
+  .tst-card {
+    background:#fff; border:1px solid #e3e3e8; border-top:3px solid #C8A84B;
+    border-radius:4px; padding:24px 22px;
+  }
+  .tst-card.hidden-extra { display:none; }
+  .tst-stars { color:#C8A84B; font-size:18px; letter-spacing:3px; margin-bottom:11px; }
+  .tst-text { color:#444; font-size:15px; line-height:1.7; font-style:italic; margin-bottom:16px; }
+  .tst-meta { border-top:1px solid #eee; padding-top:12px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .tst-name { font-family:'Oswald',sans-serif; font-size:14px; color:#0f0f23; text-transform:uppercase; letter-spacing:.5px; }
+  .tst-area { font-size:12px; color:#888; }
+  .tst-src { font-size:11px; color:#999; text-transform:uppercase; letter-spacing:1px; }
+  .rv-viewall { text-align:center; margin-top:26px; }
+  .btn-outline {
+    display:inline-block; background:transparent; border:2px solid #B22222; color:#B22222;
+    font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase;
+    padding:12px 30px; border-radius:3px; cursor:pointer; text-decoration:none; transition:all .2s;
+  }
+  .btn-outline:hover { background:#B22222; color:#fff; }
+
+  /* LEAVE REVIEW FORM */
+  .rv-form { background:#fff; border:1px solid #e3e3e8; border-radius:6px; padding:32px; max-width:720px; }
+  .rv-form label {
+    display:block; font-family:'Oswald',sans-serif; font-size:12px; font-weight:600;
+    letter-spacing:1.5px; text-transform:uppercase; color:#5B6470; margin-bottom:6px;
+  }
+  .rv-form input[type=text], .rv-form input[type=email], .rv-form textarea {
+    width:100%; border:1px solid #d5d5dd; border-radius:4px; padding:11px 13px;
+    font-family:'Merriweather',serif; font-size:14px; margin-bottom:18px; background:#fff;
+  }
+  .rv-form textarea { min-height:170px; resize:vertical; line-height:1.7; }
+  .rv-form input:focus, .rv-form textarea:focus { outline:none; border-color:#B22222; }
+  .star-picker { display:flex; flex-direction:row-reverse; justify-content:flex-end; gap:4px; margin-bottom:6px; }
+  .star-picker input { display:none; }
+  .star-picker label {
+    font-size:34px; color:#d5d5dd; cursor:pointer; margin:0; line-height:1; transition:color .15s;
+  }
+  .star-picker input:checked ~ label,
+  .star-picker label:hover, .star-picker label:hover ~ label { color:#C8A84B; }
+  .star-hint { font-size:13px; color:#777; margin-bottom:20px; min-height:20px; }
+  .btn-submit {
+    background:#B22222; color:#fff; border:none;
+    font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:2px; text-transform:uppercase;
+    padding:14px 34px; border-radius:3px; cursor:pointer; transition:background .2s;
+  }
+  .btn-submit:hover { background:#8B0000; }
+  .form-note { font-size:13px; color:#888; margin-top:14px; line-height:1.6; }
+
+  /* BIG 3 */
+  .big3-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .big3-card {
+    background:#fff; border:1px solid #e3e3e8; border-radius:6px;
+    padding:28px 24px; text-align:center; display:flex; flex-direction:column;
+  }
+  .big3-card.bbb { border-top:4px solid #0f4c81; }
+  .big3-card.google { border-top:4px solid #4285F4; }
+  .big3-card.facebook { border-top:4px solid #1877F2; }
+  .big3-logo {
+    height:70px; display:flex; align-items:center; justify-content:center;
+    font-family:'Oswald',sans-serif; font-size:22px; letter-spacing:1px;
+    text-transform:uppercase; color:#0f0f23; margin-bottom:12px;
+  }
+  .big3-card h3 { font-family:'Oswald',sans-serif; font-size:19px; color:#0f0f23; text-transform:uppercase; margin-bottom:8px; }
+  .big3-card p { color:#666; font-size:14px; line-height:1.65; margin-bottom:18px; flex-grow:1; }
+  .big3-qr {
+    width:130px; height:130px; margin:0 auto 16px; background:#f2f2f5;
+    border:1px dashed #c5c5cf; border-radius:4px;
+    display:flex; align-items:center; justify-content:center;
+    color:#aaa; font-size:11px; font-family:'Oswald',sans-serif; letter-spacing:1px; text-align:center; padding:10px;
+  }
+  .big3-btn {
+    display:block; background:#0f0f23; color:#fff; text-decoration:none;
+    font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase;
+    padding:12px; border-radius:3px; transition:background .2s;
+  }
+  .big3-btn:hover { background:#B22222; }
+  .big3-extra { margin-top:12px; font-size:12px; color:#999; }
+
+  /* BLOG + NEWSLETTER */
+  .bn-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .bn-card { background:#fff; border:1px solid #e3e3e8; border-radius:6px; padding:28px 26px; }
+  .bn-card h3 { font-family:'Oswald',sans-serif; font-size:21px; color:#0f0f23; text-transform:uppercase; margin-bottom:10px; }
+  .bn-card h3 span { color:#B22222; }
+  .bn-card p { color:#666; font-size:14px; line-height:1.7; margin-bottom:18px; }
+  .bn-post { border-top:1px solid #eee; padding:13px 0; }
+  .bn-post a { color:#0f0f23; text-decoration:none; font-weight:600; font-size:15px; }
+  .bn-post a:hover { color:#B22222; }
+  .bn-post .date { display:block; font-size:12px; color:#999; margin-top:3px; }
+  .bn-form { display:flex; gap:8px; flex-wrap:wrap; }
+  .bn-form input { flex:1; min-width:180px; border:1px solid #d5d5dd; border-radius:4px; padding:11px 13px; font-size:14px; }
+  .bn-badge {
+    display:inline-block; background:#f2f2f5; color:#888; font-size:11px;
+    font-family:'Oswald',sans-serif; letter-spacing:1px; text-transform:uppercase;
+    padding:3px 9px; border-radius:2px; margin-left:8px;
+  }
+
+  /* PARTNER POPUP */
+  .mp-overlay {
+    display:none; position:fixed; inset:0; background:rgba(5,5,15,0.82);
+    z-index:2000; align-items:center; justify-content:center; padding:20px;
+  }
+  .mp-overlay.show { display:flex; }
+  .mp-modal {
+    background:#141433; border:3px solid #B22222; border-radius:6px;
+    max-width:560px; width:100%; padding:36px 34px; position:relative;
+    max-height:88vh; overflow-y:auto; text-align:center;
+  }
+  .mp-close {
+    position:absolute; top:10px; right:14px; background:none; border:none;
+    color:#fff; font-size:34px; line-height:1; cursor:pointer; padding:4px 10px;
+  }
+  .mp-close:hover { color:#B22222; }
+  .mp-modal h2 {
+    font-family:'Oswald',sans-serif; font-size:26px; color:#fff;
+    text-transform:uppercase; line-height:1.2; margin-bottom:12px;
+  }
+  .mp-modal h2 span { color:#C8A84B; }
+  .mp-modal p { color:rgba(255,255,255,0.8); font-size:15px; line-height:1.7; margin-bottom:18px; }
+  .mp-stars { color:#C8A84B; letter-spacing:6px; margin-bottom:14px; }
+  .mp-buttons { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+  .mp-btn {
+    font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase;
+    padding:13px 24px; border-radius:3px; border:none; cursor:pointer; text-decoration:none; display:inline-block;
+  }
+  .mp-yes { background:#B22222; color:#fff; }
+  .mp-yes:hover { background:#8B0000; }
+  .mp-no { background:transparent; color:rgba(255,255,255,0.7); border:1px solid rgba(255,255,255,0.3); }
+  .mp-no:hover { color:#fff; border-color:#fff; }
+  .mp-learn { background:#C8A84B; color:#0f0f23; }
+  .mp-learn:hover { background:#b0913c; }
+  .mp-view { display:none; } .mp-view.active { display:block; }
+  .mp-steps { text-align:left; margin-bottom:20px; }
+  .mp-step {
+    display:flex; gap:14px; align-items:flex-start;
+    padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.09);
+  }
+  .mp-step-num {
+    background:#B22222; color:#fff; font-family:'Oswald',sans-serif; font-size:14px;
+    width:30px; height:30px; min-width:30px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .mp-step-body h4 { font-family:'Oswald',sans-serif; color:#C8A84B; font-size:15px; text-transform:uppercase; margin-bottom:4px; }
+  .mp-step-body p { color:rgba(255,255,255,0.75); font-size:14px; margin:0; line-height:1.6; }
+  .mp-step-body a { color:#fff; text-decoration:underline; }
+  .mp-back {
+    background:none; border:none; color:rgba(255,255,255,0.55);
+    font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px;
+    text-transform:uppercase; cursor:pointer; margin-top:8px; text-decoration:underline;
+  }
+  .mp-back:hover { color:#fff; }
+
+  @media (max-width:900px){
+    .rv-hero h1 { font-size:36px; }
+    .carousel-slide { grid-template-columns:1fr; }
+    .carousel-photo { min-height:230px; }
+    .big3-grid { grid-template-columns:1fr; }
+    .bn-grid { grid-template-columns:1fr; }
+    .rv-head h2 { font-size:28px; }
+    .rv-form { padding:24px 20px; }
+  }
+</style>
+
+<!-- ===== HERO ===== -->
+<section class="rv-hero">
+  <div class="eyebrow">★ Serving Those Who Served ★</div>
+  <h1>Our Work &amp; Our <span>Reputation</span></h1>
+  <p>Every roof tells a story. Browse our completed projects, see what Louisville homeowners say about working with us, and share your own experience.</p>
+</section>
+
+<!-- ===== 1. PROJECT CAROUSEL ===== -->
+<section class="rv-section">
+  <div class="rv-wrap">
+    <div class="rv-head">
+      <div class="eyebrow">★ Recent Missions</div>
+      <h2>Projects We're <span>Proud Of</span></h2>
+      <p>Real roofs, real homes, right here in the Louisville area.</p>
+    </div>
+
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="carousel-track">
+        {% assign featured = site.data.projects | where: "featured", true %}
+        {% for p in featured %}
+        <div class="carousel-slide">
+          <div class="carousel-photo" style="background-image:url('{{ p.photo }}');">
+            <div class="ph">Photo placeholder<br>{{ p.photo }}</div>
+          </div>
+          <div class="carousel-info">
+            <span class="badge">{{ p.brand }} · {{ p.color }}</span>
+            <h3>{{ p.title }}</h3>
+            <div class="meta">📍 {{ p.area }} · {{ p.id }}</div>
+            {% if p.quote and p.quote != "" %}
+            <div class="carousel-quote">
+              &ldquo;{{ p.quote }}&rdquo;
+              <span class="who">— {{ p.quote_name }}, {{ p.area }}</span>
+            </div>
+            {% else %}
+            <div class="carousel-quote empty">
+              No customer review on this project yet. Add one in <code>_data/projects.yml</code>.
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <button class="carousel-btn prev" id="car-prev" aria-label="Previous">‹</button>
+      <button class="carousel-btn next" id="car-next" aria-label="Next">›</button>
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. MATERIAL GALLERY ===== -->
+<section class="rv-section" id="gallery">
+  <div class="rv-wrap">
+    <div class="rv-head">
+      <div class="eyebrow">★ Materials &amp; Colors</div>
+      <h2>See It On A <span>Real Roof</span></h2>
+      <p>Pick a brand or color to see every home we've completed with that exact material. Fair options to fit any budget — from dependable everyday systems to premium architectural lines.</p>
+    </div>
+
+    <div class="gal-filters" id="gal-filters">
+      <button class="gal-filter active" data-filter="all">All Projects</button>
+      {% assign brands = site.data.projects | map: "brand" | uniq | sort %}
+      {% for b in brands %}
+      <button class="gal-filter" data-filter="brand" data-value="{{ b }}">{{ b }}</button>
+      {% endfor %}
+    </div>
+    <div class="gal-filters" id="gal-colors">
+      {% assign colors = site.data.projects | map: "color" | uniq | sort %}
+      {% for c in colors %}
+      <button class="gal-filter" data-filter="color" data-value="{{ c }}">{{ c }}</button>
+      {% endfor %}
+    </div>
+
+    <div class="gal-grid" id="gal-grid">
+      {% for p in site.data.projects %}
+      <div class="gal-item" data-brand="{{ p.brand }}" data-color="{{ p.color }}">
+        <div class="gal-thumb" style="background-image:url('{{ p.photo }}');">Photo placeholder</div>
+        <div class="gal-body">
+          <h4>{{ p.brand }}</h4>
+          <div class="swatch">{{ p.color }}</div>
+          <div class="loc">📍 {{ p.area }} · {{ p.material }}</div>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="gal-empty" id="gal-empty" style="display:none;">No projects match that selection yet.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. TESTIMONIALS ===== -->
+<section class="rv-section">
+  <div class="rv-wrap">
+    <div class="rv-head">
+      <div class="eyebrow">★ From The Neighborhood</div>
+      <h2>What Our <span>Customers</span> Say</h2>
+      <p>Reviews from Louisville-area homeowners we've had the privilege to serve.</p>
+    </div>
+
+    <div class="tst-grid" id="tst-grid">
+      {% assign good = site.data.reviews | where_exp: "r", "r.stars >= 4" | sort: "date" | reverse %}
+      {% for r in good %}
+      <div class="tst-card{% if forloop.index > 6 %} hidden-extra{% endif %}">
+        <div class="tst-stars">{% for i in (1..r.stars) %}★{% endfor %}</div>
+        <p class="tst-text">&ldquo;{{ r.text }}&rdquo;</p>
+        <div class="tst-meta">
+          <div>
+            <div class="tst-name">{{ r.name }}</div>
+            <div class="tst-area">📍 {{ r.area }}</div>
+          </div>
+          <div class="tst-src">{{ r.source }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% assign total = good | size %}
+    {% if total > 6 %}
+    <div class="rv-viewall">
+      <button class="btn-outline" id="view-all-btn" data-total="{{ total }}">View All {{ total }} Reviews →</button>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- ===== 4. LEAVE A REVIEW ===== -->
+<section class="rv-section" id="leave-review">
+  <div class="rv-wrap">
+    <div class="rv-head">
+      <div class="eyebrow">★ Your Turn</div>
+      <h2>Leave Us A <span>Review</span></h2>
+      <p>We read every one. Your honest feedback helps your neighbors choose with confidence.</p>
+    </div>
+
+    <form class="rv-form" action="https://formspree.io/f/xeewkgez" method="POST">
+      <input type="hidden" name="_subject" value="New Website Review — roofwithveterans.com">
+      <input type="hidden" name="lead_source" value="Reviews Page">
+
+      <label>How would you rate us?</label>
+      <div class="star-picker" id="star-picker">
+        <input type="radio" name="rating" id="s5" value="5 — Extremely Satisfied" required><label for="s5" data-hint="5 — Extremely Satisfied">★</label>
+        <input type="radio" name="rating" id="s4" value="4 — Satisfied"><label for="s4" data-hint="4 — Satisfied">★</label>
+        <input type="radio" name="rating" id="s3" value="3 — Neutral"><label for="s3" data-hint="3 — Neutral">★</label>
+        <input type="radio" name="rating" id="s2" value="2 — Somewhat Dissatisfied"><label for="s2" data-hint="2 — Somewhat Dissatisfied">★</label>
+        <input type="radio" name="rating" id="s1" value="1 — Dissatisfied"><label for="s1" data-hint="1 — Dissatisfied">★</label>
+      </div>
+      <div class="star-hint" id="star-hint">Tap a star to rate your experience.</div>
+
+      <label for="rev-name">Your Name</label>
+      <input type="text" id="rev-name" name="name" placeholder="First name and last initial" required>
+
+      <label for="rev-area">Your Area</label>
+      <input type="text" id="rev-area" name="area" placeholder="St. Matthews, Mt. Washington, Jeffersontown…" required>
+
+      <label for="rev-email">Email <span style="text-transform:none;letter-spacing:0;font-weight:400;">(not published — so we can thank you)</span></label>
+      <input type="email" id="rev-email" name="email" placeholder="you@example.com">
+
+      <label for="rev-text">Share Your Experience</label>
+      <textarea id="rev-text" name="review" placeholder="How did the crew do? Was the process clear? Would you recommend us to a neighbor? Tell us in your own words." required></textarea>
+
+      <button type="submit" class="btn-submit">★ Submit Review</button>
+      <p class="form-note">Reviews are read and posted by our team. We never publish your email address or full last name.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== 5. THE BIG 3 ===== -->
+<section class="rv-section" id="big3">
+  <div class="rv-wrap">
+    <div class="rv-head">
+      <div class="eyebrow">★ The Big Three</div>
+      <h2>Review Us <span>Anywhere</span></h2>
+      <p>Already worked with us? A few minutes on any of these platforms helps another Louisville family find a contractor they can trust.</p>
+    </div>
+
+    <div class="big3-grid">
+      <div class="big3-card bbb">
+        <div class="big3-logo">BBB</div>
+        <h3>Better Business Bureau</h3>
+        <p>Accredited and accountable. Our BBB profile carries our rating, our certificate, and verified customer complaints history.</p>
+        <div class="big3-qr">QR placeholder<br>BBB</div>
+        <a href="#" class="big3-btn" id="bbb-link">Leave a BBB Review →</a>
+        <div class="big3-extra">TODO: BBB_PROFILE_URL · certificate + logo assets</div>
+      </div>
+
+      <div class="big3-card google">
+        <div class="big3-logo">Google</div>
+        <h3>Google Reviews</h3>
+        <p>The one most neighbors check first. Google runs our backend, our maps listing, and our search presence — reviews here carry the most weight.</p>
+        <div class="big3-qr">QR placeholder<br>Google</div>
+        <a href="#" class="big3-btn" id="google-link">Leave a Google Review →</a>
+        <div class="big3-extra">TODO: GOOGLE_PLACE_ID · existing QR code</div>
+      </div>
+
+      <div class="big3-card facebook">
+        <div class="big3-logo">Facebook</div>
+        <h3>Facebook</h3>
+        <p>Where our community lives. Follow the page for storm updates and project photos — and leave a recommendation while you're there.</p>
+        <div class="big3-qr">QR placeholder<br>Facebook</div>
+        <a href="#" class="big3-btn" id="fb-link">Leave a Facebook Review →</a>
+        <div class="big3-extra">TODO: FACEBOOK_PAGE_URL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. BLOG + NEWSLETTER ===== -->
+<section class="rv-section">
+  <div class="rv-wrap">
+    <div class="bn-grid">
+      <div class="bn-card">
+        <h3>From The <span>Field</span></h3>
+        <p>Storm updates, insurance claim guidance, and straight talk about roofing.</p>
+        {% for post in site.posts limit: 3 %}
+        <div class="bn-post">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          <span class="date">{{ post.date | date: "%B %-d, %Y" }}</span>
+        </div>
+        {% else %}
+        <div class="bn-post"><span class="date">No posts published yet.</span></div>
+        {% endfor %}
+        <div style="margin-top:18px;"><a href="/blog" class="btn-outline">Read The Blog →</a></div>
+      </div>
+
+      <div class="bn-card">
+        <h3>Stay In The <span>Loop</span><span class="bn-badge">Coming Soon</span></h3>
+        <p>Storm alerts, seasonal maintenance reminders, and promotions — a few times a year, never spam.</p>
+        <div class="bn-form">
+          <input type="email" placeholder="you@example.com" disabled>
+          <button class="btn-submit" disabled style="opacity:.55;cursor:not-allowed;">Notify Me</button>
+        </div>
+        <p class="form-note">Newsletter signup is not live yet. TODO: connect to an email provider before enabling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARKETING PARTNER POPUP ===== -->
+<div class="mp-overlay" id="mp-overlay" role="dialog" aria-modal="true" aria-label="Marketing Partner">
+  <div class="mp-modal">
+    <button class="mp-close" id="mp-close" aria-label="Close">&times;</button>
+
+    <!-- ASK -->
+    <div class="mp-view active" id="mp-ask">
+      <div class="mp-stars">★ ★ ★ ★ ★</div>
+      <h2>Are You Here As A <span>Marketing Partner?</span></h2>
+      <p>If you signed our Marketing Agreement, we'll walk you through exactly what you need to do — it only takes a few minutes.</p>
+      <div class="mp-buttons">
+        <button class="mp-btn mp-yes" id="mp-yes">Yes — Show Me How</button>
+        <button class="mp-btn mp-no" id="mp-no">No — Back To Reviews</button>
+      </div>
+      <button class="mp-back" id="mp-learn-open">What is a Marketing Partner?</button>
+    </div>
+
+    <!-- INSTRUCTIONS -->
+    <div class="mp-view" id="mp-yes-view">
+      <div class="mp-stars">★ ★ ★ ★ ★</div>
+      <h2>Thank You For <span>Having Our Six</span></h2>
+      <p>Here's your mission — three reviews, about five minutes total.</p>
+      <div class="mp-steps">
+        <div class="mp-step">
+          <div class="mp-step-num">1</div>
+          <div class="mp-step-body">
+            <h4>Google</h4>
+            <p>Scan the Google QR code in the section behind this window, or tap the Google button. Rate us and write a sentence or two about your experience.</p>
+          </div>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">2</div>
+          <div class="mp-step-body">
+            <h4>Facebook</h4>
+            <p>Tap the Facebook button, choose <em>Recommend</em>, and paste the same words you wrote for Google. Reusing your review is perfectly fine.</p>
+          </div>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">3</div>
+          <div class="mp-step-body">
+            <h4>Better Business Bureau</h4>
+            <p>Tap the BBB button and submit a customer review. BBB may ask for your job details to verify you're a real customer.</p>
+          </div>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">★</div>
+          <div class="mp-step-body">
+            <h4>Stuck On What To Say?</h4>
+            <p>Ask Gunny — our assistant in the corner of the screen. Tell him how the job went and he'll help you put it into words. The words are always yours; he just helps you get them down.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mp-buttons">
+        <button class="mp-btn mp-yes" id="mp-done">Got It — Let's Go</button>
+      </div>
+      <button class="mp-back" id="mp-back-1">← Back</button>
+    </div>
+
+    <!-- LEARN MORE -->
+    <div class="mp-view" id="mp-learn-view">
+      <div class="mp-stars">★ ★ ★ ★ ★</div>
+      <h2>What Is A <span>Marketing Partner?</span></h2>
+      <p>Marketing Partners are customers who agree to let us share their project — photos, a yard sign, and an honest review — in exchange for a discount on their work.</p>
+      <div class="mp-steps">
+        <div class="mp-step">
+          <div class="mp-step-num">1</div>
+          <div class="mp-step-body">
+            <h4>You Have To Be A Customer</h4>
+            <p>The program is only open to homeowners who complete a project with us. There's no signup without a job.</p>
+          </div>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">2</div>
+          <div class="mp-step-body">
+            <h4>You Sign The Marketing Agreement</h4>
+            <p>It spells out what we may share and what stays private. You approve it before anything goes public.</p>
+          </div>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">3</div>
+          <div class="mp-step-body">
+            <h4>You Receive A Discount</h4>
+            <p>Details are set with your rep when you sign — it depends on the scope of your project. Ask your rep for specifics.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mp-buttons">
+        <a href="/contact" class="mp-btn mp-learn">Ask About The Program</a>
+        <button class="mp-btn mp-no" id="mp-learn-close">Back To Reviews</button>
+      </div>
+      <button class="mp-back" id="mp-back-2">← Back</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ===== CAROUSEL ===== */
+  var track = document.getElementById('carousel-track');
+  if (track) {
+    var slides = track.children.length, idx = 0;
+    var dots = document.getElementById('carousel-dots');
+    for (var i=0;i<slides;i++){
+      var d = document.createElement('button');
+      d.setAttribute('aria-label','Slide '+(i+1));
+      (function(n){ d.addEventListener('click', function(){ go(n); }); })(i);
+      dots.appendChild(d);
+    }
+    function go(n){
+      idx = (n + slides) % slides;
+      track.style.transform = 'translateX(-' + (idx*100) + '%)';
+      var all = dots.children;
+      for (var j=0;j<all.length;j++) all[j].classList.toggle('active', j===idx);
+    }
+    document.getElementById('car-prev').addEventListener('click', function(){ go(idx-1); });
+    document.getElementById('car-next').addEventListener('click', function(){ go(idx+1); });
+    if (slides) go(0);
+  }
+
+  /* ===== GALLERY FILTERS ===== */
+  var filterBtns = document.querySelectorAll('.gal-filter');
+  var items = document.querySelectorAll('.gal-item');
+  var empty = document.getElementById('gal-empty');
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var type = btn.getAttribute('data-filter');
+      var val  = btn.getAttribute('data-value');
+      var shown = 0;
+      items.forEach(function(it){
+        var match = (type === 'all') || (it.getAttribute('data-'+type) === val);
+        it.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+      if (empty) empty.style.display = shown ? 'none' : 'block';
+    });
+  });
+
+  /* ===== VIEW ALL REVIEWS ===== */
+  var viewAll = document.getElementById('view-all-btn');
+  if (viewAll) {
+    viewAll.addEventListener('click', function(){
+      var hidden = document.querySelectorAll('.tst-card.hidden-extra');
+      if (hidden.length) {
+        hidden.forEach(function(c){ c.classList.remove('hidden-extra'); });
+        viewAll.textContent = 'Show Fewer Reviews ↑';
+      } else {
+        var cards = document.querySelectorAll('.tst-card');
+        cards.forEach(function(c,i){ if (i>5) c.classList.add('hidden-extra'); });
+        viewAll.textContent = 'View All ' + viewAll.getAttribute('data-total') + ' Reviews →';
+        document.getElementById('tst-grid').scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+  }
+
+  /* ===== STAR PICKER HINT ===== */
+  var hint = document.getElementById('star-hint');
+  var starLabels = document.querySelectorAll('.star-picker label');
+  starLabels.forEach(function(l){
+    l.addEventListener('click', function(){ hint.textContent = l.getAttribute('data-hint'); });
+  });
+
+  /* ===== MARKETING PARTNER POPUP ===== */
+  var mp = document.getElementById('mp-overlay');
+  if (!mp) return;
+  var KEY = 'vrl_mp_seen';
+  var views = { ask:'mp-ask', yes:'mp-yes-view', learn:'mp-learn-view' };
+  function show(v){
+    for (var k in views) document.getElementById(views[k]).classList.toggle('active', k===v);
+  }
+  function open(){
+    mp.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    show('ask');
+  }
+  function close(){
+    mp.classList.remove('show');
+    document.body.style.overflow = '';
+    try { localStorage.setItem(KEY,'1'); } catch(e){}
+  }
+  document.getElementById('mp-close').addEventListener('click', close);
+  document.getElementById('mp-no').addEventListener('click', close);
+  document.getElementById('mp-done').addEventListener('click', close);
+  document.getElementById('mp-learn-close').addEventListener('click', close);
+  document.getElementById('mp-yes').addEventListener('click', function(){ show('yes'); });
+  document.getElementById('mp-learn-open').addEventListener('click', function(){ show('learn'); });
+  document.getElementById('mp-back-1').addEventListener('click', function(){ show('ask'); });
+  document.getElementById('mp-back-2').addEventListener('click', function(){ show('ask'); });
+  mp.addEventListener('click', function(e){ if (e.target === mp) close(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && mp.classList.contains('show')) close(); });
+
+  /* Trigger once, when the Big 3 section scrolls into view */
+  var seen = null;
+  try { seen = localStorage.getItem(KEY); } catch(e){}
+  if (!seen) {
+    var big3 = document.getElementById('big3');
+    if (big3 && 'IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting) { open(); obs.disconnect(); }
+        });
+      }, { threshold: 0.25 });
+      obs.observe(big3);
+    }
+  }
+})();
+</script>
