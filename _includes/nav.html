@@ -222,3 +222,72 @@
         <a href="/meet-the-team">Meet the Team</a>
         <a href="/blog">Blog</a>
         <a href="/careers">Careers</a>
+      </div>
+    </li>
+    <li><a href="/employee-portal" class="nav-portal" aria-label="Employee Portal">🔒</a></li>
+    <li><a href="/contact" class="nav-cta">Free Inspection</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/storm-damage">Storm Damage</a></li>
+    <li><a href="/reviews">Reviews</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/meet-the-team">Meet the Team</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/careers">★ Careers — We're Hiring!</a></li>
+    <li><a href="/employee-portal" class="mobile-portal-link">🔒 Employee Portal</a></li>
+    <li><a href="/contact">★ Free Inspection</a></li>
+  </ul>
+  <a href="tel:5029190278" class="mobile-menu-phone">📞 (502) 919-0278 — Call or Text</a>
+</div>
+
+<script>
+  (function(){
+    /* Hamburger */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const moreBtn = document.getElementById('more-btn');
+    const dropdown = document.getElementById('dropdown-menu');
+
+    hamburger.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      if (isOpen && dropdown) {
+        dropdown.classList.remove('open');
+        moreBtn.classList.remove('active');
+        moreBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    if (moreBtn && dropdown) {
+      moreBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle('open');
+        moreBtn.classList.toggle('active', isOpen);
+        moreBtn.setAttribute('aria-expanded', isOpen);
+      });
+      document.addEventListener('click', function () {
+        dropdown.classList.remove('open');
+        moreBtn.classList.remove('active');
+        moreBtn.setAttribute('aria-expanded', 'false');
+      });
+      dropdown.addEventListener('click', function (e) { e.stopPropagation(); });
+    }
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
