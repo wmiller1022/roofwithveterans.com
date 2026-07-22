@@ -27,7 +27,7 @@
   nav ul {
     list-style: none;
     display: flex;
-    gap: 17px;
+    gap: 20px;
     align-items: center;
   }
   nav ul li { position: relative; }
@@ -35,9 +35,9 @@
     color: white;
     text-decoration: none;
     font-family: 'Oswald', sans-serif;
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     padding: 6px 0;
     border-bottom: 2px solid transparent;
@@ -69,6 +69,58 @@
     gap: 6px;
   }
   .nav-portal:hover { background: #122d55 !important; color: white !important; border-bottom: none !important; }
+
+  /* "More" dropdown */
+  .nav-more-btn {
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .nav-more-btn:hover { color: #B22222; }
+  .nav-more-btn .caret { font-size: 10px; transition: transform 0.2s; display: inline-block; }
+  .nav-more-btn.active .caret { transform: rotate(180deg); }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    background: #0f0f23;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-top: 3px solid #B22222;
+    border-radius: 0 0 4px 4px;
+    min-width: 180px;
+    z-index: 1000;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  }
+  .dropdown-menu.open { display: block; }
+  .dropdown-menu a {
+    display: block;
+    color: rgba(255,255,255,0.85) !important;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 13px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .dropdown-menu a:last-child { border-bottom: none; }
+  .dropdown-menu a:hover { background: #B22222; color: white !important; padding-left: 26px; }
 
   /* Hamburger */
   .hamburger {
@@ -140,7 +192,7 @@
     text-decoration: none;
   }
 
-  @media (max-width: 1150px) {
+  @media (max-width: 900px) {
     nav { padding: 0 20px; }
     nav ul { display: none; }
     .hamburger { display: flex; }
@@ -162,51 +214,11 @@
     <li><a href="/storm-damage">Storm Damage</a></li>
     <li><a href="/reviews">Reviews</a></li>
     <li><a href="/gallery">Gallery</a></li>
-    <li><a href="/meet-the-team">Meet the Team</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/careers">Careers</a></li>
-    <li><a href="/employee-portal" class="nav-portal" aria-label="Employee Portal">🔒</a></li>
-    <li><a href="/contact" class="nav-cta">Free Inspection</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/services">Services</a></li>
-    <li><a href="/storm-damage">Storm Damage</a></li>
-    <li><a href="/reviews">Reviews</a></li>
-    <li><a href="/gallery">Gallery</a></li>
-    <li><a href="/meet-the-team">Meet the Team</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/careers">★ Careers — We're Hiring!</a></li>
-    <li><a href="/employee-portal" class="mobile-portal-link">🔒 Employee Portal</a></li>
-    <li><a href="/contact">★ Free Inspection</a></li>
-  </ul>
-  <a href="tel:5029190278" class="mobile-menu-phone">📞 (502) 919-0278 — Call or Text</a>
-</div>
-
-<script>
-  (function(){
-    /* Hamburger */
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    hamburger.addEventListener('click', function () {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', isOpen);
-    });
-    mobileMenu.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
-    });
-  })();
-</script>
+    <li>
+      <button class="nav-more-btn" id="more-btn" aria-expanded="false" aria-haspopup="true">
+        More <span class="caret">▾</span>
+      </button>
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <a href="/meet-the-team">Meet the Team</a>
+        <a href="/blog">Blog</a>
+        <a href="/careers">Careers</a>
